@@ -51,7 +51,7 @@ function KGMM_Options_OnShow()
 	--[ Initialize General Settings
 		KGMM_OptionsTabbedFrameGeneralKeepFocus:SetChecked(KGMM_Data.keepFocus);
 		KGMM_OptionsTabbedFrameGeneralKeepFocusRested:SetChecked(KGMM_Data.keepFocusRested);
-		KGMM_OptionsTabbedFrameGeneralkeepmenu:SetChecked(KGMM_Data.keepmenu);		
+		KGMM_OptionsTabbedFrameGeneralkeepmenu:SetChecked(KGMM_Data.keepmenu);
 		KGMM_Options_KeepFocusClicked();
 		KGMM_OptionsTabbedFrameGeneralAutoFocus:SetChecked(KGMM_Data.autoFocus);
 		KGMM_OptionsTabbedFrameGeneralShowToolTips:SetChecked(KGMM_Data.showToolTips);
@@ -271,7 +271,7 @@ end
 
 function KGMM_Options_keepmenuClicked()
 	if(KGMM_OptionsTabbedFrameGeneralkeepmenu:GetChecked()) then
-		KGMM_Data.keepmenu = true;
+		KGMM_Data.keepmenu = true;		
 	else
 		KGMM_Data.keepmenu = false;
 	end
@@ -310,8 +310,67 @@ function KGMM_Options_keepmenuClicked3()
 		KGMM_OptionsTabbedFrameGeneralkeepmenu:SetChecked(true)
 	elseif parentPopCombat2:SetChecked(false) then
 		KGMM_OptionsTabbedFrameGeneralkeepmenu:SetChecked(false)
-		end
-	end	
+	end
+end	
+
+
+
+
+
+function KGMM_Options_showPiBoxClicked2()
+	if(parentShowPiBox:GetChecked()) then
+		KGMM_Data.showPiBox = true;	
+		chat3:Show()
+		chat3b:Hide()		
+		txtGmPinfoStatus:Show()	
+		txtGmplayernames:Show()
+		btnGmPinfoId:Show()
+		txtGmaccountnames:Show()
+		txtGmPinfoIp2:Show()
+		txtGmPinfoId:Show()
+		txtGmPinfoIp:Show()
+		txtplainf:Show()
+		txtGmPinfoFingertext:Show()	
+		txtGmPinfoFinger:Show()
+		txtGmPinfoInfoe:Show()	
+
+		txtGmPinfoStatus:SetText("")
+		txtGmplayernames:SetText("")
+		btnGmPinfoId:SetText("")
+		txtGmaccountnames:SetText("")
+		txtGmPinfoIp2:SetText("")
+		txtGmPinfoId:SetText("")
+		txtGmPinfoIp:SetText("")
+		txtplainf:SetText("")
+		txtGmPinfoFingertext:SetText("")
+		txtGmPinfoFinger:SetText("")
+		txtGmPinfoInfoe:SetText("")
+	else
+		KGMM_Data.showPiBox = false;
+		chat3:Hide()
+		chat3b:Show()
+		txtGmPinfoStatus:Hide()	
+		txtGmplayernames:Hide()
+		btnGmPinfoId:Hide()
+		txtGmaccountnames:Hide()
+		txtGmPinfoIp2:Hide()
+		txtGmPinfoId:Hide()
+		txtGmPinfoIp:Hide()
+		txtplainf:Hide()
+		txtGmPinfoFingertext:Hide()	
+		txtGmPinfoFinger:Hide()
+		txtGmPinfoInfoe:Hide()
+	end
+end
+function KGMM_Options_HidePlayerInfoClicked2()
+	if(parentHidePlayerInfo:GetChecked()) then
+		KGMM_Data.hidePlayerInfo = true;		
+	else
+		KGMM_Data.hidePlayerInfo = false;
+	end
+end
+	
+
 
 function KGMM_Options_KeepFocusRestedClicked()
 	if(KGMM_OptionsTabbedFrameGeneralKeepFocusRested:GetChecked()) then
@@ -420,7 +479,7 @@ function KGMM_Options_FreeMoving_Clicked()
 	end
 end
 
-function KGMM_Options_PopCombatClicked()
+function KGMM_Options_PopCombatClicked2()
 	if(KGMM_OptionsTabbedFrameGeneralPopCombat:GetChecked()) then
 		KGMM_Data.popCombat = true;
 		chat:Show()
@@ -435,28 +494,21 @@ function KGMM_Options_PopCombatClicked()
 		parentPopCombat2:SetChecked(false)		
 	end
 end
-function KGMM_Options_PopCombatClicked2()
-	if(parentPopCombat2:GetChecked()) then
-		KGMM_Data.popCombat = true;
+
+function KGMM_Options_ShowChatFrameClicked2()
+	if(parentShowChatFrame:GetChecked()) then
+		KGMM_Data.showChatFrame = true;
 		chat:Show()
 		chat2:Show()
 		chat5:Hide()
-		KGMM_OptionsTabbedFrameGeneralPopCombat:SetChecked(true)		
 	else
-		KGMM_Data.popCombat = false;
+		KGMM_Data.showChatFrame = false;
 		chat:Hide()
 		chat2:Hide()
 		chat5:Show()
-		KGMM_OptionsTabbedFrameGeneralPopCombat:SetChecked(false)		
 		end
 	end
-function KGMM_Options_PopCombatClicked3()
-	if parentPopCombat2:SetChecked(true) then
-		KGMM_OptionsTabbedFrameGeneralPopCombat:SetChecked(true)
-	elseif parentPopCombat2:SetChecked(false) then
-		KGMM_OptionsTabbedFrameGeneralPopCombat:SetChecked(false)
-		end
-	end	
+	
 function KGMM_Options_CharacerInfoClicked()
 	if(KGMM_OptionsDisplayShowCharacterInfo:GetChecked()) then
 		KGMM_Data.characterInfo.show = true;

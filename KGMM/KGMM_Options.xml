@@ -4462,14 +4462,6 @@
 		</Backdrop>
 		<Layers>
 			<Layer>
-				<FontString name="opttitle" inherits="GameFontNormal" text="Settings">
-					<Size x="300" y="50" />
-					<Anchors>
-						<Anchor point="CENTER">
-							<Offset x="125" y="215" />
-						</Anchor>
-					</Anchors>
-				</FontString>				
 				<Texture name="$parentTitleBorder" file="Interface\DialogFrame\UI-DialogBox-Header">
 				<Size>
 					<AbsDimension x="160" y="32" />
