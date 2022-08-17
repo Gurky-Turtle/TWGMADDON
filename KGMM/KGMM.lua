@@ -45,10 +45,7 @@ KGMM_Data_DEFAULTS = {
 	supressWisps = true,
 	keepFocus = false,
 	keepFocusRested = false,
-	showChatFrame = true,
-	keepmenu = true,	
-	showPiBox = true,
-	hidePlayerInfo = false,
+	keepmenu = true,
 	popNew = true,
 	popUpdate = true,
 	popOnSend = true,
@@ -181,10 +178,7 @@ function KGMM_Incoming(event)
 		if(KGMM_Data.supressWisps == nil) then KGMM_Data.supressWisps = KGMM_Data_DEFAULTS.supressWisps; end;
 		if(KGMM_Data.keepFocus == nil) then KGMM_Data.keepFocus = KGMM_Data_DEFAULTS.keepFocus; end;
 		if(KGMM_Data.keepFocusRested == nil) then KGMM_Data.keepFocusRested = KGMM_Data_DEFAULTS.keepFocusRested; end;
-		if(KGMM_Data.showChatFrame == nil) then KGMM_Data.showChatFrame = KGMM_Data_DEFAULTS.showChatFrame; end;		
 		if(KGMM_Data.keepmenu == nil) then KGMM_Data.keepmenu = KGMM_Data_DEFAULTS.keepmenu; end;		
-		if(KGMM_Data.hidePlayerInfo == nil) then KGMM_Data.hidePlayerInfo = KGMM_Data_DEFAULTS.hidePlayerInfo; end;		
-		if(KGMM_Data.showPiBox == nil) then KGMM_Data.showPiBox = KGMM_Data_DEFAULTS.showPiBox; end;				
 		if(KGMM_Data.popNew == nil) then KGMM_Data.popNew = KGMM_Data_DEFAULTS.popNew; end;
 		if(KGMM_Data.popUpdate == nil) then KGMM_Data.popNew = KGMM_Data_DEFAULTS.popUpdate; end;
 		if(KGMM_Data.autoFocus == nil) then KGMM_Data.autoFocus = KGMM_Data_DEFAULTS.autoFocus; end;
@@ -263,18 +257,18 @@ function KGMM_Incoming(event)
 end
 
 function chatframetoggle()
-	if (KGMM_Data.showChatFrame == true) then
+	if (KGMM_Data.popCombat == true) then
 		chat:Show()
 		chat2:Show()
 		chat5:Hide()
-		parentShowChatFrame:SetChecked(true)
+		parentPopCombat2:SetChecked(true)
 	else
 		chat:Hide()
 		chat2:Hide()
 		chat5:Show()
-		parentShowChatFrame:SetChecked(false)
+		parentPopCombat2:SetChecked(false)
+		end
 	end
-end
 function menubuttonstoggle()
 	if (KGMM_Data.keepmenu == true) then
 		btnGmChar:Show()
@@ -298,51 +292,8 @@ function menubuttonstoggle()
 		btnGmHelp:Hide()
 		btnGmBag:Hide()		
 		parentkeepmenu2:SetChecked(false)
-	end
-end	
-
-function piboxtoggle()
-	if (KGMM_Data.showPiBox == true) then
-		chat3:Show()
-		chat3b:Hide()		
-		txtGmPinfoStatus:Show()	
-		txtGmplayernames:Show()
-		btnGmPinfoId:Show()
-		txtGmaccountnames:Show()
-		txtGmPinfoIp2:Show()
-		txtGmPinfoId:Show()
-		txtGmPinfoIp:Show()
-		txtplainf:Show()
-		txtGmPinfoFingertext:Show()	
-		txtGmPinfoFinger:Show()
-		txtGmPinfoInfoe:Show()
-		parentShowPiBox:SetChecked(true)
-	else
-		chat3:Hide()
-		chat3b:Show()
-		txtGmPinfoStatus:Hide()	
-		txtGmplayernames:Hide()
-		btnGmPinfoId:Hide()
-		txtGmaccountnames:Hide()
-		txtGmPinfoIp2:Hide()
-		txtGmPinfoId:Hide()
-		txtGmPinfoIp:Hide()
-		txtplainf:Hide()
-		txtGmPinfoFingertext:Hide()	
-		txtGmPinfoFinger:Hide()
-		txtGmPinfoInfoe:Hide()	
-		parentShowPiBox:SetChecked(false)
-	end
-end	
-
-function hidePlayerInfoToggle()	
-	 if (KGMM_Data.hidePlayerInfo == true) then
-		parentHidePlayerInfo:SetChecked(true)
-	 else
-		parentHidePlayerInfo:SetChecked(false)		
-	 end
-end
-	
+		end
+	end	
 function KGMM_ChatFrame_OnEvent(event)
 	if( KGMM_Data.enableKGMM == false) then
 		return;

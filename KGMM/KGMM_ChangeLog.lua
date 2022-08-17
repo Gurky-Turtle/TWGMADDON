@@ -1,16 +1,4 @@
 KGMM_CHANGE_LOG = [[
-
-Version 3.1.12 (x-y-2021)
-|cff5cbf59[+]|r|cffffffff - Fixed some bugs with pinfo window: guild and location.|r
-|cff5cbf59[+]|r|cffffffff - Added config setting possibility to hide the PI box.|r
-|cff5cbf59[+]|r|cffffffff - Added config setting for printing .pi result in chat.|r
-|cff5cbf59[+]|r|cffffffff - Added a teleport button to Gadgetzan.|r
-|cff5cbf59[+]|r|cffffffff - Closing the ticket when replying with the common bugtracker whisper.|r
-|cff5cbf59[+]|r|cffffffff - Renamed teleport buttons for Green Dragons to the zone instead of a boss name.|r
-|cff5cbf59[+]|r|cffffffff - Moved teleport buttons for Designer/Programmer etc to a seperate window.|r
-|cff5cbf59[+]|r|cffffffff - Added a few more teleport locations to the "fun zone".|r
-|cff5cbf59[+]|r|cffffffff - Added a window for Auction Houses".|r
-
 Version 3.1.11 (1-5-2020) |cff32dde8[Alphonse]|r
 |cff5cbf59[+]|r|cffffffff - Added some color to pinfo window.|r
 |cff5cbf59[+]|r|cffffffff - Fixed pindow window text alignment.|r
@@ -96,4 +84,25 @@ Version 3.1.4 (03-24-2019)
 |cffff0000[-]|r|cffffffff - Removed all unused xml and lua code.|r
 |cffff0000[-]|r|cffffffff - Removed the apostrophe typo in the auras window.|r
 |cffff0000[-]|r|cffffffff - Removed ugly "M" and "R" from the low profile menu and reset buttons.|r
+
+Version 3.1.3 (03-22-2019)
+|cff5cbf59[+]|r|cffffffff - Added rank scanning, buttons are disabled if you cannot use them.|r
+|cff5cbf59[+]|r|cffffffff - Updated a few common responces.|r
+|cff5cbf59[+]|r|cffffffff - Freshened up the ui graphics.|r
+|cff5cbf59[+]|r|cffffffff - Reagranged the buttons to look cleaner.|r
+|cff5cbf59[+]|r|cffffffff - Added another facing to the ticket list.|r
+|cff5cbf59[+]|r|cffffffff - Moved speed slider bar and made it increase by 2's.|r
+|cff5cbf59[+]|r|cffffffff - Moved Refresh button above the tickets (cool low profile button).|r
+|cff5cbf59[+]|r|cffffffff - Added Menu button above the tickets (cool low profile button).|r
+|cff5cbf59[+]|r|cffffffff - Added flying mount to the fly button.|r
+|cff5cbf59[+]|r|cffffffff - Added Auction button for future implementation.|r
+|cff5cbf59[+]|r|cffffffff - Readded Mount button will have future random mount feature.|r
+|cff5cbf59[+]|r|cffffffff - Fixed "La" missing from Last updated in ticket notes.|r
+|cff5cbf59[+]|r|cffffffff - Fixed Auto commands on login.|r
+|cff5cbf59[+]|r|cffffffff - Added /gm /kgma as slash commands for the menu.|r
+|cff5cbf59[+]|r|cffffffff - Made it so you can now hide Shapeshift and Pet bars.|r
+|cffff0000[-]|r|cffffffff - Removed a lot of old unused code.|r
+|cffff0000[-]|r|cffffffff - Removed random text in the ui.|r
+
+
 ]]

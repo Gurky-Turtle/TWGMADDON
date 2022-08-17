@@ -13,9 +13,8 @@ gmTicketSys["ticketScanID"] = 1;
 gmTicketSys["ticketCurrent"] = 1;
 -- Ticket System Defaults End
 -- GM Commands Start
-gmCommands = {};
-gmCommands["ticket"] = ".ticket list"
-gmCommands["ticketread"] = ".ticket"
+gmCommands={};
+gmCommands["ticket"] = ".ticket"
 gmCommands["account"] = ".account"
 gmCommands["ticket respond"] = ".ticket respond"
 gmCommands["kick"] = ".kick"
@@ -36,8 +35,7 @@ gmCommands["whispoff"] = ".whisper off"
 gmCommands["setview"] = ".gm setview"
 gmCommands["die"] = ".die"
 gmCommands["respawn"] = ".respawn"
-gmCommands["Speed"] = ".mod speed "
-gmCommands["Swim"] = ".mod swim "
+gmCommands["Speed"] = ".mod aspeed "
 gmCommands["Turtle"] = ".aura 30174"
 gmCommands["Turtleoff"] = ".unaura 30174"
 gmCommands["gmflyon"] = ".gm fly on"
@@ -46,12 +44,11 @@ gmCommands["gmflyspeed"] = ".mod aspeed 6"
 gmCommands["kodoquest"] = ".q c 5561"
 gmCommands["darkmoonally"] = ".q a 7905"
 gmCommands["darkmoonhorde"] = ".q a 7926"
-gmCommands["ticket delete"] = ".ticket close"
+gmCommands["ticket delete"] = ".delticket"
 gmCommands["pinfo"] = ".pinfo"
 gmCommands["summon"] = ".namego"
 gmCommands["teleportTo"] = ".goname"
 gmCommands["recall"] = ".recall"
-gmCommands["teleNPC"] = ".go creature "
 gmCommands["send items"] = ".send items"
 gmCommands["send mail"] = ".send mail"
 gmCommands["axes"] = ".learn 196"
@@ -71,7 +68,6 @@ gmCommands["Thrown"] = ".learn 2567"
 gmCommands["wands"] = ".learn 5009"
 gmCommands["crossbows"] = ".learn 5011"
 gmCommands["fistweapons"] = ".learn 15590"
-gmCommands["dualwield"] = ".learn 674"
 gmCommands["setaxes"] = ".setskill 44 300 300"
 gmCommands["setaxestwo"] = ".setskill 172 300 300"
 gmCommands["setmaces"] = ".setskill 54 300 300"
@@ -107,60 +103,30 @@ gmCommands["Cloth"] = ".learn 9078"
 gmCommands["Leather"] = ".learn 9077"
 gmCommands["Mail"] = ".learn 8737"
 gmCommands["Plate"] = ".learn 750"
-gmCommands["Orgrimmar"] = ".t Orgrimmar"
-gmCommands["Ironforge"] = ".t Ironforge"
-gmCommands["Stormwind"] = ".t Stormwind"
-gmCommands["Undercity"] = ".t Undercity"
-gmCommands["Darnassus"] = ".t Darnassus"
-gmCommands["Thunderbluff"] = ".t Thunderbluff"
-gmCommands["GMIsland"] = ".t gm island"
+gmCommands["Org"] = ".t Orgri"
+gmCommands["IF"] = ".t Ironforge"
+gmCommands["SW"] = ".t Storm"
+gmCommands["UC"] = ".t Undercity"
+gmCommands["Darn"] = ".t Darnas"
+gmCommands["TB"] = ".t Thunderbluff"
+gmCommands["GM"] = ".t gm"
 gmCommands["Jail"] = ".go xyz 16219 16403 -64.379 1"
-gmCommands["DesignerIsland"] = ".go xyz 16303 -16173 45 451"
-gmCommands["ProgrammerIsle"] = ".go xyz 16304 16318 75 451"
-gmCommands["AzsharaCrater"] = ".t crater"
-gmCommands["Hyjal"] = ".go 4674.88 -3638.37 966.264 1"
-gmCommands["OldIronforge"] = ".go -4818 -973 465 0"
-gmCommands["StormwindPrison"] = ".go -1 52 -27 35"
-gmCommands["OutlandTest"] = ".go -1596 597 6 36"
-gmCommands["KarazhanCrypt"] = ".go -11045 -1676 28 0"
-gmCommands["WoodenBox"] = ".go 0 0 -140 13"
-gmCommands["SilithusFarm"] = ".go xyz -10735 2467 7 1"
-gmCommands["ShatterspearVillage"] = ".go xyz 7333 -1542 162 1 "
-gmCommands["ShrineOfTheFallenWarrior"] = ".go xyz -400 -2185 158"
-gmCommands["StonetalonLoggingCamp"] = ".go xyz 1951.5 1530.5 247.3 1"
-gmCommands["StonetalonRuins"] = ".go xyz 2814 2249 216 1"
-gmCommands["StonetalonCave"] = ".go xyz 2692 2296 194 1"
-gmCommands["TeldrassilFurboldCamp"] = ".go xyz 9725 -21 19 1"
-gmCommands["StonetalonHelpMountain"] = ".go xyz 699 -153 584 1"
-gmCommands["StonetalonHelpMirrorMountain"] = ".go xyz 700 -153 584 1"
-gmCommands["WetlandsMountainCamp"] = ".go xyz -3855 -3479 579 0"
-gmCommands["IronforgeAirport"] = ".go xyz -4780 -1674 504"
-gmCommands["WetlandFarm"] = ".go xyz -4050 -1436 165 0"
-gmCommands["OrtellHideout"] = ".go xyz -5362 -2540 485 0"
-gmCommands["StranglethornSecretCave"] = ".go xyz -12865 -1396 115 0"
-gmCommands["KarazhanSmiley"] = ".go xyz -11073 -1956 39 0"
-gmCommands["StormwindFalls"] = ".go xyz -8324 -339 146 0"
-gmCommands["ArathiHighlandsDwarvenFarm"] = ".go xyz -1852 -4145 11 0"
-gmCommands["WestfallHouse"] = ".go xyz -6374 1260 8 0"		-- Newsmans's Landing
-gmCommands["QuelThalasIsland"] = ".go xyz 4245 -2731 6 0"
-gmCommands["DunMoroghPlaneCamp"] = ".go xyz -6161 -786 423 0"
-gmCommands["DunMoroghTrollCave"] = ".go xyz -4615 -804 642 0"
-gmCommands["ForgottenGnomeCamp"] = ".go xyz -5933 452 509 0"
-gmCommands["DeeprunTramAquarium"] = ".go xyz 3 1382 -100 369"
-gmCommands["TanarisUnderwaterVillage"] = ".go xyz -9619 -5594 -496 1"
-gmCommands["Deathknel"] = ".t deathknel"
-gmCommands["Mulgore"] = ".go -2907 -260 53 1"
-gmCommands["ValleyOfTrials"] = ".t valleyoftrials"
-gmCommands["Shadowglen"] = ".t shadowglen"
-gmCommands["Northshire"] = ".t northshire"
-gmCommands["Coldridge"] = ".t coldridge"
-gmCommands["Gadgetzan"] = ".t gadgetzan"
+gmCommands["Dev"] = ".go xyz 16303 -16173 45 451"
+gmCommands["Pro"] = ".go xyz 16304 16318 75 451"
+gmCommands["AC"] = ".t crater"
+gmCommands["Hyj"] = ".go 4674.88 -3638.37 966.264 1"
+gmCommands["Death"] = ".t deathknel"
+gmCommands["Mul"] = ".go -2907 -260 53 1"
+gmCommands["Vot"] = ".t valleyoftrials"
+gmCommands["Shadow"] = ".t shadowglen"
+gmCommands["North"] = ".t northshire"
+gmCommands["Cold"] = ".t coldridge"
 gmCommands["Kazzak"] = ".go -12226 -2484 2 0"
 gmCommands["Azuregos"] = ".go 2283 -6061 110 1"
-gmCommands["GreenDragonHinterlands"] = ".go 725 -4021 98 0"
-gmCommands["GreenDragonFeralas"] = ".go -2927 1908 35 1"
-gmCommands["GreenDragonAshenvale"] = ".go 3172 -3718 124 1"
-gmCommands["GreenDragonDuskwood"] = ".go -10451 -423 44 0"
+gmCommands["Lethon"] = ".go 725 -4021 98 0"
+gmCommands["Emeriss"] = ".go -2927 1908 35 1"
+gmCommands["Ysondre"] = ".go 3172 -3718 124 1"
+gmCommands["Taerar"] = ".go -10451 -423 44 0"
 gmCommands["Speed5"] = ".m s 5"
 gmCommands["Undercloft"] = ".go 1574 -3266 90 0"
 gmCommands["Shay"] = ".go -2845.66 2785.18 95 1"
@@ -172,39 +138,39 @@ gmCommands["Quagmire"] = ".go -4025 -3370 45 1"
 gmCommands["DashelStonefist"] = ".go -8679.904297 438.315460 100 0"
 gmCommands["Dragons"] = ".go -6704.650391 -4135.619629 270 0"
 gmCommands["Pamela"] = ".go 1490 -3676 81 0"
-gmCommands["ResetTalents"] = ".reset talents"
-gmCommands["ResetStat"] = ".reset stats"
-gmCommands["Alchemy"] = ".learn 11611"
-gmCommands["Blacksmithing"] = ".learn 9785"
-gmCommands["Enchanting"] = ".learn 13920"
-gmCommands["Engineering"] = ".learn 12656"
-gmCommands["Herbalism"] = ".learn 11993"
-gmCommands["Leatherworking"] = ".learn 10662"
-gmCommands["Riding"] = ".learn 33391"
-gmCommands["Skinning"] = ".learn 10768"
-gmCommands["Tailoring"] = ".learn 12180"
-gmCommands["Cooking"] = ".learn 18260"
-gmCommands["FirstAid"] = ".learn 10846"
-gmCommands["Fishing"] = ".learn 18248"
-gmCommands["Mining"] = ".learn 10248"
+gmCommands["Tale"] = ".reset talents"
+gmCommands["Stat"] = ".reset stats"
+gmCommands["Alch"] = ".learn 11611"
+gmCommands["Blac"] = ".learn 9785"
+gmCommands["Ench"] = ".learn 13920"
+gmCommands["Engi"] = ".learn 12656"
+gmCommands["Herb"] = ".learn 11993"
+gmCommands["Leat"] = ".learn 10662"
+gmCommands["Ridi"] = ".learn 33391"
+gmCommands["Skin"] = ".learn 10768"
+gmCommands["Tail"] = ".learn 12180"
+gmCommands["Cook"] = ".learn 18260"
+gmCommands["Firs"] = ".learn 10846"
+gmCommands["Fish"] = ".learn 18248"
+gmCommands["Mini"] = ".learn 10248"
 gmCommands["BlastWave"] = ".learn 23331"
 gmCommands["DarkGlare"] = ".learn 26029"
 gmCommands["MagnetPull"] = ".learn 28337"
 gmCommands["Knockback"] = ".learn 11027"
 gmCommands["Distract"] = ".learn 1725"
-gmCommands["setAlchemy"] = ".setskill 171 300 300"
-gmCommands["setBlacksmithing"] = ".setskill 164 300 300"
-gmCommands["setEnchanting"] = ".setskill 333 300 300"
-gmCommands["setEngineering"] = ".setskill 202 300 300"
-gmCommands["setHerbalism"] = ".setskill 182 300 300"
-gmCommands["setLeatherworking"] = ".setskill 165 300 300"
-gmCommands["setRiding"] = ".setskill 762 150 150"
-gmCommands["setSkinning"] = ".setskill 393 300 300"
-gmCommands["setTailoring"] = ".setskill 197 300 300"
-gmCommands["setCooking"] = ".setskill 185 300 300"
-gmCommands["setFirstAid"] = ".setskill 129 300 300"
-gmCommands["setFishing"] = ".setskill 356 300 300"
-gmCommands["setMining"] = ".setskill 186 300 300"
+gmCommands["setAlch"] = ".setskill 171 300 300"
+gmCommands["setBlac"] = ".setskill 164 300 300"
+gmCommands["setEnch"] = ".setskill 333 300 300"
+gmCommands["setEngi"] = ".setskill 202 300 300"
+gmCommands["setHerb"] = ".setskill 182 300 300"
+gmCommands["setLeat"] = ".setskill 165 300 300"
+gmCommands["setRidi"] = ".setskill 762 150 150"
+gmCommands["setSkin"] = ".setskill 393 300 300"
+gmCommands["setTail"] = ".setskill 197 300 300"
+gmCommands["setCook"] = ".setskill 185 300 300"
+gmCommands["setFirs"] = ".setskill 129 300 300"
+gmCommands["setFish"] = ".setskill 356 300 300"
+gmCommands["setMini"] = ".setskill 186 300 300"
 gmCommands["PirateMale"] = ".aura 24708"
 gmCommands["PirateFemale"] = ".aura 24709"
 gmCommands["NinjaMale"] = ".aura 24711"
@@ -219,9 +185,7 @@ gmCommands["UnStunForever"] = ".unaura 23775"
 gmCommands["Freeze"] = ".aura 9454"
 gmCommands["UnFreeze"] = ".unaura 9454"
 gmCommands["fingerprint"] = ".lookup fingerprint"
-gmCommands["AuctionAlliance"] = ".auction alliance"
-gmCommands["AuctionHorde"] = ".auction horde"
-gmCommands["AuctionGoblin"] = ".auction goblin"
+
 -- GM Mount Commands
 gmCommands["UnAuraAll"] = ".unaura all"
 gmCommands["AncientFrostsaber"] = ".aura 16056"
@@ -312,19 +276,6 @@ gmCommands["WhiteStallion"] = ".aura 16083"
 gmCommands["WinterspringFrostsaber"] = ".aura 17229"
 gmCommands["YellowQirajiBattleTank"] = ".aura 26055"
 -- GM Commands End
-
-gmSave = {};
-gmSave["GmLevel"] = 0
-
-gmPiResult = {};
-gmPiResult["Ip"] = "127.0.0.1"
-gmPiResult["Account"] = "127.0.0.1"
-gmPiResult["Fingerprint"] = "0x00000000"
-
-gmPiFlag = {}
-gmPiFlag["PiWho"] = false
-gmPiFlag["TicketSelecting"] = false
-
 function GmAddonW(Text, Prijemce) -- Whisper backend allows crossfaction whispering via addon.
 	if strlen(Text) > 255 and strlen(Text) <= 500 then
 		SendChatMessage(strsub(Text,0,250),"WHISPER", nil, Prijemce);
@@ -341,46 +292,62 @@ end
 	 gmAddonPrint(text,1, 1, 1, "gmAddon");
  end
 function gmAddon:OnInitialize() -- gm addon on load function
-	self:Hook(DEFAULT_CHAT_FRAME, "AddMessage")		
+	self:Hook(DEFAULT_CHAT_FRAME, "AddMessage")
 end
 function btnGmPinfoId_OnClick()
-	
-	local piResult = "|cffff0000Player information|r|cffffffff:|r|cffffff00 \124Hplayer:"..txtGmplayernames:GetText().."\124hCharacter: |cffffffff["..txtGmplayernames:GetText().."]\124h \124Hplayer:"..txtGmaccountnames:GetText().."\124h|cffffff00Account: |r|cffffffff["..txtGmaccountnames:GetText().."]\124h"
-	if txtGmPinfoIp2:GetText() ~= nil then
-		piResult = piResult.." \124Hplayer:"..txtGmPinfoIp2:GetText().."\124h|cffffff00IP: |r|cffffffff["..txtGmPinfoIp2:GetText().."]\124h";
-	end
-	if txtGmPinfoFinger:GetText() ~= nil then
-		piResult = piResult.." |cffffff00Fingerprint: |r|cffffffff["..txtGmPinfoFinger:GetText().."]\124h";
-	end 	
-	print(piResult)
+	print( "|cffff0000Player information|r|cffffffff:|r|cffffff00 \124Hplayer:"..txtGmplayernames:GetText().."\124hCharacter: |cffffffff["..txtGmplayernames:GetText().."]\124h \124Hplayer:"..txtGmaccountnames:GetText().."\124h|cffffff00Account: |r|cffffffff["..txtGmaccountnames:GetText().."]\124h \124Hplayer:"..txtGmPinfoIp2:GetText().."\124h|cffffff00IP: |r|cffffffff["..txtGmPinfoIp2:GetText().."]\124h \124Hplayer:"..txtGmPinfoFinger:GetText().."\124h|cffffff00Fingerprint: |r|cffffffff["..txtGmPinfoFinger:GetText().."]\124h")
 end
-function txtGmPinfoFinger_OnCLick()
-	btnGmWho_OnClick()
-end
-
-
-function debugtest_click()
-	--DEFAULT_CHAT_FRAME:AddMessage("hidePlayerInfo = "..tostring(KGMM_Data.hidePlayerInfo))
-end
-
-function debugMessage(text)
-	-- debugMode
-	--DEFAULT_CHAT_FRAME:AddMessage("|c0000ffffDEBUG: "..text.."|r")
-end
-
-
-
 function gmAddon:AddMessage(frame, text, r, g, b, id) --Hook to scan chat for keywords
 	if id == GetChatTypeIndex("SYSTEM") then
-		if not gmPiResult then gmPiResult = {} end		
-		if strfind(text,"guid:") and strfind(text,"GMLevel:") then
-			debugMessage("2 - SEC:")
-			local _,_,person = string.find(arg1,"|cffffffff|Hplayer:(%w+)")
-			local _,_,guid = string.find(arg1, "guid: (%d+)")
-			local _,_,account = string.find(arg1, ".*Account: |cffffffff|Hplayer:(%w+)")
-			local _,_,id = string.find(arg1, ".*id: (%d+)")
-	
-			gmPiFlag["PiWho"] = true			
+-- Change Values here to disable or hide certain views of the addon based on account level
+		if strfind(text,"Your account level is: 5") then --level 5 disable buttons	
+		gmAuctionOpen:Disable()
+		end
+		if strfind(text,"Your account level is: 4") then --level 4 disable buttons	
+                btnGmWho:Disable()
+		gmAuctionOpen:Disable()
+		end
+		if strfind(text,"Your account level is: 3") then --level 3 disable buttons		
+                btnGmWho:Disable()
+		gmAuctionOpen:Disable()
+		end
+		if strfind(text,"Your account level is: 2") then --level 2 disable buttons
+                btnGmWho:Disable()
+		gmAuctionOpen:Disable()	
+		end		
+		if strfind(text,"Your account level is: 1") then --level 1 disable buttons
+                btnGmWho:Disable()
+		gmAuctionOpen:Disable()	
+		end		
+		if strfind(text,"Your account level is: 0") then --level 0 disable buttons
+--		btngmLearnOpen:Disable()
+--		btngmAuraOpen:Disable()		
+--		btngmBanIPRange:Disable()
+--		btngmBanIP:Disable()
+--		btngmBaninfoIP:Disable()
+--		btngmLookup:Disable()
+--		btngmLookupacc:Disable()
+--		btngmBanOpen:Disable()		
+--		ipformat:Hide()	
+--		gmMailSendDel:Disable()
+--		gmMailSend:Disable()
+--		gmIssueSend:Disable()
+--		txtitemid:Hide()
+--		txtissueid:Hide()
+--		txtownerid:Hide()
+--		gmMailItem:Hide()
+--		gmMailOwner:Hide()
+--		gmMailIssue:Hide()
+                btnGmWho:Disable()
+		gmAuctionOpen:Disable()
+--		gmMountOpen:Disable()		
+		end
+
+		if strfind(text,"Player") and strfind(text,"SEC:") then 
+			local _,_,person = string.find(arg1,"|cffffffff|Hplayer:(%w+)")		
+			local _,_,guid = string.find(arg1, "GUID: (%d+)")
+			local _,_,account = string.find(arg1, "Account: (%w+)")
+			local _,_,id,status = string.find(arg1, ".*ID: (%d+)] (%w+)")	
 			t = Ticket:new()
 			t:setTicketGuid(guid)
 			t:setTicketAccount(account)
@@ -388,213 +355,180 @@ function gmAddon:AddMessage(frame, text, r, g, b, id) --Hook to scan chat for ke
 			t:setStatus(status)			
 			t:setperson(person)	
 			btnGmPinfoId:Show()
-			txtGmPinfoStatus:SetPoint("BOTTOM", "txtauthor", "BOTTOM", -400, -150)			
+			txtGmPinfoStatus:SetPoint("BOTTOM", "txtGmTTime", "BOTTOM", -410, -145)			
+			txtGmPinfoStatus:SetText(""..status.."")
 			txtGmplayernames:SetText(person)
 			txtGmaccountnames:SetText(account)
 			txtGmaccountnames:Hide()			
 			txtGmplayernames:Hide()
-			txtGmPinfoId:SetText("Char: |cffffffff["..person.."]|r (GUID: "..guid..") \nAcc: |cffffffff["..account.."]|r (ID: "..id..")  " )
-			gmPlayerName:SetText(person)			
-			gmPiFlag["PiWho"] = true
+			txtGmPinfoId:SetText("Char: |cffffffff["..person.."]|r ("..guid..") \nAcc: "..account.." ("..id..")  " )
+			gmPlayerName:SetText(person)
 			SendWho(""..person.."")
-			
-			if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true end
 		end
 		if strfind(text,"Last IP:") and strfind(text,"Last login:") then
-			debugMessage("3 - Last IP")
-			local _,_,ip1,ip2,ip3,ip4 = string.find(arg1, "Last IP: |cffffffff|Hplayer:(%d+).(%d+).(%d+).(%d+)")
+			local _,_,ip1,ip2,ip3,ip4 = string.find(arg1, "Last IP: (%d+).(%d+).(%d+).(%d+)")
 			local _,_,yyyy,mm,dd,hh,nn,ss = string.find(arg1, "Last login: (%d+)-(%d+)-(%d+) (%d+):(%d+):(%d+)")	
 			local _,_,lat = string.find(arg1, "Latency: (%d+)")					
-			
-			t = Ticket:new()			
-			t:setlat(lat)			
-			if ip1 ~= nil then
-				t:setTicketIp(ip1.."."..ip2.."."..ip3.."."..ip4)
-				txtGmPinfoIp:SetText("Last IP: "..ip1.."."..ip2.."."..ip3.."."..ip4.." \nLast Login: "..yyyy.."-"..mm.."-"..dd.." "..hh..":"..nn.."\nLatency: "..lat.." ")
-				txtGmPinfoIp2:SetText(ip1.."."..ip2.."."..ip3.."."..ip4)
-			else
-				t:setTicketIp()
-				txtGmPinfoIp:SetText()
-				txtGmPinfoIp2:SetText()
-			end			
-			if yyyy ~= nil then
-				t:setDateZ(yyyy.."-"..mm.."-"..dd.." "..hh..":"..nn..":"..ss)	
-			else
-				t:setDateZ()
-			end
-			txtGmPinfoIp2:Hide()	
-			if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true end
+			t = Ticket:new()
+			t:setTicketIp(ip1.."."..ip2.."."..ip3.."."..ip4)
+			t:setDateZ(yyyy.."-"..mm.."-"..dd.." "..hh..":"..nn..":"..ss)	
+			t:setlat(lat)				
+			txtGmPinfoIp:SetText("Last IP: "..ip1.."."..ip2.."."..ip3.."."..ip4.." \nLast Login: "..mm.."-"..dd.."-"..yyyy.." "..hh..":"..nn.."\nLatency: "..lat.." ")
+			txtGmPinfoIp2:SetText(ip1.."."..ip2.."."..ip3.."."..ip4)
+			txtGmPinfoIp2:Hide()
 		end		
-		if strfind(text,"Played time:") and strfind(text,"Level:") and strfind(text,"Money:") then
-			local _,_,level = string.find(arg1, "Level: (%d+) M")	
-			local _,_,pla = string.find(arg1, "Played time: (.*) L")
+		if strfind(text,"Level:") and strfind(text,"Race:") and strfind(text,"Played Time:") then
+			local _,_,level,race,class = string.find(arg1, "Level: (%d+) Race: (.*) Class: (%w+)")	
+			local _,_,pla = string.find(arg1, "Played Time: (.*) M")
 			local _,_,gold,silver,copper = string.find(arg1, "Money: (%d+)g(%d+)s(%d+)c");				
 			t = Ticket:new()
-			t:setTicketInfoe(level)			
+			t:setTicketInfoe(level.."."..race.."."..class)			
 			t:setpla(pla)	
 			t:setGold(gold)
 			t:setSilver(silver)
 			t:setCopper(copper)			
-			txtplainf:SetText("Level "..level.." \nPlayed Time: "..pla.." \nMoney: |cffC9B037"..gold.."g|r|cffD7D7D7"..silver.."s|r|cffAD8A56"..copper.."c|r")
-			if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true end
+			txtplainf:SetText("Level "..level.." "..race.." "..class.." \nPlayed Time: "..pla.." \nMoney: |cffC9B037"..gold.."g|r|cffD7D7D7"..silver.."s|r|cffAD8A56"..copper.."c|r")
 		end
-		if strfind(text,"Is Hardcore:") then
-			debugMessage("5 - Is Hardcore:")
-			local _,_,finger = string.find(arg1, "Is Hardcore: (.*)");				
+		if strfind(text,"Fingerprint:") then
+			local _,_,finger = string.find(arg1, "Fingerprint: (.*)");				
 			t = Ticket:new()			
 			t:setfinger(finger)
-			txtGmPinfoFingertext:SetText("Is Hardcore:")
-
-			--txtGmPinfoFinger:SetText("|cffffffff["..finger.."]|r")			
+			txtGmPinfoFingertext:SetText("Fingerprint:")			
 			txtGmPinfoFinger:SetText(""..finger.."")
-			if txtGmPinfoFinger:GetText() == nil then
-				btnGmWho:Disable()
-			end
-			if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true end
+		if txtGmPinfoFinger:GetText() == nil then
+		btnGmWho:Disable()
+		end
 		end		
-		if strfind(text,": Level") then	
-			debugMessage("6 - Level")
-			if gmPiFlag["PiWho"] == true then		
-				local _,_,guild = string.find(arg1, "<(.*)>")
-				local _,_,locate = string.find(arg1, "- (.*)");			
-				t = Ticket:new()
-				t:setguild(guild)		
-				t:setlocate(locate)
-								
-				if guild == nil then
-					txtGmPinfoInfoe:SetText("Guild: None\nLocation: "..locate.." ")
-					txtGmPinfoInfoe:SetTextColor(0.0, 1.0, 0.0);
-					txtGmPinfoInfoe:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-					txtGmPinfoStatus:SetText("Offline")
-				elseif locate ~= nil then				
-					txtGmPinfoInfoe:SetText("Guild: <"..guild..">\nLocation: "..locate.." ")
-					txtGmPinfoInfoe:SetTextColor(0.0, 1.0, 0.0);
-					txtGmPinfoInfoe:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-					txtGmPinfoStatus:SetText("Online")
-				end
+		if strfind(text,": Level") then
+			local _,_,guild = string.find(arg1, "<(.*)>")
+			local _,_,locate = string.find(arg1, "- (.*)");			
+			t = Ticket:new()
+			t:setguild(guild)		
+			t:setlocate(locate)
+		if guild == nil then
+			txtGmPinfoInfoe:SetText("Guild: None\nLocation: "..locate.." ")
+			txtGmPinfoInfoe:SetTextColor(0.0, 1.0, 0.0);
+			txtGmPinfoInfoe:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 			else
-				--txtGmPinfoInfoe:SetText("")				
-			end	
+			txtGmPinfoInfoe:SetText("Guild: <"..guild..">\nLocation: "..locate.." ")
+			txtGmPinfoInfoe:SetTextColor(0.0, 1.0, 0.0);
+			txtGmPinfoInfoe:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+			end
 		end	
-		if strfind(text,"Player") and strfind(text,"ONLINE") then	
-			if strfind(text,"Player") and strfind(text,"ONLINE (inactive") then 
-				txtGmPinfoStatus:SetTextColor(1.0, 1.0, 0.0);
-			else		
-				txtGmPinfoStatus:SetTextColor(0.0, 1.0, 0.0);
-			end
-			txtGmPinfoStatus:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
-		end					
+		if strfind(text,"Player") and strfind(text,"ONLINE") then 
+		txtGmPinfoStatus:SetTextColor(0.0, 1.0, 0.0);
+		txtGmPinfoStatus:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
+		end	
 		if strfind(text,"Player") and strfind(text,"OFFLINE") then 
-			debugMessage("8 - Player - OFFLINE")
-			txtGmPinfoStatus:SetTextColor(1.0, 0.0, 0.0);
-			txtGmPinfoStatus:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
-			txtGmPinfoInfoe:SetText("")
-			txtGmPinfoFingertext:SetText("")
-			txtGmPinfoFinger:SetText("")
+		txtGmPinfoStatus:SetTextColor(1.0, 0.0, 0.0);
+		txtGmPinfoStatus:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
 		end			
-		if strfind(text,"%d players? total") then	
-			debugMessage("9 - "..text)
-			local _,_,numberOfplayersFound = string.find(text,"(%d) players? total")
-			debugMessage("numberOfplayersFound - "..numberOfplayersFound)
-			if numberOfplayersFound == "0" then
-				debugMessage("HIDE GUILD & LOCATION")
-				txtGmPinfoInfoe:Hide()
-				txtGmPinfoFingertext:Hide()
-				txtGmPinfoFinger:Hide()
-			else
-				txtGmPinfoInfoe:Show()
-				txtGmPinfoFingertext:Show()
-				txtGmPinfoFinger:Show()
-			end
-
-			if gmPiFlag["PiWho"] == true or KGMM_Data.hidePlayerInfo == true or gmPiFlag["TicketSelecting"] == true then
-				debugMessage("piWho")
-				gmTicketSys["hideTicketSystemMSG"] = true;
-			end
-			gmPiFlag["PiWho"] = false			
-			
+		if strfind(text,"0 players total") then	
+		txtGmPinfoInfoe:SetText("")
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
 		end
-		if strfind(text,"Player not found!") then
-			debugMessage("10 - Player not found!")
-			txtGmPinfoStatus:SetPoint("BOTTOM", "txtauthor", "BOTTOM", -400, -200)
-			txtGmPinfoStatus:SetText("Player doesn't exist")
-			gmPlayerName:SetText("")
-			txtGmPinfoStatus:SetTextColor(1.0, 0.0, 0.0);
-			txtGmPinfoStatus:SetFont("Fonts\\FRIZQT__.TTF", 20, "OUTLINE, ")
-			txtGmPinfoId:SetText("")
-			txtGmPinfoIp:SetText("")
-			txtplainf:SetText("")
-			txtGmPinfoInfoe:SetText("")
-			txtGmPinfoFingertext:SetText("")
-			txtGmPinfoFinger:SetText("")
-			btnGmPinfoId:Hide()
-			txtGmPinfoInfoe:Hide()
-			gmPiFlag["PiWho"] = false
-			if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true end			
-		end			
-		
-		if strfind(text,"Level") and strfind(text,"<") then 
-			debugMessage("15 - HIDE? || Level: <<<")
-			if gmPiFlag["PiWho"] == true then
-				if strfind(text,"Level") and strfind(text,"Guid") and strfind(text,"Player") then 		
-					gmTicketSys["hideTicketSystemMSG"] = false;
-				else
-					gmTicketSys["hideTicketSystemMSG"] = true 
-				end
-			end
-			if gmPiFlag["TicketSelecting"] == true then
-				gmTicketSys["hideTicketSystemMSG"] = true;
-				gmPiFlag["TicketSelecting"] = false
-			end
-			if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true end
+		if strfind(text,"1 player total") then	
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
 		end		
-		if strfind(text,"Played time:") and strfind(text,"Money:") then 
-			debugMessage("16 - HIDE? || Played Time: Money:")
-			--if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true debugMessage("HIDDEN 16") end
+		if strfind(text,"Player not found!") then
+		txtGmPinfoStatus:SetPoint("BOTTOM", "txtGmTTime", "BOTTOM", -485, -240)
+		txtGmPinfoStatus:SetText("Player doesn't exist")
+		gmPlayerName:SetText("")
+		txtGmPinfoStatus:SetTextColor(1.0, 0.0, 0.0);
+		txtGmPinfoStatus:SetFont("Fonts\\FRIZQT__.TTF", 20, "OUTLINE, ")
+		txtGmPinfoId:SetText("")
+		txtGmPinfoIp:SetText("")
+		txtplainf:SetText("")
+		txtGmPinfoInfoe:SetText("")
+		txtGmPinfoFingertext:SetText("")
+		txtGmPinfoFinger:SetText("")
+		btnGmPinfoId:Hide()
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
 		end
-		
+		if strfind(text,"Player") and strfind(text,"SEC:") then 		
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
+		end
+		if strfind(text,"Last IP:") and strfind(text,"Last login:") then
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
+		end	
+		if strfind(text,"Level:") and strfind(text,"Race:") and strfind(text,"Played Time:") then	
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
+		end	
+		if strfind(text,"Fingerprint:") then	
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
+		end		
+		if strfind(text,"Level") and strfind(text,"<") then 
+			if strfind(text,"Level") and strfind(text,"Guid") and strfind(text,"Player") then 		
+				gmTicketSys["hideTicketSystemMSG"] = false;
+			else
+				gmTicketSys["hideTicketSystemMSG"] = true;
+			end
+		if gmTicketSys["hideTicketSystemMSG"] then return end
+		end		
+		if strfind(text,"Played time:") and strfind(text,"Money:") then 		
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
+		end		
 		if strfind(text,"There is no such subcommand") then --hide system command error
-			gmTicketSys["hideTicketSystemMSG"] = true;
-		end					
-		if strfind(text,"|cffaaffaaTicket|r:|cffaaccff %d+.|r") then -- Load the number of tickets
-			_,_,gmTicketSys["NumberOfTickets"] = strfind(text,"|cffaaffaaTicket|r:|cffaaccff (%d+).|r")
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
+		end
+		if strfind(text,"Your account level is") then 		
+		gmTicketSys["hideTicketSystemMSG"] = true;
+		if gmTicketSys["hideTicketSystemMSG"] then return end
+		end		
+		if strfind(text,"Tickets count: %d+") then -- Load the number of tickets
+			_,_,gmTicketSys["NumberOfTickets"],gmTicketSys["newTicketInfo"] = strfind(text,"Tickets count: (%d+) show new tickets: (%w+)")
 			gmTicketSys["NumberOfTickets"] = tonumber(gmTicketSys["NumberOfTickets"])
 			if gmTicketSys["readAllTickets"] then
 				ticketArray = {};
 				gmUpdateSlider()
 				for i = 1,gmTicketSys["NumberOfTickets"] do
 					gmTicketSys["ticketScanID"] = i
-					SendChatMessage(gmCommands["ticketread"].." "..gmTicketSys["NumberOfTickets"])
+					SendChatMessage(gmCommands["ticket"].." "..gmTicketSys["ticketScanID"])
 				end
 				gmTicketSys["NumberOfTickets"] = 0 -- number of ticket obtained during ticket reading
 				gmTicketSys["readAllTickets"]  = false
-			end			
-		-- elseif ticketArray and strfind(text,"New ticket from %w+") then -- Read new Tickets
-			-- local _,_, playerName = strfind(text,"New ticket from (%w+)");
-			-- SendChatMessage(".ticket "..playerName)
-			-- gmAddonReadTicket = GetTime()
-			-- PlaySound("PVPTHROUGHQUEUE" ,"master")
-			-- gmNewTicket = true
-		elseif ticketArray and strfind(text,"|cff00ff00Ticket Message|r: [") then -- Read the ticket
-			local _,_,playerName = string.find(arg1, "|cff00ff00Created|r:|cff00ccff |cffffffff|Hplayer:(%w+)")
+			end
+			if gmTicketSys["hideTicketSystemMSG"] then return end
+		elseif ticketArray and strfind(text,"New ticket from %w+") then -- Read new Tickets
+			local _,_, playerName = strfind(text,"New ticket from (%w+)");
+			SendChatMessage(".ticket "..playerName)
+			gmAddonReadTicket = GetTime()
+			PlaySound("PVPTHROUGHQUEUE" ,"master")
+			gmNewTicket = true
+		elseif ticketArray and strfind(text,"Ticket of ") and strfind(text,"Last updated") then -- Read the ticket
+			local _,_,playerName = string.find(arg1, "player:(%w+)")
+			local _,a,y,mm,d,h,m,s = string.find(arg1, "Last updated: (%d+)-(%d+)-(%d+)_(%d+)-(%d+)-(%d+)")
 			msg = strsub(text,a+4,strlen(text))
+			-- gmAddonReadTicket = GetTime()
 			t = Ticket:new()
 			t:setPlayerName(playerName)
 			t:setTicketMsg(msg)
+			t:setTicketTime(h..":"..m)
+			t:setTicketDateA(mm.."."..d.."."..y)
+			-- t:setTicketDateA(d.."."..mm..".")
 			if (gmNewTicket) then 
 				t:setTicketOnline(true) 
 				gmTicketSys["NumberOfOnlineTickets"] = gmTicketSys["NumberOfOnlineTickets"] + 1
 				gmNewTicket = nil
 			end
-			table.insert(ticketArray,t);
+			tinsert(ticketArray,t);
 			gmTicketSys["NumberOfTickets"] = gmTicketSys["NumberOfTickets"] + 1
 			updateBtns()
 			gmUpdateSlider()
-			if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true end						
+			if gmTicketSys["hideTicketSystemMSG"] then return end
 		elseif ticketArray and id == GetChatTypeIndex("SYSTEM") and msg and gmAddonReadTicket then -- multi line ticket (max 1sec to read all lines)
 			t:addTicketMsg(text)
-			-- gmStopReadingTickets()			
-			if KGMM_Data.hidePlayerInfo == true then gmTicketSys["hideTicketSystemMSG"] = true end						
+			-- gmStopReadingTickets()
+			if gmTicketSys["hideTicketSystemMSG"] then return end
 		elseif ticketArray and strfind(text,"Character") and strfind(text,"ticket deleted") then -- Delete ticket
 			local _,_,playerName = string.find(arg1, "player:(%w+)")
 			gmDeleteTicket(playerName)
@@ -615,14 +549,9 @@ function gmAddon:AddMessage(frame, text, r, g, b, id) --Hook to scan chat for ke
 			updateBtns()
 			return
 		end
-	
-		if gmTicketSys["hideTicketSystemMSG"] then 
-			gmTicketSys["hideTicketSystemMSG"] = false
-			return
-		end	
 	end
-	gmTicketSys["hideTicketSystemMSG"] = false 	
-	if id == null then id = "-" end	
+	if id == null then id = "-" end
+	-- self.hooks[frame].AddMessage(frame, string.format("%s", "["..id.."] "..text), r, g, b, id);
 	self.hooks[frame].AddMessage(frame, string.format("%s", text), r, g, b, id);
 end
 function gmDeleteTicket(playerName)
@@ -764,15 +693,13 @@ end
 local f = CreateFrame("Frame", nil, UIParent)
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function(self, event)
-	-- btnaccount_OnClick()
+	btnaccount_OnClick()
 	gmGMVon_OnClick()
 	gmGMoff_OnClick()
 	LoggingChat(true)
-	btnGmPinfoId:Hide()	
+	btnGmPinfoId:Hide()
 	chatframetoggle()
-	menubuttonstoggle()	
-	piboxtoggle()
-	hidePlayerInfoToggle()
+	menubuttonstoggle()
 	btnGmLoadT_FlashEffect()
 	btnenddisable_OnClick()
 	gmPlayerName:SetAutoFocus(false)
@@ -780,13 +707,6 @@ f:SetScript("OnEvent", function(self, event)
 	f:UnregisterAllEvents()
 	ChatFrameEditBox:SetFrameStrata("DIALOG");
 	ChatFrame1:SetFrameStrata("DIALOG");
-	
-	
-	
-	CreateFrame("frame"):SetScript("OnUpdate", PopUpMenu_Load)
-	--PopUpMenu_Load()
-	
-	
 end)
  function mouse(self,delta)
 	 gmBtn1T:SetText(tostring(delta))
@@ -797,14 +717,13 @@ end
 
 function setTicketByPlayerName(name)
 	-- print(name)
-	gmPiFlag["TicketSelecting"] = true
 	name = gsub(name, "|cff20ff20", "")
 	name = gsub(name, "|cff808080", "")
 	table.foreachi(ticketArray, function(k,v)
 		if (v and v.playerName == name) then
 			gmSetTicket(k)
 		end
-	end)	
+	end)
 end
 function btnGmLoadT_OnClick()
 	GuildRoster() -- fetch info about guild members, needed to update GM's public note.
@@ -815,15 +734,11 @@ function btnGmLoadT_OnClick()
 	assigntitle:SetTextColor(1.0, 0.55, 0.0);
 	assigntitle:SetFont("Fonts\\FRIZQT__.TTF", 24, "OUTLINE, ")	
 	txtGmTTime:Show()
-	txtauthor:Show()
-	txttickid:Show()
 	gmCheckOnline:Enable()
 	btnGmLoadT:Hide()
 	txtGmMsgT:Show()
 	gmTCount:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE, ")
-	txtGmTTime:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-	txtauthor:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-	txttickid:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+	txtGmTTime:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE, ")
 	ticketArray = {};
 	gmAddonReadTicket = GetTime()
 	gmTicketSys["NumberOfTickets"] = 0
@@ -832,11 +747,7 @@ function btnGmLoadT_OnClick()
 	gmCommonPlayer:SetText("")	
 	txtGmMsgT:SetText("Updating tickets... If this takes too long type /reload and load the addon again. Or click the 'Refresh Ticket Text' button!")
 	txtGmTTime:SetText("")
-	txtauthor:SetText("")
-	txttickid:SetText("")
-	RefreshList()
-	hour,minute = GetGameTime()
-	
+	gmReadAllTickets()
 end
 function btnGmNextT_OnClick()
 	if gmTicketSys["ticketCurrent"] + 1 > getn(ticketArray) then
@@ -865,18 +776,13 @@ function btnGmLast_OnClick()
 	MySlider:SetValue(gmTicketSys["ticketCurrent"])
 end
 function btnGmDeleteT_OnClick()
-
-    local deletetest = txttestiddel:GetText()
 	if strlower(gmPlayerName:GetText()) == "all" then return end
-	SendChatMessage(gmCommands["ticket delete"].." "..txttickid:GetText())
-	-- gmAddTicketSolved()
+	SendChatMessage(gmCommands["ticket delete"].." "..gmPlayerName:GetText())
+	gmAddTicketSolved()
 	gmSendAddonMsg("Character "..gmPlayerName:GetText().." ticket deleted")
-	btnGmLoadT_OnClick()
 end
 function btnGmWho_OnClick()
-	if txtGmPinfoFinger:GetText() ~= nil then
 	SendChatMessage(gmCommands["fingerprint"].." "..txtGmPinfoFinger:GetText())
-	end
 end
 function btnGmPinfo_OnClick()
 	SendChatMessage(gmCommands["pinfo"].." "..gmPlayerName:GetText())
@@ -989,166 +895,162 @@ function btnGmTinfoR_OnClick()
 end
 function btngmLearnwep_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["axes"])
-		SendChatMessage(gmCommands["axestwo"])
-		SendChatMessage(gmCommands["maces"])
-		SendChatMessage(gmCommands["macestwo"])
-		SendChatMessage(gmCommands["polearms"])
-		SendChatMessage(gmCommands["swords"])
-		SendChatMessage(gmCommands["swordstwo"])
-		SendChatMessage(gmCommands["unarmed"])
-		SendChatMessage(gmCommands["defense"])
-		SendChatMessage(gmCommands["staves"])
-		SendChatMessage(gmCommands["bows"])
-		SendChatMessage(gmCommands["guns"])
-		SendChatMessage(gmCommands["daggers"])
-		SendChatMessage(gmCommands["Thrown"])
-		SendChatMessage(gmCommands["wands"])
-		SendChatMessage(gmCommands["crossbows"])
-		SendChatMessage(gmCommands["fistweapons"])
-		SendChatMessage(gmCommands["dualwield"])
-		SendChatMessage(gmCommands["setaxes"])
-		SendChatMessage(gmCommands["setaxestwo"])
-		SendChatMessage(gmCommands["setmaces"])
-		SendChatMessage(gmCommands["setmacestwo"])
-		SendChatMessage(gmCommands["setpolearms"])
-		SendChatMessage(gmCommands["setswords"])
-		SendChatMessage(gmCommands["setswordstwo"])
-		SendChatMessage(gmCommands["setunarmed"])
-		SendChatMessage(gmCommands["setdefense"])
-		SendChatMessage(gmCommands["setstaves"])
-		SendChatMessage(gmCommands["setbows"])
-		SendChatMessage(gmCommands["setguns"])
-		SendChatMessage(gmCommands["setdaggers"])
-		SendChatMessage(gmCommands["setThrown"])
-		SendChatMessage(gmCommands["setwands"])
-		SendChatMessage(gmCommands["setcrossbows"])
-		SendChatMessage(gmCommands["setfistweapons"])	
+	SendChatMessage(gmCommands["axes"])
+	SendChatMessage(gmCommands["axestwo"])
+	SendChatMessage(gmCommands["maces"])
+	SendChatMessage(gmCommands["macestwo"])
+	SendChatMessage(gmCommands["polearms"])
+	SendChatMessage(gmCommands["swords"])
+	SendChatMessage(gmCommands["swordstwo"])
+	SendChatMessage(gmCommands["unarmed"])
+	SendChatMessage(gmCommands["defense"])
+	SendChatMessage(gmCommands["staves"])
+	SendChatMessage(gmCommands["bows"])
+	SendChatMessage(gmCommands["guns"])
+	SendChatMessage(gmCommands["daggers"])
+	SendChatMessage(gmCommands["Thrown"])
+	SendChatMessage(gmCommands["wands"])
+	SendChatMessage(gmCommands["crossbows"])
+	SendChatMessage(gmCommands["fistweapons"])
+	SendChatMessage(gmCommands["setaxes"])
+	SendChatMessage(gmCommands["setaxestwo"])
+	SendChatMessage(gmCommands["setmaces"])
+	SendChatMessage(gmCommands["setmacestwo"])
+	SendChatMessage(gmCommands["setpolearms"])
+	SendChatMessage(gmCommands["setswords"])
+	SendChatMessage(gmCommands["setswordstwo"])
+	SendChatMessage(gmCommands["setunarmed"])
+	SendChatMessage(gmCommands["setdefense"])
+	SendChatMessage(gmCommands["setstaves"])
+	SendChatMessage(gmCommands["setbows"])
+	SendChatMessage(gmCommands["setguns"])
+	SendChatMessage(gmCommands["setdaggers"])
+	SendChatMessage(gmCommands["setThrown"])
+	SendChatMessage(gmCommands["setwands"])
+	SendChatMessage(gmCommands["setcrossbows"])
+	SendChatMessage(gmCommands["setfistweapons"])	
 	end
 end
 function btngmLearnLang_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Common"])
-		SendChatMessage(gmCommands["Orcish"])
-		SendChatMessage(gmCommands["Taurahe"])
-		SendChatMessage(gmCommands["Darnassian"])
-		SendChatMessage(gmCommands["Dwarven"])
-		SendChatMessage(gmCommands["Thalassian"])
-		SendChatMessage(gmCommands["Draconic"])
-		SendChatMessage(gmCommands["Demon Tongue"])
-		SendChatMessage(gmCommands["Titan"])
-		SendChatMessage(gmCommands["Old Tongue"])
-		SendChatMessage(gmCommands["Gnomish"])
-		SendChatMessage(gmCommands["Troll"])
-		SendChatMessage(gmCommands["Gutterspeak"])
+	SendChatMessage(gmCommands["Common"])
+	SendChatMessage(gmCommands["Orcish"])
+	SendChatMessage(gmCommands["Taurahe"])
+	SendChatMessage(gmCommands["Darnassian"])
+	SendChatMessage(gmCommands["Dwarven"])
+	SendChatMessage(gmCommands["Thalassian"])
+	SendChatMessage(gmCommands["Draconic"])
+	SendChatMessage(gmCommands["Demon Tongue"])
+	SendChatMessage(gmCommands["Titan"])
+	SendChatMessage(gmCommands["Old Tongue"])
+	SendChatMessage(gmCommands["Gnomish"])
+	SendChatMessage(gmCommands["Troll"])
+	SendChatMessage(gmCommands["Gutterspeak"])
 	end	
 end	
 function btngmLearnGM_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["MagnetPull"])
-		SendChatMessage(gmCommands["Knockback"])
-		SendChatMessage(gmCommands["Distract"])
+	SendChatMessage(gmCommands["MagnetPull"])
+	SendChatMessage(gmCommands["Knockback"])
+	SendChatMessage(gmCommands["Distract"])
 	end	
 end	
-
+gmCommands["BlastWave"] = ".learn 23331"
+gmCommands["DarkGlare"] = ".learn 26029"
+gmCommands["MagnetPull"] = ".learn 28337"
+gmCommands["Knockback"] = ".learn 11027"
+gmCommands["Distract"] = ".learn 1725"
 function btngmLearnTale_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["ResetTalents"])
+	SendChatMessage(gmCommands["Tale"])
 	end	
 end	
 function btngmLearnStat_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["ResetStat"])
+	SendChatMessage(gmCommands["Stat"])
 	end	
 end	
 function btngmLearnAlch_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Alchemy"])
-		SendChatMessage(gmCommands["setAlchemy"])	
+	SendChatMessage(gmCommands["Alch"])
+	SendChatMessage(gmCommands["setAlch"])	
 	end	
 end	
 function btngmLearnBlac_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Blacksmithing"])
-		SendChatMessage(gmCommands["setBlacksmithing"])	
+	SendChatMessage(gmCommands["Blac"])
+	SendChatMessage(gmCommands["setBlac"])	
 	end	
 end	
 function btngmLearnEnch_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Enchanting"])
-		SendChatMessage(gmCommands["setEnchanting"])	
+	SendChatMessage(gmCommands["Ench"])
+	SendChatMessage(gmCommands["setEnch"])	
 	end	
 end	
 function btngmLearnEngi_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Engineering"])
-		SendChatMessage(gmCommands["setEngineering"])	
+	SendChatMessage(gmCommands["Engi"])
+	SendChatMessage(gmCommands["setEngi"])	
 	end	
 end	
-function btngmLearnHerbalism_OnClick()
+function btngmLearnHerb_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Herbalism"])
-		SendChatMessage(gmCommands["setHerbalism"])
+	SendChatMessage(gmCommands["Herb"])
+	SendChatMessage(gmCommands["setHerb"])
 	end	
 end	
 function btngmLearnLeat_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Leatherworking"])
-		SendChatMessage(gmCommands["setLeatherworking"])
+	SendChatMessage(gmCommands["Leat"])
+	SendChatMessage(gmCommands["setLeat"])
 	end	
 end	
-function btngmLearnRiding_OnClick()
+function btngmLearnRidi_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Riding"])
-		SendChatMessage(gmCommands["setRiding"])
+	SendChatMessage(gmCommands["Ridi"])
+	SendChatMessage(gmCommands["setRidi"])
 	end	
 end	
-function btngmLearnSkinning_OnClick()
+function btngmLearnSkin_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Skinning"])
-		SendChatMessage(gmCommands["setSkinning"])
+	SendChatMessage(gmCommands["Skin"])
+	SendChatMessage(gmCommands["setSkin"])
 	end	
 end	
-function btngmLearnTailoring_OnClick()
+function btngmLearnTail_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Tailoring"])
-		SendChatMessage(gmCommands["setTailoring"])
+	SendChatMessage(gmCommands["Tail"])
+	SendChatMessage(gmCommands["setTail"])
 	end	
 end	
-function btngmLearnCooking_OnClick()
+function btngmLearnCook_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Cooking"])
-		SendChatMessage(gmCommands["setCooking"])
+	SendChatMessage(gmCommands["Cook"])
+	SendChatMessage(gmCommands["setCook"])
 	end	
 end	
-function btngmLearnFirstAid_OnClick()
+function btngmLearnFirs_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["FirstAid"])
-		SendChatMessage(gmCommands["setFirstAid"])
+	SendChatMessage(gmCommands["Firs"])
+	SendChatMessage(gmCommands["setFirs"])
 	end	
 end	
-function btngmLearnFishFishing_OnClick()
+function btngmLearnFish_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Fishing"])
-		SendChatMessage(gmCommands["setFishing"])
+	SendChatMessage(gmCommands["Fish"])
+	SendChatMessage(gmCommands["setFish"])
 	end	
 end	
-function btngmLearnMining_OnClick()
+function btngmLearnMini_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Mining"])
-		SendChatMessage(gmCommands["setMining"])	
+	SendChatMessage(gmCommands["Mini"])
+	SendChatMessage(gmCommands["setMini"])	
 	end	
 end	
-function btngmLearnArmor_OnClick()
-	if (UnitIsUnit("target", "player") == nil) then
-		SendChatMessage("false")
-	end
+function btngmLearnArm_OnClick()
 	if ( UnitIsUnit("target", "player") ) then	
-		SendChatMessage(gmCommands["Sheilds"])
-		SendChatMessage(gmCommands["Cloth"])
-		SendChatMessage(gmCommands["Leather"])
-		SendChatMessage(gmCommands["Mail"])
-		SendChatMessage(gmCommands["Plate"])	
+	SendChatMessage(gmCommands["Sheilds"])
 	end	
 end	
 --Ilmus started adding Maintenance Frame tele commands
@@ -1169,52 +1071,58 @@ function btngmTeleTaelanEvent_OnClick()
 end	
 --Ilmus stopped adding Maintenance Frame tele commands
 function btngmTeleOrg_OnClick()
-	SendChatMessage(gmCommands["Orgrimmar"])
+	SendChatMessage(gmCommands["Org"])
 end	
 function btngmTeleUC_OnClick()
-	SendChatMessage(gmCommands["Undercity"])
+	SendChatMessage(gmCommands["UC"])
 end	
 function btngmTeleTB_OnClick()
-	SendChatMessage(gmCommands["Thunderbluff"])
+	SendChatMessage(gmCommands["TB"])
 end	
 function btngmTeleDeath_OnClick()
-	SendChatMessage(gmCommands["Deathknel"])
+	SendChatMessage(gmCommands["Death"])
 end	
 function btngmTeleMul_OnClick()
-	SendChatMessage(gmCommands["Mulgore"])
+	SendChatMessage(gmCommands["Mul"])
 end	
 function btngmTeleVot_OnClick()
-	SendChatMessage(gmCommands["ValleyOfTrials"])
+	SendChatMessage(gmCommands["Vot"])
 end	
 function btngmTeleIf_OnClick()
-	SendChatMessage(gmCommands["Ironforge"])
+	SendChatMessage(gmCommands["IF"])
 end	
 function btngmTeleSW_OnClick()
-	SendChatMessage(gmCommands["Stormwind"])
+	SendChatMessage(gmCommands["SW"])
 end	
 function btngmTeleDarn_OnClick()
-	SendChatMessage(gmCommands["Darnassus"])
+	SendChatMessage(gmCommands["Darn"])
 end	
 function btngmTeleShadow_OnClick()
-	SendChatMessage(gmCommands["Shadowglen"])
+	SendChatMessage(gmCommands["Shadow"])
 end	
 function btngmTeleNorth_OnClick()
-	SendChatMessage(gmCommands["Northshire"])
+	SendChatMessage(gmCommands["North"])
 end	
 function btngmTeleCold_OnClick()
-	SendChatMessage(gmCommands["Coldridge"])
-end	
-function btngmTeleGadgetzan_OnClick()
-	SendChatMessage(gmCommands["Gadgetzan"])
+	SendChatMessage(gmCommands["Cold"])
 end	
 function btngmTeleGM_OnClick()
-	SendChatMessage(gmCommands["GMIsland"])
+	SendChatMessage(gmCommands["GM"])
 end	
-function btngmTeleNPC_OnClick()
-	SendChatMessage(gmCommands["teleNPC"] .."\"".. gmTeleNPC:GetText().."\"")
-end
 function btngmTeleJail_OnClick()
 	SendChatMessage(gmCommands["Jail"])
+end	
+function btngmTeleDev_OnClick()
+	SendChatMessage(gmCommands["Dev"])
+end	
+function btngmTelePro_OnClick()
+	SendChatMessage(gmCommands["Pro"])
+end	
+function btngmTeleAC_OnClick()
+	SendChatMessage(gmCommands["AC"])
+end	
+function btngmTeleHyj_OnClick()
+	SendChatMessage(gmCommands["Hyj"])
 end	
 function btngmTeleKazzak_OnClick()
 	SendChatMessage(gmCommands["Kazzak"])
@@ -1222,125 +1130,18 @@ end
 function btngmTeleAzuregos_OnClick()
 	SendChatMessage(gmCommands["Azuregos"])
 end	
-function btngmTeleGreenDragonHinterlands_OnClick()
-	SendChatMessage(gmCommands["GreenDragonHinterlands"])
+function btngmTeleLethon_OnClick()
+	SendChatMessage(gmCommands["Lethon"])
 end	
-function btngmTeleGreenDragonFeralas_OnClick()
-	SendChatMessage(gmCommands["GreenDragonFeralas"])
+function btngmTeleEmeriss_OnClick()
+	SendChatMessage(gmCommands["Emeriss"])
 end	
-function btngmTeleGreenDragonAshenvale_OnClick()
-	SendChatMessage(gmCommands["GreenDragonAshenvale"])
+function btngmTeleYsondre_OnClick()
+	SendChatMessage(gmCommands["Ysondre"])
 end	
-function btngmTeleGreenDragonDuskwood_OnClick()
-	SendChatMessage(gmCommands["GreenDragonDuskwood"])
+function btngmTeleTaerar_OnClick()
+	SendChatMessage(gmCommands["Taerar"])
 end	
-function btngmTeleFunZoneDesigner_OnClick()
-	SendChatMessage(gmCommands["DesignerIsland"])
-end	
-function btngmTeleFunZoneProgrammer_OnClick()
-	SendChatMessage(gmCommands["ProgrammerIsle"])
-end	
-function btngmTeleFunZoneAzsharaCrater_OnClick()
-	SendChatMessage(gmCommands["AzsharaCrater"])
-end	
-function btngmTeleFunZoneHyjal_OnClick()
-	SendChatMessage(gmCommands["Hyjal"])
-end	
-function btngmTeleFunZoneOldIronforge_OnClick()
-	SendChatMessage(gmCommands["OldIronforge"])
-end	
-function btngmTeleFunZoneStormwindPrison_OnClick()
-	SendChatMessage(gmCommands["StormwindPrison"])
-end	
-function btngmTeleFunZoneKarazhanCrypt_OnClick()
-	SendChatMessage(gmCommands["KarazhanCrypt"])
-end	
-function btngmTeleFunZoneOutlandTest_OnClick()
-	SendChatMessage(gmCommands["OutlandTest"])
-end	
-function btngmTeleFunZoneWoodenBox_OnClick()
-	SendChatMessage(gmCommands["WoodenBox"])
-end
-function btngmTeleFunZoneRandom_OnClick()
-	local min = 1
-	local max = 24
-	local teleRandomNumber = random(min,max)
-
-	if teleRandomNumber == 1 then
-		SendChatMessage(gmCommands["SilithusFarm"])
-		gmAddonPrint("You appeared at Silithus Farm",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 2 then
-		SendChatMessage(gmCommands["ShatterspearVillage"])
-		gmAddonPrint("You appeared at Shatterspear Village",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 3 then
-		SendChatMessage(gmCommands["ShrineOfTheFallenWarrior"])
-		gmAddonPrint("You appeared at Shrine of the Fallen Warrior",1, 1, 1, "gmAddon")	
-	elseif teleRandomNumber == 4 then
-		SendChatMessage(gmCommands["StonetalonLoggingCamp"])
-		gmAddonPrint("You appeared at Stonetalon Logging Camp",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 5 then
-		SendChatMessage(gmCommands["StonetalonRuins"])
-		gmAddonPrint("You appeared at Stonetalon Ruins",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 6 then
-		SendChatMessage(gmCommands["StonetalonCave"])
-		gmAddonPrint("You appeared at Stonetalon Cave",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 7 then
-		SendChatMessage(gmCommands["TeldrassilFurboldCamp"])
-		gmAddonPrint("You appeared at Teldrassil Furbold camp",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 8 then
-		SendChatMessage(gmCommands["StonetalonHelpMountain"])
-		gmAddonPrint("You appeared at Stonetalon \"Help\" Mountain",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 9 then
-		SendChatMessage(gmCommands["StonetalonHelpMirrorMountain"])
-		gmAddonPrint("You appeared at Stonetalon Mirrored \"Help\" Mountain",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 10 then
-		SendChatMessage(gmCommands["WetlandsMountainCamp"])
-		gmAddonPrint("You appeared at Wetlands mountain camp",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 11 then
-		SendChatMessage(gmCommands["IronforgeAirport"])
-		gmAddonPrint("You appeared at Ironforge Airport",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 12 then
-		SendChatMessage(gmCommands["WetlandFarm"])
-		gmAddonPrint("You appeared at Wetland Farm",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 13 then
-		SendChatMessage(gmCommands["OrtellHideout"])
-		gmAddonPrint("You appeared at Ortell's Hideout",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 14 then
-		SendChatMessage(gmCommands["StranglethornSecretCave"])
-		gmAddonPrint("You appeared at Secret Stranglethorn Cave",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 15 then
-		SendChatMessage(gmCommands["KarazhanSmiley"])
-		gmAddonPrint("You appeared at Karazhan Smiley",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 16 then
-		SendChatMessage(gmCommands["StormwindFalls"])
-		gmAddonPrint("You appeared at Stormwind Falls",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 17 then
-		SendChatMessage(gmCommands["ArathiHighlandsDwarvenFarm"])
-		gmAddonPrint("You appeared at Arathi Highlands Dwarven Farm",1, 1, 1, "gmAddon")	
-	elseif teleRandomNumber == 18 then
-		SendChatMessage(gmCommands["WestfallHouse"])
-		gmAddonPrint("You appeared at Newsmans's Landing (Aka. Westfall house)",1, 1, 1, "gmAddon")
-	elseif teleRandomNumber == 19 then
-		SendChatMessage(gmCommands["QuelThalasIsland"])
-		gmAddonPrint("You appeared at Quel'Thalas island",1, 1, 1, "gmAddon")		
-	elseif teleRandomNumber == 20 then
-		SendChatMessage(gmCommands["DunMoroghPlaneCamp"])
-		gmAddonPrint("You appeared at Dun Morogh plane camp",1, 1, 1, "gmAddon")	
-	elseif teleRandomNumber == 21 then
-		SendChatMessage(gmCommands["DunMoroghTrollCave"])
-		gmAddonPrint("You appeared at Dun'Morogh's Troll cave",1, 1, 1, "gmAddon")			
-	elseif teleRandomNumber == 22 then
-		SendChatMessage(gmCommands["ForgottenGnomeCamp"])
-		gmAddonPrint("You appeared at Forgotten gnome camp",1, 1, 1, "gmAddon")	
-	elseif teleRandomNumber == 23 then
-		SendChatMessage(gmCommands["DeeprunTramAquarium"])
-		gmAddonPrint("You appeared at Deeprun Tram Aquarium",1, 1, 1, "gmAddon")			
-	elseif teleRandomNumber == 24 then
-		SendChatMessage(gmCommands["TanarisUnderwaterVillage"])
-		gmAddonPrint("You appeared at Tanaris Underwater village",1, 1, 1, "gmAddon")			
-	end
-end
-
 function btngmAuraPirateM_OnClick()
 	SendChatMessage(gmCommands["PirateMale"])
 end	
@@ -1401,11 +1202,11 @@ function btngmticket_OnClick()
 	end
 end	
 function updateBtns()
-	if scroll.list.item_count > 0 then 
-		gmTCount:SetText("Tickets: "..scroll.list.item_count -1)
+	if gmTicketSys["NumberOfOnlineTickets"] > 0 then 
+		gmTCount:SetText("Tickets: "..gmTicketSys["NumberOfTickets"].."("..GREEN_FONT_COLOR_CODE..gmTicketSys["NumberOfOnlineTickets"]..FONT_COLOR_CODE_CLOSE..")")
 		btnenddisable_OnClick()
 	else
-		gmTCount:SetText("Tickets: "..scroll.list.item_count -1)
+		gmTCount:SetText("Tickets: "..gmTicketSys["NumberOfTickets"])
 		btnenddisable_OnClick()
 	end
 	if ticketArray and btn and ticketArray[MySlider:GetValue()] then
@@ -1450,7 +1251,7 @@ function updateBtns()
 end
 function updateAnswered()
 end
-function gmSetTicket(i)	
+function gmSetTicket(i)
 	if gmTicketSys["NumberOfTickets"] == 0 then
 		gmPlayerName:SetText("")
 		txtGmMsgT:SetText("It's all done! Great job!")
@@ -1489,47 +1290,58 @@ end
 --ilmus modifier key responses here
 --ilmus random whisper button here
 function txtGmSendWhisp2__OnClick()
-	local min = 1
-	local max = 12
-	local GetRandomWhisper = random(min,max)
+ Min = 1
+ Max = 12
+	local GetRandomWhisper = random(Min,Max)
 	local gmStartConversation = GetRandomWhisper
-	if gmStartConversation == 1 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Salutations, Traveler "..gmPlayerName:GetText()..". I am Game Master "..UnitName("Player")..". How are you doing on this fine day?","WHISPER", nil, gmPlayerName:GetText());	
-	elseif gmStartConversation == 2 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Greetings, "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". Do you have a moment to talk about your ticket?","WHISPER", nil, gmPlayerName:GetText());
-	elseif gmStartConversation == 3 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Greetings, "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". Thank you for taking the time to contact us. Have you a few moments to speak with me?","WHISPER", nil, gmPlayerName:GetText());		
-	elseif gmStartConversation == 4 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Greetings, "..gmPlayerName:GetText()..". I am Game Master "..UnitName("Player")..". Do you have a moment to discuss why you have summoned me from my slumber?","WHISPER", nil, gmPlayerName:GetText());	
-	elseif gmStartConversation == 5 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Salutations, "..gmPlayerName:GetText().."! Game Master "..UnitName("Player").." reporting in. Do you have a moment to chat?","WHISPER", nil, gmPlayerName:GetText());
-	elseif gmStartConversation == 6 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Greetings, my friend "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". I have received your ticket in regards to a issue you are having. Thanks for using our Ticket System. Do you have a moment to chat?","WHISPER", nil, gmPlayerName:GetText());
-	elseif gmStartConversation == 7 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("*The ground shakes beneath your feet. An enormous lava elemental spews up from the ground.* Greetings "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". Do you have a moment to discuss why you have summoned me from my slumber?","WHISPER", nil, gmPlayerName:GetText());
-	elseif gmStartConversation == 8 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Salutations "..gmPlayerName:GetText().."! I am Game Master "..UnitName("Player")..". My apologizes for disrupting your playtime, do you have a moment to discuss the ticket you created?","WHISPER", nil, gmPlayerName:GetText());
-	elseif gmStartConversation == 9 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Greetings, "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". Do you have a second to talk about your ticket?","WHISPER", nil, gmPlayerName:GetText());
-	elseif gmStartConversation == 10 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Greetings, my friend "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". How are you today?","WHISPER", nil, gmPlayerName:GetText());
-	elseif gmStartConversation == 11 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Greetings "..gmPlayerName:GetText()..", this is Game Master "..UnitName("Player")..". How are you today?","WHISPER", nil, gmPlayerName:GetText());
-	elseif gmStartConversation == 12 then
-		gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
-		SendChatMessage("Greetings "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". I've received your petition and I'm here to try and help you out. But first, how are you doing today?","WHISPER", nil, gmPlayerName:GetText());
-	end
+		if gmStartConversation == 1 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Salutations, Traveler "..gmPlayerName:GetText()..". I am Game Master "..UnitName("Player")..". How are you doing on this fine day?","WHISPER", nil, gmPlayerName:GetText());	
+		end
+		if gmStartConversation == 2 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Greetings, "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". Do you have a moment to talk about your ticket?","WHISPER", nil, gmPlayerName:GetText());
+		end
+		if gmStartConversation == 3 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Greetings, "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". Thank you for taking the time to contact us. Have you a few moments to speak with me?","WHISPER", nil, gmPlayerName:GetText());		
+		end
+		if gmStartConversation == 4 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Greetings, "..gmPlayerName:GetText()..". I am Game Master "..UnitName("Player")..". Do you have a moment to discuss why you have summoned me from my slumber?","WHISPER", nil, gmPlayerName:GetText());
+		end
+		if gmStartConversation == 5 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Salutations, "..gmPlayerName:GetText().."! Game Master "..UnitName("Player").." reporting in. Do you have a moment to chat?","WHISPER", nil, gmPlayerName:GetText());
+		end
+		if gmStartConversation == 6 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Greetings, my friend "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". I have received your ticket in regards to a issue you are having. Thanks for using our Ticket System. Do you have a moment to chat?","WHISPER", nil, gmPlayerName:GetText());
+		end
+		if gmStartConversation == 7 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("*The ground shakes beneath your feet. An enormous lava elemental spews up from the ground.* Greetings "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". Do you have a moment to discuss why you have summoned me from my slumber?","WHISPER", nil, gmPlayerName:GetText());
+		end
+		if gmStartConversation == 8 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Salutations "..gmPlayerName:GetText().."! I am Game Master "..UnitName("Player")..". My apologizes for disrupting your playtime, do you have a moment to discuss the ticket you created?","WHISPER", nil, gmPlayerName:GetText());
+		end
+		if gmStartConversation == 9 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Greetings, "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". Do you have a second to talk about your ticket?","WHISPER", nil, gmPlayerName:GetText());
+		end		
+		if gmStartConversation == 10 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Greetings, my friend "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". How are you today?","WHISPER", nil, gmPlayerName:GetText());
+		end
+		if gmStartConversation == 11 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Greetings "..gmPlayerName:GetText()..", this is Game Master "..UnitName("Player")..". How are you today?","WHISPER", nil, gmPlayerName:GetText());
+		end
+		if gmStartConversation == 12 then
+			gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Whisper by "..UnitName("Player"))
+			SendChatMessage("Greetings "..gmPlayerName:GetText()..". This is Game Master "..UnitName("Player")..". I've received your petition and I'm here to try and help you out. But first, how are you doing today?","WHISPER", nil, gmPlayerName:GetText());
+		end
 end
 function txtGmEnd__OnClick()
  Min = 1
@@ -1714,185 +1526,357 @@ function mountrandochecktask()
     end
 end
 function mountrando__OnClick()
-	local min = 1
-	local max = 87
-	local mountNumber = random(min,max)
-		
-	if mountNumber == 1 then 
-		SendChatMessage(gmCommands["AncientFrostsaber"]);
-	elseif mountNumber == 2 then
-		SendChatMessage(gmCommands["ArcticWolf"]);
-	elseif mountNumber == 3 then
-		SendChatMessage(gmCommands["BlackBattlestrider"]);
-	elseif mountNumber == 4 then
-		SendChatMessage(gmCommands["BlackNightsaber"]);
-	elseif mountNumber == 5 then
-		SendChatMessage(gmCommands["BlackRam"]);
-	elseif mountNumber == 6 then
-		SendChatMessage(gmCommands["BlackStallion"]);
-	elseif mountNumber == 7 then
-		SendChatMessage(gmCommands["BlackWarKodo"]);
-	elseif mountNumber == 8 then
-		SendChatMessage(gmCommands["BlackWarRam"]);
-	elseif mountNumber == 9 then
-		SendChatMessage(gmCommands["BlackWarRaptor"]);
-	elseif mountNumber == 10 then
-		SendChatMessage(gmCommands["BlackWarSteed"]);
-	elseif mountNumber == 11 then
-		SendChatMessage(gmCommands["BlackWarTiger"]);
-	elseif mountNumber == 12 then
-		SendChatMessage(gmCommands["BlackWarWolf"]);
-	elseif mountNumber == 13 then
-		SendChatMessage(gmCommands["BlackQirajiBattleTank"]);
-	elseif mountNumber == 14 then
-		SendChatMessage(gmCommands["BlueMechanostrider"]);
-	elseif mountNumber == 15 then
-		SendChatMessage(gmCommands["BlueQirajiBattleTank"]);
-	elseif mountNumber == 16 then
-		SendChatMessage(gmCommands["BlueSkeletalHorse"]);
-	elseif mountNumber == 17 then
-		SendChatMessage(gmCommands["BrownHorse"]);
-	elseif mountNumber == 18 then
-		SendChatMessage(gmCommands["BrownKodo"]);
-	elseif mountNumber == 19 then
-		SendChatMessage(gmCommands["BrownRam"]);
-	elseif mountNumber == 20 then
-		SendChatMessage(gmCommands["BrownSkeletalHorse"]);
-	elseif mountNumber == 21 then
-		SendChatMessage(gmCommands["BrownWolf"]);
-	elseif mountNumber == 22 then
-		SendChatMessage(gmCommands["Charger"]);
-	elseif mountNumber == 23 then
-		SendChatMessage(gmCommands["ChestnutMare"]);
-	elseif mountNumber == 24 then
-		SendChatMessage(gmCommands["DireWolf"]);
-	elseif mountNumber == 25 then
-		SendChatMessage(gmCommands["Dreadsteed"]);
-	elseif mountNumber == 26 then
-		SendChatMessage(gmCommands["EmeraldRaptor"]);
-	elseif mountNumber == 27 then
-		SendChatMessage(gmCommands["Felsteed"]);
-	elseif mountNumber == 28 then
-		SendChatMessage(gmCommands["FrostRam"]);
-	elseif mountNumber == 29 then
-		SendChatMessage(gmCommands["FluorescentGreenMechanostrider"]);
-	elseif mountNumber == 30 then
-		SendChatMessage(gmCommands["FrostwolfHowler"]);
-	elseif mountNumber == 31 then
-		SendChatMessage(gmCommands["GrayKodo"]);
-	elseif mountNumber == 32 then
-		SendChatMessage(gmCommands["GrayRam"]);
-	elseif mountNumber == 33 then
-		SendChatMessage(gmCommands["GreatBrownKodo"]);
-	elseif mountNumber == 34 then
-		SendChatMessage(gmCommands["GreatGrayKodo"]);
-	elseif mountNumber == 35 then
-		SendChatMessage(gmCommands["GreatWhiteKodo"]);
-	elseif mountNumber == 36 then
-		SendChatMessage(gmCommands["GreenKodo"]);
-	elseif mountNumber == 37 then
-		SendChatMessage(gmCommands["GreenMechanostrider"]);
-	elseif mountNumber == 38 then
-		SendChatMessage(gmCommands["GreenQirajiBattleTank"]);
-	elseif mountNumber == 39 then
-		SendChatMessage(gmCommands["GreenSkeletalWarhorse"]);
-	elseif mountNumber == 40 then
-		SendChatMessage(gmCommands["IcyBlueMechanostriderModA"]);
-	elseif mountNumber == 41 then
-		SendChatMessage(gmCommands["IvoryRaptor"]);
-	elseif mountNumber == 42 then
-		SendChatMessage(gmCommands["MottledRedRaptor"]);
-	elseif mountNumber == 43 then
-		SendChatMessage(gmCommands["Palomino"]);
-	elseif mountNumber == 44 then
-		SendChatMessage(gmCommands["Pinto"]);
-	elseif mountNumber == 45 then
-		SendChatMessage(gmCommands["PurpleSkeletalWarhorse"]);
-	elseif mountNumber == 46 then
-		SendChatMessage(gmCommands["RedMechanostrider"]);
-	elseif mountNumber == 47 then
-		SendChatMessage(gmCommands["RedQirajiBattleTank"]);
-	elseif mountNumber == 48 then
-		SendChatMessage(gmCommands["RedSkeletalHorse"]);
-	elseif mountNumber == 49 then
-		SendChatMessage(gmCommands["RedSkeletalWarhorse"]);
-	elseif mountNumber == 50 then
-		SendChatMessage(gmCommands["RedWolf"]);
-	elseif mountNumber == 51 then
-		SendChatMessage(gmCommands["RidingTurtle"]);
-	elseif mountNumber == 52 then
-		SendChatMessage(gmCommands["RivendaresDeathcharger"]);
-	elseif mountNumber == 53 then
-		SendChatMessage(gmCommands["SpottedFrostsaber"]);
-	elseif mountNumber == 54 then
-		SendChatMessage(gmCommands["StormpikeBattleCharger"]);
-	elseif mountNumber == 55 then
-		SendChatMessage(gmCommands["StripedFrostsaber"]);
-	elseif mountNumber == 56 then
-		SendChatMessage(gmCommands["StripedNightsaber"]);
-	elseif mountNumber == 57 then
-		SendChatMessage(gmCommands["SwiftBlueRaptor"]);
-	elseif mountNumber == 58 then
-		SendChatMessage(gmCommands["SwiftBrownRam"]);
-	elseif mountNumber == 59 then
-		SendChatMessage(gmCommands["SwiftBrownSteed"]);
-	elseif mountNumber == 60 then
-		SendChatMessage(gmCommands["SwiftBrownWolf"]);
-	elseif mountNumber == 61 then
-		SendChatMessage(gmCommands["SwiftFrostsaber"]);
-	elseif mountNumber == 62 then
-		SendChatMessage(gmCommands["SwiftGrayRam"]);
-	elseif mountNumber == 63 then
-		SendChatMessage(gmCommands["SwiftGrayWolf"]);
-	elseif mountNumber == 64 then
-		SendChatMessage(gmCommands["SwiftGreenMechanostrider"]);
-	elseif mountNumber == 65 then
-		SendChatMessage(gmCommands["SwiftMistsaber"]);
-	elseif mountNumber == 66 then
-		SendChatMessage(gmCommands["SwiftOliveRaptor"]);
-	elseif mountNumber == 67 then
-		SendChatMessage(gmCommands["SwiftOrangeRaptor"]);
-	elseif mountNumber == 68 then
-		SendChatMessage(gmCommands["SwiftPalomino"]);
-	elseif mountNumber == 69 then
-		SendChatMessage(gmCommands["SwiftRazzashiRaptor"]);
-	elseif mountNumber == 70 then
-		SendChatMessage(gmCommands["SwiftStormsaber"]);
-	elseif mountNumber == 71 then
-		SendChatMessage(gmCommands["SwiftTimberWolf"]);
-	elseif mountNumber == 72 then
-		SendChatMessage(gmCommands["SwiftWhiteMechanostrider"]);
-	elseif mountNumber == 73 then
-		SendChatMessage(gmCommands["SwiftWhiteRam"]);
-	elseif mountNumber == 74 then
-		SendChatMessage(gmCommands["SwiftWhiteSteed"]);
-	elseif mountNumber == 75 then
-		SendChatMessage(gmCommands["SwiftYellowMechanostrider"]);
-	elseif mountNumber == 76 then
-		SendChatMessage(gmCommands["SwiftZulianTiger"]);
-	elseif mountNumber == 77 then
-		SendChatMessage(gmCommands["TealKodo"]);
-	elseif mountNumber == 78 then
-		SendChatMessage(gmCommands["TimberWolf"]);
-	elseif mountNumber == 79 then
-		SendChatMessage(gmCommands["TurquoiseRaptor"]);
-	elseif mountNumber == 80 then
-		SendChatMessage(gmCommands["UnpaintedMechanostrider"]);
-	elseif mountNumber == 81 then
-		SendChatMessage(gmCommands["VioletRaptor"]);
-	elseif mountNumber == 82 then
-		SendChatMessage(gmCommands["Warhorse"]);
-	elseif mountNumber == 83 then
-		SendChatMessage(gmCommands["WhiteMechanostriderModB"]);
-	elseif mountNumber == 84 then
-		SendChatMessage(gmCommands["WhiteRam"]);
-	elseif mountNumber == 85 then
-		SendChatMessage(gmCommands["WhiteStallion"]);
-	elseif mountNumber == 86 then
-		SendChatMessage(gmCommands["WinterspringFrostsaber"]);
-	elseif mountNumber == 87 then
-		SendChatMessage(gmCommands["YellowQirajiBattleTank"]);
-	end		
+ Min = 1
+ Max = 87
+	local GetRandomWhisper = random(Min,Max)
+	local gmStartConversation = GetRandomWhisper
+		if gmStartConversation == 1 then 
+	SendChatMessage(gmCommands["AncientFrostsaber"]);
+		end
+
+		if gmStartConversation == 2 then
+	SendChatMessage(gmCommands["ArcticWolf"]);
+		end
+
+		if gmStartConversation == 3 then
+	SendChatMessage(gmCommands["BlackBattlestrider"]);
+		end
+
+		if gmStartConversation == 4 then
+	SendChatMessage(gmCommands["BlackNightsaber"]);
+		end
+
+		if gmStartConversation == 5 then
+	SendChatMessage(gmCommands["BlackRam"]);
+		end
+
+		if gmStartConversation == 6 then
+	SendChatMessage(gmCommands["BlackStallion"]);
+		end
+
+		if gmStartConversation == 7 then
+	SendChatMessage(gmCommands["BlackWarKodo"]);
+		end
+
+		if gmStartConversation == 8 then
+	SendChatMessage(gmCommands["BlackWarRam"]);
+		end
+
+		if gmStartConversation == 9 then
+	SendChatMessage(gmCommands["BlackWarRaptor"]);
+		end
+
+		if gmStartConversation == 10 then
+	SendChatMessage(gmCommands["BlackWarSteed"]);
+		end
+
+		if gmStartConversation == 11 then
+	SendChatMessage(gmCommands["BlackWarTiger"]);
+		end
+
+		if gmStartConversation == 12 then
+	SendChatMessage(gmCommands["BlackWarWolf"]);
+		end
+
+		if gmStartConversation == 13 then
+	SendChatMessage(gmCommands["BlackQirajiBattleTank"]);
+		end
+
+		if gmStartConversation == 14 then
+	SendChatMessage(gmCommands["BlueMechanostrider"]);
+		end
+
+		if gmStartConversation == 15 then
+	SendChatMessage(gmCommands["BlueQirajiBattleTank"]);
+		end
+
+		if gmStartConversation == 16 then
+	SendChatMessage(gmCommands["BlueSkeletalHorse"]);
+		end
+
+		if gmStartConversation == 17 then
+	SendChatMessage(gmCommands["BrownHorse"]);
+		end
+
+		if gmStartConversation == 18 then
+	SendChatMessage(gmCommands["BrownKodo"]);
+		end
+
+		if gmStartConversation == 19 then
+	SendChatMessage(gmCommands["BrownRam"]);
+		end
+
+		if gmStartConversation == 20 then
+	SendChatMessage(gmCommands["BrownSkeletalHorse"]);
+		end
+
+		if gmStartConversation == 21 then
+	SendChatMessage(gmCommands["BrownWolf"]);
+		end
+
+		if gmStartConversation == 22 then
+	SendChatMessage(gmCommands["Charger"]);
+		end
+
+		if gmStartConversation == 23 then
+	SendChatMessage(gmCommands["ChestnutMare"]);
+		end
+
+		if gmStartConversation == 24 then
+	SendChatMessage(gmCommands["DireWolf"]);
+		end
+
+		if gmStartConversation == 25 then
+	SendChatMessage(gmCommands["Dreadsteed"]);
+		end
+
+		if gmStartConversation == 26 then
+	SendChatMessage(gmCommands["EmeraldRaptor"]);
+		end
+
+		if gmStartConversation == 27 then
+	SendChatMessage(gmCommands["Felsteed"]);
+		end
+
+		if gmStartConversation == 28 then
+	SendChatMessage(gmCommands["FrostRam"]);
+		end
+
+		if gmStartConversation == 29 then
+	SendChatMessage(gmCommands["FluorescentGreenMechanostrider"]);
+		end
+
+		if gmStartConversation == 30 then
+	SendChatMessage(gmCommands["FrostwolfHowler"]);
+		end
+
+		if gmStartConversation == 31 then
+	SendChatMessage(gmCommands["GrayKodo"]);
+		end
+
+		if gmStartConversation == 32 then
+	SendChatMessage(gmCommands["GrayRam"]);
+		end
+
+		if gmStartConversation == 33 then
+	SendChatMessage(gmCommands["GreatBrownKodo"]);
+		end
+
+		if gmStartConversation == 34 then
+	SendChatMessage(gmCommands["GreatGrayKodo"]);
+		end
+
+		if gmStartConversation == 35 then
+	SendChatMessage(gmCommands["GreatWhiteKodo"]);
+		end
+
+		if gmStartConversation == 36 then
+	SendChatMessage(gmCommands["GreenKodo"]);
+		end
+
+		if gmStartConversation == 37 then
+	SendChatMessage(gmCommands["GreenMechanostrider"]);
+		end
+
+		if gmStartConversation == 38 then
+	SendChatMessage(gmCommands["GreenQirajiBattleTank"]);
+		end
+
+		if gmStartConversation == 39 then
+	SendChatMessage(gmCommands["GreenSkeletalWarhorse"]);
+		end
+
+		if gmStartConversation == 40 then
+	SendChatMessage(gmCommands["IcyBlueMechanostriderModA"]);
+		end
+
+		if gmStartConversation == 41 then
+	SendChatMessage(gmCommands["IvoryRaptor"]);
+		end
+
+		if gmStartConversation == 42 then
+	SendChatMessage(gmCommands["MottledRedRaptor"]);
+		end
+
+		if gmStartConversation == 43 then
+	SendChatMessage(gmCommands["Palomino"]);
+		end
+
+		if gmStartConversation == 44 then
+	SendChatMessage(gmCommands["Pinto"]);
+		end
+
+		if gmStartConversation == 45 then
+	SendChatMessage(gmCommands["PurpleSkeletalWarhorse"]);
+		end
+
+		if gmStartConversation == 46 then
+	SendChatMessage(gmCommands["RedMechanostrider"]);
+		end
+
+		if gmStartConversation == 47 then
+	SendChatMessage(gmCommands["RedQirajiBattleTank"]);
+		end
+
+		if gmStartConversation == 48 then
+	SendChatMessage(gmCommands["RedSkeletalHorse"]);
+		end
+
+		if gmStartConversation == 49 then
+	SendChatMessage(gmCommands["RedSkeletalWarhorse"]);
+		end
+
+		if gmStartConversation == 50 then
+	SendChatMessage(gmCommands["RedWolf"]);
+		end
+
+		if gmStartConversation == 51 then
+	SendChatMessage(gmCommands["RidingTurtle"]);
+		end
+
+		if gmStartConversation == 52 then
+	SendChatMessage(gmCommands["RivendaresDeathcharger"]);
+		end
+
+		if gmStartConversation == 53 then
+	SendChatMessage(gmCommands["SpottedFrostsaber"]);
+		end
+
+		if gmStartConversation == 54 then
+	SendChatMessage(gmCommands["StormpikeBattleCharger"]);
+		end
+
+		if gmStartConversation == 55 then
+	SendChatMessage(gmCommands["StripedFrostsaber"]);
+		end
+
+		if gmStartConversation == 56 then
+	SendChatMessage(gmCommands["StripedNightsaber"]);
+		end
+
+		if gmStartConversation == 57 then
+	SendChatMessage(gmCommands["SwiftBlueRaptor"]);
+		end
+
+		if gmStartConversation == 58 then
+	SendChatMessage(gmCommands["SwiftBrownRam"]);
+		end
+
+		if gmStartConversation == 59 then
+	SendChatMessage(gmCommands["SwiftBrownSteed"]);
+		end
+
+		if gmStartConversation == 60 then
+	SendChatMessage(gmCommands["SwiftBrownWolf"]);
+		end
+
+		if gmStartConversation == 61 then
+	SendChatMessage(gmCommands["SwiftFrostsaber"]);
+		end
+
+		if gmStartConversation == 62 then
+	SendChatMessage(gmCommands["SwiftGrayRam"]);
+		end
+
+		if gmStartConversation == 63 then
+	SendChatMessage(gmCommands["SwiftGrayWolf"]);
+		end
+
+		if gmStartConversation == 64 then
+	SendChatMessage(gmCommands["SwiftGreenMechanostrider"]);
+		end
+
+		if gmStartConversation == 65 then
+	SendChatMessage(gmCommands["SwiftMistsaber"]);
+		end
+
+		if gmStartConversation == 66 then
+	SendChatMessage(gmCommands["SwiftOliveRaptor"]);
+		end
+
+		if gmStartConversation == 67 then
+	SendChatMessage(gmCommands["SwiftOrangeRaptor"]);
+		end
+
+		if gmStartConversation == 68 then
+	SendChatMessage(gmCommands["SwiftPalomino"]);
+		end
+
+		if gmStartConversation == 69 then
+	SendChatMessage(gmCommands["SwiftRazzashiRaptor"]);
+		end
+
+		if gmStartConversation == 70 then
+	SendChatMessage(gmCommands["SwiftStormsaber"]);
+		end
+
+		if gmStartConversation == 71 then
+	SendChatMessage(gmCommands["SwiftTimberWolf"]);
+		end
+
+		if gmStartConversation == 72 then
+	SendChatMessage(gmCommands["SwiftWhiteMechanostrider"]);
+		end
+
+		if gmStartConversation == 73 then
+	SendChatMessage(gmCommands["SwiftWhiteRam"]);
+		end
+
+		if gmStartConversation == 74 then
+	SendChatMessage(gmCommands["SwiftWhiteSteed"]);
+		end
+
+		if gmStartConversation == 75 then
+	SendChatMessage(gmCommands["SwiftYellowMechanostrider"]);
+		end
+
+		if gmStartConversation == 76 then
+	SendChatMessage(gmCommands["SwiftZulianTiger"]);
+		end
+
+		if gmStartConversation == 77 then
+	SendChatMessage(gmCommands["TealKodo"]);
+		end
+
+		if gmStartConversation == 78 then
+	SendChatMessage(gmCommands["TimberWolf"]);
+		end
+
+		if gmStartConversation == 79 then
+	SendChatMessage(gmCommands["TurquoiseRaptor"]);
+		end
+
+		if gmStartConversation == 80 then
+	SendChatMessage(gmCommands["UnpaintedMechanostrider"]);
+		end
+
+		if gmStartConversation == 81 then
+	SendChatMessage(gmCommands["VioletRaptor"]);
+		end
+
+		if gmStartConversation == 82 then
+	SendChatMessage(gmCommands["Warhorse"]);
+		end
+
+		if gmStartConversation == 83 then
+	SendChatMessage(gmCommands["WhiteMechanostriderModB"]);
+		end
+
+		if gmStartConversation == 84 then
+	SendChatMessage(gmCommands["WhiteRam"]);
+		end
+
+		if gmStartConversation == 85 then
+	SendChatMessage(gmCommands["WhiteStallion"]);
+		end
+
+		if gmStartConversation == 86 then
+	SendChatMessage(gmCommands["WinterspringFrostsaber"]);
+		end
+
+		if gmStartConversation == 87 then
+	SendChatMessage(gmCommands["YellowQirajiBattleTank"]);
+		end		
 end
 
 function txtGmCommon1__OnClick()
@@ -2007,7 +1991,6 @@ function txtGmCommon27__OnClick()
     gmSendAddonMsg("Ticket from "..gmCommonPlayer:GetText().." answered via Whisper by "..UnitName("Player"))
     SendChatMessage("Unfortunately there is nothing in-game GM's are able to do about this issue at the given moment.","WHISPER", nil, gmCommonPlayer:GetText()); 
 	SendChatMessage("Please report this bug to our Bugtracker at: https://vanilla-twinhead.twinstar.cz/?issues this way our developers can identify the issue and fix it!","WHISPER", nil, gmCommonPlayer:GetText()); 
-	btnGmDeleteT_OnClick()
 end
 function txtGmCommon28__OnClick()
     gmSendAddonMsg("Ticket from "..gmCommonPlayer:GetText().." answered via Whisper by "..UnitName("Player"))
@@ -2172,16 +2155,15 @@ function simTickets()
 		t:setTicketTime(12 ..":"..i)
 		t:setTicketDateA(21 ..".".. 12 ..".".. 2015)
 		if math.random() > 0.6 then t:setTicketOnline(true) end
-		table.insert(ticketArray,t);
+		tinsert(ticketArray,t);
 		gmTicketSys["NumberOfTickets"] = gmTicketSys["NumberOfTickets"] + 1
 		gmUpdateSlider()
 	end
 	updateBtns()
 end
-
-function simulatePinfo()
-	txtGmPinfoStatus:SetText("ONLINE (inactive)" )
-	txtGmPinfoStatus:SetTextColor(1.0, 1.0, 0.0);
+function simPinfo()
+	txtGmPinfoStatus:SetText("ONLINE" )
+	txtGmPinfoStatus:SetTextColor(0.0, 1.0, 0.0);
 	txtGmPinfoStatus:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 	txtGmplayernames:Hide()
 	btnGmPinfoId:Show()
@@ -2201,7 +2183,6 @@ function simulatePinfo()
 	txtGmPinfoFinger:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 	SendWho("Gurky")
 end
-
 function gmTurnOnOff()
 if KGMM_Help:IsVisible() then
 		KGMM_Help:Hide();	
@@ -2275,7 +2256,7 @@ function gmMailFrame_OnLoad()
 	
 end	
 function gmBanFrame_OnLoad()
-table.insert(UISpecialFrames,"gmBanFrame");
+tinsert(UISpecialFrames,"gmBanFrame");
 timeformat:SetText("Ban Time:\n\n 1s = 1 Second\n 1m = 1 Minute\n 1h = 1 Hour\n 1d = 1 Day\n -1 = Perma")	
 timeformat:SetJustifyH("CENTER")
 timeformat:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
@@ -2323,23 +2304,6 @@ txtbanc:SetTextColor(1.0, 0.55, 0.0);
 txtbanc:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE, ")
 txtsure:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
 end	
-function gmAuctionFrame_OnLoad()	
-	
-	
-	auctiontitle:SetTextColor(1.0, 0.55, 0.0);
-	auctiontitle:SetFont("Fonts\\FRIZQT__.TTF", 24, "OUTLINE, ")
-	
-	btngmAuctionAlliance:SetTextColor(1.0, 0.55, 0.0);
-	btngmAuctionAlliance:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-	btngmAuctionHorde:SetTextColor(1.0, 0.55, 0.0);
-	btngmAuctionHorde:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-	btngmAuctionGoblin:SetTextColor(1.0, 0.55, 0.0);
-	btngmAuctionGoblin:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-	
-	
-
-	
-end
 function gmAssignBox_OnLoad()
 gmAssign:SetTextColor(1.0, 0.55, 0.0);
 gmAssign:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
@@ -2352,7 +2316,7 @@ end
 function gmConfirmIPRangeFrame_OnLoad()
 end	
 function gmLearnFrame_OnLoad()
-table.insert(UISpecialFrames,"gmLearnFrame");
+tinsert(UISpecialFrames,"gmLearnFrame");
 learntitle:SetTextColor(1.0, 0.55, 0.0);
 learntitle:SetFont("Fonts\\FRIZQT__.TTF", 24, "OUTLINE, ")
 txttarget:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
@@ -2360,8 +2324,8 @@ txtprof:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
 txtskill:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
 btngmLearnwep:SetTextColor(1.0, 0.55, 0.0);
 btngmLearnwep:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnArmor:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnArmor:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnArm:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnArm:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmLearnLang:SetTextColor(1.0, 0.55, 0.0);
 btngmLearnLang:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmLearnGmsp:SetTextColor(1.0, 0.55, 0.0);
@@ -2378,27 +2342,27 @@ btngmLearnEnch:SetTextColor(1.0, 0.55, 0.0);
 btngmLearnEnch:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmLearnEngi:SetTextColor(1.0, 0.55, 0.0);
 btngmLearnEngi:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnHerbalism:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnHerbalism:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnHerb:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnHerb:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmLearnLeat:SetTextColor(1.0, 0.55, 0.0);
 btngmLearnLeat:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnRiding:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnRiding:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnSkinning:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnSkinning:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnTailoring:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnTailoring:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnCooking:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnCooking:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnFirstAid:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnFirstAid:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnFishFishing:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnFishFishing:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmLearnMining:SetTextColor(1.0, 0.55, 0.0);
-btngmLearnMining:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnRidi:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnRidi:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnSkin:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnSkin:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnTail:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnTail:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnCook:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnCook:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnFirs:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnFirs:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnFish:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnFish:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmLearnMini:SetTextColor(1.0, 0.55, 0.0);
+btngmLearnMini:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 end
 function gmSettingsFrame_OnLoad()
-table.insert(UISpecialFrames,"gmSettingsFrame");
+tinsert(UISpecialFrames,"gmSettingsFrame");
 settingstitle:SetTextColor(1.0, 0.55, 0.0);
 settingstitle:SetFont("Fonts\\FRIZQT__.TTF", 24, "OUTLINE, ")
 gmset1Open:SetTextColor(1.0, 0.55, 0.0);
@@ -2506,7 +2470,7 @@ end
 function gmToggleVGMFrame_OnLoad()
 end	
 function gmTeleFrame_OnLoad()
-table.insert(UISpecialFrames,"gmTeleFrame");
+tinsert(UISpecialFrames,"gmTeleFrame");
 teletitle:SetTextColor(1.0, 0.55, 0.0);
 teletitle:SetFont("Fonts\\FRIZQT__.TTF", 24, "OUTLINE, ")
 txthorde:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
@@ -2536,66 +2500,36 @@ btngmTeleShadow:SetTextColor(1.0, 0.55, 0.0);
 btngmTeleNorth:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmTeleNorth:SetTextColor(1.0, 0.55, 0.0);	
 btngmTeleCold:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleGadgetzan:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleGadgetzan:SetTextColor(1.0, 0.55, 0.0);	
 btngmTeleCold:SetTextColor(1.0, 0.55, 0.0);	
 btngmTeleGM:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmTeleGM:SetTextColor(1.0, 0.55, 0.0);	
 btngmTeleJail:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmTeleJail:SetTextColor(1.0, 0.55, 0.0);	
-btngmTeleNPC:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleNPC:SetTextColor(1.0, 0.55, 0.0);	
--- btngmTeleDev:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
--- btngmTeleDev:SetTextColor(1.0, 0.55, 0.0);	
--- btngmTelePro:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
--- btngmTelePro:SetTextColor(1.0, 0.55, 0.0);	
--- btngmTeleAC:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
--- btngmTeleAC:SetTextColor(1.0, 0.55, 0.0);	
--- btngmTeleHyj:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
--- btngmTeleHyj:SetTextColor(1.0, 0.55, 0.0);	
+btngmTeleDev:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmTeleDev:SetTextColor(1.0, 0.55, 0.0);	
+btngmTelePro:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmTelePro:SetTextColor(1.0, 0.55, 0.0);	
+btngmTeleAC:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmTeleAC:SetTextColor(1.0, 0.55, 0.0);	
+btngmTeleHyj:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmTeleHyj:SetTextColor(1.0, 0.55, 0.0);	
 btngmTeleKazzak:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmTeleKazzak:SetTextColor(1.0, 0.55, 0.0);	
 btngmTeleAzuregos:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 btngmTeleAzuregos:SetTextColor(1.0, 0.55, 0.0);	
-btngmTeleGreenDragonHinterlands:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleGreenDragonHinterlands:SetTextColor(1.0, 0.55, 0.0);	
-btngmTeleGreenDragonFeralas:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleGreenDragonFeralas:SetTextColor(1.0, 0.55, 0.0);	
-btngmTeleGreenDragonAshenvale:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleGreenDragonAshenvale:SetTextColor(1.0, 0.55, 0.0);	
-btngmTeleGreenDragonDuskwood:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleGreenDragonDuskwood:SetTextColor(1.0, 0.55, 0.0);	
+btngmTeleLethon:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmTeleLethon:SetTextColor(1.0, 0.55, 0.0);	
+btngmTeleEmeriss:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmTeleEmeriss:SetTextColor(1.0, 0.55, 0.0);	
+btngmTeleYsondre:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmTeleYsondre:SetTextColor(1.0, 0.55, 0.0);	
+btngmTeleTaerar:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+btngmTeleTaerar:SetTextColor(1.0, 0.55, 0.0);	
 end	
-
-function gmTeleFunZoneFrame_OnLoad()
-funzonetitle:SetTextColor(1.0, 0.55, 0.0);
-funzonetitle:SetFont("Fonts\\FRIZQT__.TTF", 24, "OUTLINE, ")
-btngmTeleFunZoneDesigner:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneDesigner:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneProgrammer:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneProgrammer:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneAzsharaCrater:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneAzsharaCrater:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneHyjal:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneHyjal:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneOldIronforge:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneOldIronforge:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneStormwindPrison:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneStormwindPrison:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneKarazhanCrypt:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneKarazhanCrypt:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneOutlandTest:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneOutlandTest:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneWoodenBox:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneWoodenBox:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-btngmTeleFunZoneRandom:SetTextColor(1.0, 0.55, 0.0);
-btngmTeleFunZoneRandom:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-end
-
 function gmMaintenanceFrame_OnLoad()
 end	
 function gmAuraFrame_OnLoad()
-table.insert(UISpecialFrames,"gmAuraFrame");
+tinsert(UISpecialFrames,"gmAuraFrame");
 auratitle:SetTextColor(1.0, 0.55, 0.0);
 auratitle:SetFont("Fonts\\FRIZQT__.TTF", 24, "OUTLINE, ")
 txtcostume:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
@@ -2628,7 +2562,7 @@ btngmAuraUnFreeze:SetTextColor(1.0, 0.55, 0.0);
 btngmAuraUnFreeze:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
 end	
 function gmBugFrame_OnLoad()
-	table.insert(UISpecialFrames,"gmBugFrame");
+tinsert(UISpecialFrames,"gmBugFrame");
 	bugtitle:SetTextColor(1.0, 0.55, 0.0);
 	bugtitle:SetFont("Fonts\\FRIZQT__.TTF", 24, "OUTLINE, ")
 	btngmTeleShay:SetTextColor(1.0, 0.55, 0.0);
@@ -2785,17 +2719,17 @@ gmPlayerName:SetJustifyH("CENTER")
 	btn = {}
 -- gmBtn1T:EnableMouseWheel(true);
 -- gmBtn1T:SetScript("OnMouseWheel", function(self,delta) gmBtn1T:SetText(tostring(delta)) end)
-	table.insert(btn,gmBtn1T)
+	tinsert(btn,gmBtn1T)
 	gmBtn1T:SetScript("OnClick", function(self, button, down) setTicketByPlayerName(gmBtn1T:GetText()) end)
-	table.insert(btn,gmBtn2T)
+	tinsert(btn,gmBtn2T)
 	gmBtn2T:SetScript("OnClick", function(self, button, down) setTicketByPlayerName(gmBtn2T:GetText()) end)
-	table.insert(btn,gmBtn3T)
+	tinsert(btn,gmBtn3T)
 	gmBtn3T:SetScript("OnClick", function(self, button, down) setTicketByPlayerName(gmBtn3T:GetText()) end)
-	table.insert(btn,gmBtn4T)
+	tinsert(btn,gmBtn4T)
 	gmBtn4T:SetScript("OnClick", function(self, button, down) setTicketByPlayerName(gmBtn4T:GetText()) end)
-	table.insert(btn,gmBtn5T)
+	tinsert(btn,gmBtn5T)
 	gmBtn5T:SetScript("OnClick", function(self, button, down) setTicketByPlayerName(gmBtn5T:GetText()) end)
-	table.insert(btn,gmBtn6T)
+	tinsert(btn,gmBtn6T)
 	gmBtn6T:SetScript("OnClick", function(self, button, down) setTicketByPlayerName(gmBtn6T:GetText()) end)
 	--simTickets()
 	gmUIFrame:RegisterEvent("CHAT_MSG_ADDON");
@@ -2827,7 +2761,6 @@ function updateSpeed()
 local value = S:GetValue()
 	if ( UnitIsUnit("target", "player") ) then	
 	SendChatMessage(gmCommands["Speed"].." "..value..' ')
-	SendChatMessage(gmCommands["Swim"].." "..value..' ')
 	gmAddonPrint("Speed is set to "..value..' ')
 	else
 	TargetByName(UnitName("player"))
@@ -2836,7 +2769,7 @@ local value = S:GetValue()
 end
 
 function gmNoteFrame_OnLoad()
-table.insert(UISpecialFrames,"gmAuraFrame");
+tinsert(UISpecialFrames,"gmAuraFrame");
 	local CopyChat = CreateFrame('Frame', 'nChatCopy', UIParent)
 	CopyChat:SetWidth(580)
 	CopyChat:SetHeight(380)
@@ -2899,14 +2832,14 @@ function gmMailSend_OnClick()
 	gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Mail by "..UnitName("Player"))
 	gmSendMail()
 end
-function gmLootIssueSend_OnClick()
+function gmIssueSend_OnClick()
 	gmMailSubject:ClearFocus()
 	gmMailMsg:ClearFocus()
 	gmMailItem:ClearFocus()
 	gmMailIssue:ClearFocus()
 	gmMailOwner:ClearFocus()	
-	gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Mail by "..UnitName("Player"))	
-	gmSendLootIssue()
+	gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Mail by "..UnitName("Player"))
+	gmSendIssue()
 end
 function gmMailBug_OnClick()
 	gmMailSubject:ClearFocus()
@@ -2956,15 +2889,6 @@ function btngmBanIPRange_OnClick()
 	gmSendAddonMsg("IP"..gmBanPlayer:GetText().." was Banned by "..UnitName("Player"))
 	gmBanIPRange()
 	btnConfirmIPRangeClose_OnClick()
-end
-function btngmAuctionAlliance_OnClick()
-	SendChatMessage(gmCommands["AuctionAlliance"])
-end
-function btngmAuctionHorde_OnClick()
-	SendChatMessage(gmCommands["AuctionHorde"])
-end
-function btngmAuctionGoblin_OnClick()
-	SendChatMessage(gmCommands["AuctionGoblin"])
 end
 --Ilmus added more answered via Mail start-- 
 function gmCommonAwaitingFix_OnClick()
@@ -3520,10 +3444,6 @@ function btnBanIPRangeClose_OnClick()
 	gmBanReason:SetText("")	
 	btnConfirmIPRangeClose_OnClick()	
 end
-
-function btnAuctionClose_OnClick()
-	gmAuctionFrame:Hide()
-end
 function btnNoteClose_OnClick()
 	gmNoteFrame:Hide()
 	nChatCopy:Hide()
@@ -3566,7 +3486,7 @@ function taskgmfly()
     end
     this.elapsed = this.elapsed + arg1 -- track elapsed time (in seconds)
     if (this.elapsed >= this.period or this.step == 0) then
-		if (this.step == 0) then -- 0sec sec delay
+        if (this.step == 0) then -- 0sec sec delay
         TargetByName(UnitName("player"))
         elseif (this.step == 1) then -- 1sec sec delay
 		SendChatMessage(gmCommands["gmflyon"])
@@ -3663,9 +3583,6 @@ end
 function btnTeleClose_OnClick()
 	gmTeleFrame:Hide()
 end
-function btnFunZoneClose_OnClick()
-	gmTeleFunZoneFrame:Hide()
-end
 function btnBugClose_OnClick()
 	gmBugFrame:Hide()
 end
@@ -3701,15 +3618,6 @@ function gmMailOpen_OnClick()
 		btnMailClose_OnClick()
 	else
 		gmMailFrame:Show()
-				
-		local nick = gmMailPlayer:GetText()		
-		local messageStart = "Greetings "..nick..",\n"
-		if string.find(gmMailMsg:GetText(), messageStart) then
-		  if gmSave["msg"] and gmMailMsg:GetText() == "" then gmMailMsg:SetText(gmSave["msg"]) end
-		else
-		  gmMailMsg:SetText(messageStart)
-		end
-		
 		if gmSave["subject"] and gmMailSubject:GetText() == "" then gmMailSubject:SetText(gmSave["subject"]) end
 		-- if gmSave["msg"] and gmMailMsg:GetText() == "" then gmMailMsg:SetText(gmSave["msg"]) end
 		if gmSave["item"] and gmMailItem:GetText() == "" then gmMailItem:SetText(ID) end		
@@ -3748,13 +3656,6 @@ function gmBanIPRangeOpen_OnClick()
 		if gmSave["banreason"] and gmBanReason:GetText() == "" then gmBanReason:SetText("Reason") end		
 	end
 end
-function gmAuctionOpen_OnClick()
-	if gmAuctionFrame:IsVisible() then
-		btnAuctionClose_OnClick()
-	else
-		gmAuctionFrame:Show()
-	end
-end
 function gmNoteOpen_OnClick()
 	if gmNoteFrame:IsVisible() then
 		btnNoteClose_OnClick()	
@@ -3791,23 +3692,8 @@ function gmTeleOpen_OnClick()
 		btnTeleClose_OnClick()	
 	else
 		gmTeleFrame:Show()	
-		if gmSave["npcname"] and gmTeleNPC:GetText() == "" then gmTeleNPC:SetText(gmSave["npcname"]) end		
 	end
 end
-
-function gmTeleNPC_OnTextChanged()
-	if strlen( gmTeleNPC:GetText()) > 0 then gmSave["npcname"] = gmTeleNPC:GetText() end
-end
-
-function gmTeleFunZoneOpen_OnClick()
-	if gmTeleFunZoneFrame:IsVisible() then
-		btnTeleFunZoneClose_OnClick()	
-	else
-		gmTeleFunZoneFrame:Show()
-		gmTeleFrame:Hide()
-	end
-end
-
 function gmBugOpen_OnClick()
 	if gmBugFrame:IsVisible() then
 		btnBugClose_OnClick()	
@@ -3887,10 +3773,11 @@ function gmSendMail()
 	else
 	end
 end
-function gmSendLootIssue()
+function gmSendIssue()
 	if gmMailPlayer:GetText() ~= "" then
 		local text = gmMailMsg:GetText()
 		local nick = gmMailPlayer:GetText()
+		local subject = gmMailSubject:GetText()	
 		local item = gmMailItem:GetText()
 		local issue = gmMailIssue:GetText()	
 		local owner = gmMailOwner:GetText()			
@@ -4614,7 +4501,7 @@ function gmDiscord()
 		local nick = gmMailPlayer:GetText()
 		local subject = gmMailSubject:GetText()
 		if strlen(text) <= 800 then
-	SendChatMessage(gmCommands["send mail"].." "..nick..' "Discord" "Greetings '..nick..'!\n\n\nYour ticket needs more help than a normal GM can provide.\n\n\nPlease contact Surelock or Zalk on Discord, the link to join can be found at:\n\nwww.kronos-wow.com/support/\n\n\n\n'..UnitName("Player")..' <Kronos Team>"');
+	SendChatMessage(gmCommands["send mail"].." "..nick..' "Discord" "Greetings '..nick..'!\n\n\nYour ticket needs more help than a normal GM can provide.\n\n\nPlease contact Flash or Lightsky on Discord, the link to join can be found at:\n\nwww.kronos-wow.com/support/\n\n\n\n'..UnitName("Player")..' <Kronos Team>"');
 		else
 			gmAddonPrint("Message is too long!")
 		end
@@ -4794,7 +4681,7 @@ function btnGmEscalate2_OnClick()
 	gmDiscord()
 	gmDiscord2()
 	gmSendAddonMsg("Ticket from "..gmPlayerName:GetText().." answered via Respond by "..UnitName("Player"))
-    SendChatMessage(""..gmCommonPlayer:GetText()..", Your ticket needs more help than a normal GM can provide. Please contact Surelock or Zalk on Discord, the link to join can be found at: www.kronos-wow.com/support/.","WHISPER", nil, gmCommonPlayer:GetText());	
+    SendChatMessage(""..gmCommonPlayer:GetText()..", Your ticket needs more help than a normal GM can provide. Please contact Flash or Lightsky on Discord, the link to join can be found at: www.kronos-wow.com/support/.","WHISPER", nil, gmCommonPlayer:GetText());	
     SendChatMessage("Instructions have also been mailed to you on loot issue formatting.","WHISPER", nil, gmCommonPlayer:GetText());		
 	-- btnGmDeleteT_OnClick()
 end
@@ -4867,7 +4754,7 @@ function gmUIFrame_OnEvent(event, arg1,arg2,arg3,arg4,...)
 				p:setPlayerName(arg2)
 				p:setLastWhisp(time())
 			end
-			table.insert(playerWhispArray, p)
+			tinsert(playerWhispArray, p)
 			if p:SendWhisp() then
 				-- print("Sending whisper..."..tostring(p:SendWhisp()))
 				GmAddonW("SYSTEM: This Game Master does not currently have an open ticket from you and did not receive your whisper. Please submit a new GM Ticket request if you need to speak to a GM. This is an automatic message.", p.playerName)
@@ -4987,7 +4874,7 @@ function PlayerWhisp:SendWhisp()
 	if time() > self.autoResponseTime + AUTO_WHISPER_COOLDOWN then
 		return true
 	end
-		return false
+	return false
 end
 function toggleAutoWhisp()
 	if autoWhispEnabled == nil or autoWhispEnabled == false then
@@ -5830,7 +5717,7 @@ function taskgmTeleUndercloft_OnClick()
         if (this.step == 0) then -- 0sec sec delay
             SendChatMessage(gmCommands["Undercloft"])
         elseif (this.step == 1) then -- 1sec sec delay
-            TargetByNameTargetByName("Crypt Robber")
+            TargetByName("Crypt Robber")
         elseif (this.step == 2) then -- 2sec sec delay
             SendChatMessage(gmCommands["die"])
         elseif (this.step == 3) then -- 2sec sec delay
@@ -5857,462 +5744,161 @@ function taskgmTeleUndercloft_OnClick()
         this.step = this.step + 1
     end
 end
-
-
-
-
 -- shagu's code thanks man when/if you ever see this!
 -- core specific commands
 local gm_server = {
   ["kronos"] = {
-	-- cff87C735
-	["GM_TARNAMEBOX"]      		= {true, "|cff00ff00Name Box", "addPlayerToNameBox(\"#PLAYER\")" },
-    ["GM_PLAYERINFO"]			= {false, "|cff00ff00Player info" , ".pinfo #PLAYER"},
-	["GM_PLAYERBANINFO"]   		= {false, "|cff00ff00Ban info" , ".baninfo char #PLAYER"},
-    ["GM_GO"]           		= {false, "|cff00A5F9Go to", ".goname #PLAYER" },
-    ["GM_SUMMON"]       		= {false, "|cff00A5F9Summon", ".namego #PLAYER" },
-    ["GM_RECALL"]       		= {false, "|cffffff00Recall", ".recall #PLAYER" },    
-    ["GM_POSSES"]       		= {false, "|cffffff00Set View", ".gm setview" },    
-	["GM_MUTE"]         		= {false, "|cffff5500Mute 5m", ".mute #PLAYER 5 BadBoi" },
-	["GM_UNMUTE"]       		= {false, "|cffff5500Unmute" , ".unmute #PLAYER"},
-	["GM_KICK"]         		= {true, "|cffff5500World kick", "kickPlayerFromWorldChannel(\"#PLAYER\")" },
-	["GM_BAN_GOLDSPAM"]     	= {false, "|cffff5500Gold spam", ".ban char #PLAYER 999 Goldspam" },    
-    ["GM_FREEZE"]       		= {false, "|cff00ffffStun" , ".stun #PLAYER"},
-    ["GM_UNFREEZE"]     		= {false, "|cff00ffffUnStun", ".unstun" },
-    ["GM_FLY"]          		= {true, "Flying Mode", "gmfly_OnClick()" },	
-    ["GM_SPEED_BOOST"]  		= {false, "Speed Boost", ".modify aspeed 5" },
-    ["GM_SPEED_MAX"]    		= {false, "Max Speed", ".modify aspeed 10" },
-    ["GM_SPEED_RESET"]  		= {false, "Reset Speed", ".modify aspeed 1" },
-    ["GM_SAY"]  				= {false, "|cffff00ffSay history", ".history #PLAYER say" },
-    ["GM_YELL"]  				= {false, "|cffff00ffYell history", ".history #PLAYER yell" },
-    ["GM_WHISPER"]  			= {false, "|cffff00ffWhisper history", ".history #PLAYER whisper" },
-    ["GM_CHANNEL"]  			= {false, "|cffff00ffChannel history", ".history #PLAYER channel" },	
-    ["GM_ALL"]  				= {false, "|cffff00ffAll history", ".history #PLAYER all" },	
-    ["GM_MAIL_SENT"]  			= {false, "|cffff00ffMail sent history", ".list mailsent #PLAYER" },	
-    ["GM_MAIL_REC"]  			= {false, "|cffff00ffMail recieved history", ".list mailrec #PLAYER" },
-	["GM_TICKET_LIST"]  		= {false, "|c0000ffffTickets", ".ticket" },    
-	--["GM_FINGERPRINT"]   		= {false, "Fingerprint" , ".lookup fingerprint #PLAYER"},
-	--["GM_IPP"]   				= {false, "|cff009888Lookup Player IP" , "lookup player ip #PLAYER"},
-	--["GM_IPA"]   				= {false, "|cff009888Lookup Account IP" , "lookup account ip #PLAYER"},	
-	["GM_SEPERATOR"]			= {false, "" , ""},
+    ["GM_PLAYERINFO"]   = {false, "|cff87C735Player info" , ".pinfo #PLAYER"},
+	["GM_PLAYERBANINFO"]   = {false, "|cff87C735Ban info" , ".baninfo char #PLAYER"},
+    ["GM_GO"]           = {false, "|cff00A5F9Go to", ".goname #PLAYER" },
+    ["GM_SUMMON"]       = {false, "|cff00A5F9Summon", ".namego #PLAYER" },
+    ["GM_RECALL"]       = {false, "Recall", ".recall #PLAYER" },
+    ["GM_KICK"]         = {true, "|cffff5500World kick", "test(\"#PLAYER\")" },
+    ["GM_POSSES"]       = {false, "Set View", ".gm setview" },
+    ["GM_MUTE"]         = {false, "|cffff5500Mute 5m", ".mute #PLAYER 5 BadBoi" },
+	["GM_BAN"]         = {false, "|cffff5500Gold spam", ".ban char #PLAYER 999 Goldspam" },
+    ["GM_UNMUTE"]       = {false, "|cffff5500Unmute" , ".unmute #PLAYER"},
+    ["GM_FREEZE"]       = {false, "Stun" , ".stun #PLAYER"},
+    ["GM_UNFREEZE"]     = {false, "UnStun", ".unstun" },
+    ["GM_FLY"]          = {true, "Flying Mode", "gmfly_OnClick()" },	
+    ["GM_SPEED_BOOST"]  = {false, "Speed Boost", ".modify aspeed 5" },
+    ["GM_SPEED_MAX"]    = {false, "Max Speed", ".modify aspeed 10" },
+    ["GM_SPEED_RESET"]  = {false, "Reset Speed", ".modify aspeed 1" },
+    ["GM_SAY"]  = {false, "|cff7f4fc9Say history", ".history #PLAYER say" },
+    ["GM_YELL"]  = {false, "|cff7f4fc9Yell history", ".history #PLAYER yell" },
+    ["GM_WHISPER"]  = {false, "|cff7f4fc9Whisper history", ".history #PLAYER whisper" },
+    ["GM_CHANNEL"]  = {false, "|cff7f4fc9Channel history", ".history #PLAYER channel" },	
+    ["GM_ALL"]  = {false, "|cff7f4fc9All history", ".history #PLAYER all" },	
+    ["GM_MAIL_SENT"]  = {false, "|cffffcd00Mail sent history", ".list mailsent #PLAYER" },	
+    ["GM_MAIL_REC"]  = {false, "|cffffcd00Mail recieved history", ".list mailrec #PLAYER" },
+    ["GM_TICKET_LIST"]  = {false, "Tickets", ".ticket" },
+    ["GM_TARNAME"]          = {true, "|cff87C735Name Box", "test2(\"#PLAYER\")" },
+	["GM_FINGERPRINT"]   = {false, "Fingerprint" , ".lookup fingerprint #PLAYER"},
+	["GM_IPP"]   = {false, "|cff009888Lookup Player IP" , ".lookup player ip #PLAYER"},
+	["GM_IPA"]   = {false, "|cff009888Lookup Account IP" , ".lookup account ip #PLAYER"},	
   },
 }
 local server_default = "kronos"
-
-UnitPopupButtons["GM_HEADER_PLAYER"] = { text = TEXT("PLAYER"), dist = 0 , nested = 1}
-UnitPopupButtons["GM_HEADER_ACCOUNT"] = { text = TEXT("ACCOUNT"), dist = 0, nested = 1}
-UnitPopupButtons["GM_HEADER_IP"] = { text = TEXT("IP"), dist = 0 , nested = 1}
-UnitPopupButtons["GM_HEADER_HISTORY"] = { text = TEXT("HISTORY"), dist = 0 , nested = 1}
-UnitPopupButtons["GM_HEADER_FINGERPRINT"] = { text = TEXT("FINGERPRINT"), dist = 0 , nested = 1}
+UnitPopupButtons["GM_HEADER"] = { text = TEXT("PLAYER"), dist = 0 , nested = 1}
+UnitPopupButtons["GM_HEADER2"] = { text = TEXT("ACCOUNT"), dist = 0, nested = 1}
+UnitPopupButtons["GM_HEADER3"] = { text = TEXT("IP"), dist = 0 , nested = 1}
+UnitPopupButtons["GM_HEADER4"] = { text = TEXT("HISTORY"), dist = 0 , nested = 1}
+UnitPopupButtons["GM_HEADER5"] = { text = TEXT("FINGERPRINT"), dist = 0 , nested = 1}
 UnitPopupButtons["GM_DIVIDER"] = { text = TEXT("---------"), dist = 0 }
-UnitPopupButtons["GM_SEPERATOR"] = { text = TEXT("\n"), dist = 0 }
 for label, data in pairs(gm_server[server_default]) do
   local displayname = data[2]
   UnitPopupButtons[label] = { text = TEXT("|cff00ff00" .. displayname), dist = 0 }
 end
+function test(name)
+ChannelKick("world", name)
+print(name.. " has been kicked from world.");
+end
 
-function kickPlayerFromWorldChannel(name)
-	ChannelKick("worldtest", name)
-	print(name.. " has been kicked from world.");
+function test2(name)
+gmPlayerName:SetText("")
+gmPlayerName:Insert(name)
+print(name.. " has been added to your player box.");
 end
 
 function pickTestFunction(name)
 	print(name.. " says Hi");
 end
 
-function addPlayerToNameBox(name)
-	gmPlayerName:SetText(name)
-	print(name.. " was added to the NameBox");
-end
+UnitPopupMenus["GM_HEADER"] = {"WHISPER", "INVITE", "TARGET", "GM_TARNAME", "GM_PLAYERINFO", "GM_PLAYERBANINFO", "GM_GO", "GM_SUMMON", "GM_KICK", "GM_BAN", "GM_MUTE", "GM_UNMUTE", "CANCEL"};
+UnitPopupMenus["GM_HEADER2"] = {"CANCEL"};
+UnitPopupMenus["GM_HEADER3"] = {"GM_IPP", "GM_IPA", "CANCEL"};
+UnitPopupMenus["GM_HEADER4"] = {"GM_SAY", "GM_YELL", "GM_WHISPER", "GM_CHANNEL", "GM_ALL", "GM_MAIL_SENT", "GM_MAIL_REC","CANCEL"};
+UnitPopupMenus["GM_HEADER5"] = {"GM_FINGERPRINT","CANCEL"};
 
-function PopUpMenu_Load()	
-	if(this.period == nil) then  -- Initialization
-        this.period = 1 -- Do something every 1 second
-        this.elapsed = 0
-        this.step = 0
-    end
-    this.elapsed = this.elapsed + arg1 -- track elapsed time (in seconds)
-    if (this.elapsed >= this.period or this.step == 0) then
+-- chat dropdown
+
+table.insert(UnitPopupMenus["FRIEND"], 1, "GM_HEADER")
+table.insert(UnitPopupMenus["FRIEND"], 2, "GM_HEADER2")
+table.insert(UnitPopupMenus["FRIEND"], 3, "GM_HEADER3")
+table.insert(UnitPopupMenus["FRIEND"], 4, "GM_HEADER4")
+table.insert(UnitPopupMenus["FRIEND"], 5, "GM_HEADER5")
+table.insert(UnitPopupMenus["FRIEND"], 6, "CANCEL")
+table.remove(UnitPopupMenus["FRIEND"], 7)
+table.remove(UnitPopupMenus["FRIEND"], 8)
+table.remove(UnitPopupMenus["FRIEND"], 9)
+table.remove(UnitPopupMenus["FRIEND"], 10)
+table.remove(UnitPopupMenus["FRIEND"], 11)
+table.remove(UnitPopupMenus["FRIEND"], 12)
+-- player dropdown
+table.insert(UnitPopupMenus["SELF"], "GM_HEADER")
+table.insert(UnitPopupMenus["SELF"], "GM_FLY")
+table.insert(UnitPopupMenus["SELF"], "GM_SPEED_BOOST")
+table.insert(UnitPopupMenus["SELF"], "GM_SPEED_MAX")
+table.insert(UnitPopupMenus["SELF"], "GM_SPEED_RESET")
+table.insert(UnitPopupMenus["SELF"], "GM_RECALL")
+table.insert(UnitPopupMenus["SELF"], "GM_TICKET_LIST")
+-- player target dropdown
+table.insert(UnitPopupMenus["PLAYER"], "GM_HEADER")
+table.insert(UnitPopupMenus["PLAYER"], "GM_TARNAME")
+table.insert(UnitPopupMenus["PLAYER"], "GM_PLAYERINFO")
+table.insert(UnitPopupMenus["PLAYER"], "GM_PLAYERBANINFO")
+table.insert(UnitPopupMenus["PLAYER"], "GM_POSSES")
+table.insert(UnitPopupMenus["PLAYER"], "GM_RECALL")
+table.insert(UnitPopupMenus["PLAYER"], "GM_FREEZE")
+table.insert(UnitPopupMenus["PLAYER"], "GM_UNFREEZE")
+table.insert(UnitPopupMenus["PLAYER"], "GM_MUTE")
+table.insert(UnitPopupMenus["PLAYER"], "GM_UNMUTE")
+table.insert(UnitPopupMenus["PLAYER"], "GM_KICK")
+table.insert(UnitPopupMenus["PLAYER"], "GM_HEADER3")
+table.insert(UnitPopupMenus["PLAYER"], "GM_SAY")
+table.insert(UnitPopupMenus["PLAYER"], "GM_YELL")
+table.insert(UnitPopupMenus["PLAYER"], "GM_WHISPER")
+table.insert(UnitPopupMenus["PLAYER"], "GM_CHANNEL")
+table.insert(UnitPopupMenus["PLAYER"], "GM_ALL")
+table.insert(UnitPopupMenus["PLAYER"], "GM_HEADER4")
+table.insert(UnitPopupMenus["PLAYER"], "GM_MAIL_SENT")
+table.insert(UnitPopupMenus["PLAYER"], "GM_MAIL_REC")
+-- party member dropdown
+table.insert(UnitPopupMenus["PARTY"], "GM_HEADER")
+table.insert(UnitPopupMenus["PARTY"], "GM_PLAYERINFO")
+table.insert(UnitPopupMenus["PARTY"], "GM_PLAYERBANINFO")
+table.insert(UnitPopupMenus["PARTY"], "GM_GO")
+table.insert(UnitPopupMenus["PARTY"], "GM_DIVIDER")
+table.insert(UnitPopupMenus["PARTY"], "GM_SUMMON")
+table.insert(UnitPopupMenus["PARTY"], "GM_RECALL")
+table.insert(UnitPopupMenus["PARTY"], "GM_MUTE")
+table.insert(UnitPopupMenus["PARTY"], "GM_UNMUTE")
+table.insert(UnitPopupMenus["PARTY"], "GM_KICK")
+-- raid member dropdown
+table.insert(UnitPopupMenus["RAID"], "GM_HEADER")
+table.insert(UnitPopupMenus["RAID"], "GM_PLAYERINFO")
+table.insert(UnitPopupMenus["RAID"], "GM_PLAYERBANINFO")
+table.insert(UnitPopupMenus["RAID"], "GM_GO")
+table.insert(UnitPopupMenus["RAID"], "GM_DIVIDER")
+table.insert(UnitPopupMenus["RAID"], "GM_SUMMON")
+table.insert(UnitPopupMenus["RAID"], "GM_RECALL")
+table.insert(UnitPopupMenus["RAID"], "GM_MUTE")
+table.insert(UnitPopupMenus["RAID"], "GM_UNMUTE")
+table.insert(UnitPopupMenus["RAID"], "GM_KICK")
+local oldOnClick = UnitPopup_OnClick
+
+function UnitPopup_OnClick()
+	 local dropdownFrame = getglobal(UIDROPDOWNMENU_INIT_MENU)
+	 local button = this.value
+	 local unit = dropdownFrame.unit
+	 local name = dropdownFrame.name
+	 local server = dropdownFrame.server	 
+	 local finger = "txtGmPinfoFinger:GetText()"
+	 for label, data in pairs(gm_server[server_default]) do
+	   local commandIsFunction = data[1] -- The first value of {true, "Pick's function", "pickTestFunction()" }
+	   local command = data[3]    
+	   if button == label then
+			 if name ~= nil and name ~= "" then
+			   command = string.gsub(command, "#PLAYER", name)
+			   command = string.gsub(command, CHAT_FLAG_GM, name)
+			 end
+			if commandIsFunction then 
+				RunScript(command) -- The same as ingame /run pickTestFunction("Picktest")
+			else
+				SendChatMessage(command)
+	   end
+	end
 	
-		if (this.step == 2) then -- do something after 1 second
-
-			if gmSave["GmLevel"] >= 5 then
-				UnitPopupMenus["GM_HEADER_PLAYER"] = {"GM_TARNAMEBOX", "GM_PLAYERINFO", "GM_PLAYERBANINFO", "GM_SEPERATOR", "GM_GO", "GM_SUMMON", "GM_SEPERATOR", "GM_KICK", "GM_MUTE", "GM_UNMUTE", "GM_BAN_GOLDSPAM"};
-				UnitPopupMenus["GM_HEADER_ACCOUNT"] = {"CANCEL"};
-				UnitPopupMenus["GM_HEADER_HISTORY"] = {"GM_SAY", "GM_YELL", "GM_WHISPER", "GM_CHANNEL", "GM_ALL", "GM_MAIL_SENT", "GM_MAIL_REC"};
-				UnitPopupMenus["GM_HEADER_FINGERPRINT"] = {"CANCEL" };
-				UnitPopupMenus["GM_HEADER_IP"] = {"CANCEL" };
-			elseif gmSave["GmLevel"] == 4 then				
-				UnitPopupMenus["GM_HEADER_PLAYER"] = {"GM_TARNAMEBOX", "GM_PLAYERINFO", "GM_PLAYERBANINFO", "GM_SEPERATOR", "GM_GO", "GM_SUMMON", "GM_SEPERATOR", "GM_KICK", "GM_MUTE", "GM_UNMUTE", "GM_BAN_GOLDSPAM"};
-				UnitPopupMenus["GM_HEADER_ACCOUNT"] = {"CANCEL"};
-				UnitPopupMenus["GM_HEADER_HISTORY"] = {"GM_SAY", "GM_YELL", "GM_WHISPER", "GM_CHANNEL", "GM_ALL"};
-				UnitPopupMenus["GM_HEADER_FINGERPRINT"] = {"CANCEL" };
-				UnitPopupMenus["GM_HEADER_IP"] = {"CANCEL" };
-			elseif gmSave["GmLevel"] == 3 then			
-				UnitPopupMenus["GM_HEADER_PLAYER"] = {"GM_TARNAMEBOX", "GM_PLAYERINFO", "GM_PLAYERBANINFO", "GM_SEPERATOR", "GM_GO", "GM_SUMMON", "GM_SEPERATOR", "GM_KICK", "GM_MUTE", "GM_UNMUTE", "GM_BAN_GOLDSPAM"};
-				UnitPopupMenus["GM_HEADER_ACCOUNT"] = {"CANCEL"};
-				UnitPopupMenus["GM_HEADER_FINGERPRINT"] = {"CANCEL" };
-				UnitPopupMenus["GM_HEADER_IP"] = {"CANCEL" };
-			elseif gmSave["GmLevel"] == 2 then
-				UnitPopupMenus["GM_HEADER_PLAYER"] = {"GM_TARNAMEBOX", "GM_PLAYERINFO", "GM_PLAYERBANINFO", "GM_SEPERATOR", "GM_GO", "GM_SUMMON", "GM_SEPERATOR", "GM_KICK", "GM_MUTE", "GM_UNMUTE"};
-				UnitPopupMenus["GM_HEADER_ACCOUNT"] = {"CANCEL"};
-				UnitPopupMenus["GM_HEADER_FINGERPRINT"] = {"CANCEL" };
-				UnitPopupMenus["GM_HEADER_IP"] = {"CANCEL" };
-			end
-
-			counts = 20
-			for i=0, counts do UnitPopupMenus["FRIEND"][i] = nil end
-			for i=0, counts do UnitPopupMenus["SELF"][i] = nil end
-			for i=0, counts do UnitPopupMenus["PLAYER"][i] = nil end
-			for i=0, counts do UnitPopupMenus["PARTY"][i] = nil end
-			for i=0, counts do UnitPopupMenus["RAID"][i] = nil end
-
-			-- chat dropdown		
-			table.insert(UnitPopupMenus["FRIEND"], "GM_SEPERATOR")
-			table.insert(UnitPopupMenus["FRIEND"], "WHISPER")
-			table.insert(UnitPopupMenus["FRIEND"], "TARGET")
-			table.insert(UnitPopupMenus["FRIEND"], "GM_SEPERATOR")
-			table.insert(UnitPopupMenus["FRIEND"], "GM_HEADER_PLAYER")
-			table.insert(UnitPopupMenus["FRIEND"], "GM_HEADER_ACCOUNT")		
-			if gmSave["GmLevel"] >= 4 then
-				table.insert(UnitPopupMenus["FRIEND"], "GM_HEADER_HISTORY")		
-			end
-			table.insert(UnitPopupMenus["FRIEND"], "GM_SEPERATOR")
-			table.insert(UnitPopupMenus["FRIEND"], "CANCEL")
-
-			-- player self dropdown			
-			table.insert(UnitPopupMenus["SELF"], "GM_FLY")
-			table.insert(UnitPopupMenus["SELF"], "GM_SPEED_BOOST")
-			table.insert(UnitPopupMenus["SELF"], "GM_SPEED_MAX")
-			table.insert(UnitPopupMenus["SELF"], "GM_SPEED_RESET")
-			table.insert(UnitPopupMenus["SELF"], "GM_RECALL")
-			table.insert(UnitPopupMenus["SELF"], "GM_TICKET_LIST")
-			table.insert(UnitPopupMenus["SELF"], "GM_SEPERATOR")
-						
-			-- player target dropdown
-			table.insert(UnitPopupMenus["PLAYER"], "WHISPER")
-			table.insert(UnitPopupMenus["PLAYER"], "INSPECT")		
-			table.insert(UnitPopupMenus["PLAYER"], "GM_SEPERATOR")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_HEADER_PLAYER")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_HEADER_ACCOUNT")			
-			if gmSave["GmLevel"] >= 3 then
-				table.insert(UnitPopupMenus["PLAYER"], "GM_HEADER_FINGERPRINT")
-			end
-			if gmSave["GmLevel"] >= 4 then
-				table.insert(UnitPopupMenus["PLAYER"], "GM_HEADER_IP")
-				table.insert(UnitPopupMenus["PLAYER"], "GM_HEADER_HISTORY")
-			end			
-			table.insert(UnitPopupMenus["PLAYER"], "GM_SEPERATOR")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_PLAYERINFO")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_PLAYERBANINFO")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_POSSES")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_RECALL")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_SEPERATOR")			
-			if gmSave["GmLevel"] >= 4 then
-				table.insert(UnitPopupMenus["PLAYER"], "GM_FREEZE")
-				table.insert(UnitPopupMenus["PLAYER"], "GM_UNFREEZE")
-				table.insert(UnitPopupMenus["PLAYER"], "GM_SEPERATOR")
-			end
-			table.insert(UnitPopupMenus["PLAYER"], "GM_MUTE")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_UNMUTE")
-			table.insert(UnitPopupMenus["PLAYER"], "GM_KICK")	
-			
-			-- party member dropdown
-			table.insert(UnitPopupMenus["PARTY"], "GM_HEADER_PLAYER")
-			table.insert(UnitPopupMenus["PARTY"], "GM_PLAYERINFO")
-			table.insert(UnitPopupMenus["PARTY"], "GM_PLAYERBANINFO")
-			table.insert(UnitPopupMenus["PARTY"], "GM_GO")
-			table.insert(UnitPopupMenus["PARTY"], "GM_DIVIDER")
-			table.insert(UnitPopupMenus["PARTY"], "GM_SUMMON")
-			table.insert(UnitPopupMenus["PARTY"], "GM_RECALL")
-			table.insert(UnitPopupMenus["PARTY"], "GM_MUTE")
-			table.insert(UnitPopupMenus["PARTY"], "GM_UNMUTE")
-			table.insert(UnitPopupMenus["PARTY"], "GM_KICK")
-			
-			-- raid member dropdown
-			table.insert(UnitPopupMenus["RAID"], "GM_HEADER_PLAYER")
-			table.insert(UnitPopupMenus["RAID"], "GM_PLAYERINFO")
-			table.insert(UnitPopupMenus["RAID"], "GM_PLAYERBANINFO")
-			table.insert(UnitPopupMenus["RAID"], "GM_GO")
-			table.insert(UnitPopupMenus["RAID"], "GM_DIVIDER")
-			table.insert(UnitPopupMenus["RAID"], "GM_SUMMON")
-			table.insert(UnitPopupMenus["RAID"], "GM_RECALL")
-			table.insert(UnitPopupMenus["RAID"], "GM_MUTE")
-			table.insert(UnitPopupMenus["RAID"], "GM_UNMUTE")
-			table.insert(UnitPopupMenus["RAID"], "GM_KICK")
-			
-			local oldOnClick = UnitPopup_OnClick
-			function UnitPopup_OnClick()
-				local dropdownFrame = getglobal(UIDROPDOWNMENU_INIT_MENU)
-				local button = this.value
-				local unit = dropdownFrame.unit
-				local name = dropdownFrame.name
-				local server = dropdownFrame.server	 
-				local finger = "txtGmPinfoFinger:GetText()"	 
-				 
-				for label, data in pairs(gm_server[server_default]) do
-					local commandIsFunction = data[1] -- The first value of {true, "Pick's function", "pickTestFunction()" }
-					local command = data[3]    
-					if button == label then
-						if name ~= nil and name ~= "" then
-							command = string.gsub(command, "#PLAYER", name)
-							command = string.gsub(command, CHAT_FLAG_GM, name)
-						end
-						if commandIsFunction then 
-							RunScript(command) -- The same as ingame /run pickTestFunction("Picktest")
-						else
-							SendChatMessage(command)
-						end
-					end		
-				end
-				oldOnClick()
-			end		
-		elseif (this.step == 3) then -- Cleanup, destroy timer
-            this:SetScript("OnUpdate", nil)
-            this = nil  
-			return
-        end
-        this.elapsed = 0
-        this.step = this.step + 1
-    end
-end
-
--- SHAGU's Ticket Parsing Code
---pfAdmin.lua
-pfAdmin = CreateFrame("Frame")
-
--- Query Action
-function pfAdmin:SendQuery(command, func)
-  -- close last query when still running
-  if pfAdmin.query_state then
-    pfAdmin.query_func(nil)
-  end
-
-  pfAdmin.query_state = GetTime()
-  pfAdmin.query_func = func or function() end
-  SendChatMessage(command, "GUILD")
-end
-
--- Parse Query Results
-function pfAdmin:ParseQuery(result)
-  local _, ret = nil, {}
-  _, _, ret.id        = strfind(result, "|cffaaffaaTicket|r:|cffaaccff (.-).|r")
-  _, _, ret.creator   = strfind(result, "|cff00ff00Creator|r:|cff00ccff |cffffffff|Hplayer:.-|h%[(.-)%]|h|r|r")
-  _, _, ret.created   = strfind(result, "|cff00ff00Created|r:|cff00ccff (.-)|r")
-  _, _, ret.changed   = strfind(result, "|cff00ff00Changed|r:|cff00ccff (.-)|r")
-  _, _, ret.assigned  = strfind(result, "|cff00ff00Assigned to|r:|cff00ccff |cffffffff|Hplayer:.-|h%[(.-)%]|h|r|r")
-  _, _, ret.message   = strfind(result, "|cff00ff00Ticket Message|r: %[(.+)%]|r")
-  _, _, ret.message_multi = strfind(result, "|cff00ff00Ticket Message|r: %[(.+)")
-  _, _, ret.closed = strfind(result, "|cff00ff00Closed by|r")
-  _, _, ret.new   = strfind(result, "|cff00ff00New ticket from")
-
-if not ret.closed then
-  if ret.id and not ret.message and ret.message_multi then
-    pfAdmin.parse_multi = true
-    ret.message = ret.message_multi
-  elseif ret.id then
-    pfAdmin.parse_multi = nil
-  end
-
-  if not ret.id and pfAdmin.parse_multi then
-    local _, _, multi_end = strfind(result, "(.+)%]|r")
-    if multi_end then
-      pfAdmin.parse_multi = nil
-      ret.message = multi_end
-    else
-      ret.message = result
-    end
-  end
-
-  return ret
-end
-end
-
--- Hide Query Messages
-local HookChatFrame_OnEvent = ChatFrame_OnEvent
-function ChatFrame_OnEvent(event)
-  if event == "CHAT_MSG_SYSTEM" and pfAdmin.query_state then
-    pfAdmin.query_func(arg1)
-  end
-  HookChatFrame_OnEvent(event)
-end
-
-function CreateScrollFrame(name, parent)
-  local f = CreateFrame("ScrollFrame", name, parent)
-
-  f.Scroll = function(self, step)
-    local current = self:GetVerticalScroll()
-    local new = current + step*-25
-    local max = self:GetVerticalScrollRange() + 25
-
-    if max > 25 then
-      if new < 0 then
-        self:SetVerticalScroll(0)
-      elseif new > max then
-        self:SetVerticalScroll(max)
-      else
-        self:SetVerticalScroll(new)
-      end
-    end
-
-    self:UpdateScrollState()
-  end
-
-  f:EnableMouseWheel(1)
-
-  f.UpdateScrollState = function(self)
-    -- Update Scroll Indicators: Hide/Show if required.
-    local current = floor(self:GetVerticalScroll())
-    local max = floor(self:GetVerticalScrollRange() + 25)
-
-  end
-
-  f:SetScript("OnMouseWheel", function()
-    this:Scroll(arg1)
-  end)
-
-  return f
-end
-
-function CreateScrollChild(name, parent)
-  local f = CreateFrame("Frame", name, parent)
-
-  -- dummy values required
-  f:SetWidth(1)
-  f:SetHeight(1)
-  f:SetAllPoints(parent)
-
-  parent:SetScrollChild(f)
-
-  -- OnShow is fired too early, postpone to the first frame draw
-  f:SetScript("OnUpdate", function()
-    this:GetParent():UpdateScrollState()
-    this:SetScript("OnUpdate", nil)
-  end)
-
-  return f
-end
-
--- Ticketlist.lua (Scrollbar list)
-local function CreateTicketListRow(count, parent)
-  local f = CreateFrame("Button", "pfAdminTicketList" .. count, parent)
-
-  f:SetHeight(20)
-  f:SetPoint("TOPLEFT", parent, "TOPLEFT", 0, -count * 22 + 15)
-  f:SetPoint("TOPRIGHT", parent, "TOPLEFT", 90, -count * 22 + 15)
-
-  f.title = f:CreateFontString("Status", "HIGH", "GameFontNormal")
-  f.title:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-  f.title:SetAllPoints(f)
-  f.title:SetFontObject(GameFontWhite)
-  f.title:SetJustifyH("CENTER")
-
-  f:SetScript("OnClick", function()
-    pfAdmin.ticket:ShowTicketDialog(this:GetID())
-  end)
-
-  f:SetScript("OnLeave", function()
-    GameTooltip:Hide()
-  end)
-
-  f.tex = f:CreateTexture("highlight", "LOW")
-  f.tex:SetAllPoints(f)
-  f.tex:SetPoint("TOPLEFT", f, "TOPLEFT", -5, 0)
-  f.tex:SetPoint("BOTTOMRIGHT", f, "BOTTOMRIGHT", 5, 0)
-  return f
-end
-
-function RefreshList()
-  -- pfAdmin.tickets.scroll.list.items
-  scroll.list.item_count = 1
-
-  pfAdmin:SendQuery(".ticket list", function(result)
-    if result then
-      local ret = pfAdmin:ParseQuery(result)
-	  
-      if ret.id then
-        local parent = scroll.list
-        local count = parent.item_count
-
-        parent.items[count] = parent.items[count] or CreateTicketListRow(count, parent)
-        parent.items[count]:Show()
-		parent.items[count]:SetHeight(18)
-		parent.items[count]:SetNormalTexture("Interface\\AddOns\\KronosGMAddon\\Images\\ANSWRTTICK.tga")
-		parent.items[count]:SetHighlightTexture("Interface\\AddOns\\KronosGMAddon\\Images\\ANSWRTTICK.tga","ADD")
-        parent.items[count].title:SetText(ret.creator)
-		parent.items[count].title:SetTextColor(1.0, 0.55, 0.0);
-		parent.items[count].title:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE, ")
-        parent.items[count]:SetID(ret.id)
-        parent.item_count = count + 1
-		if parent.items[count].title:GetText() == nil then
-		parent.items[count]:Hide()
-		end
-      end
-      if ret.id and ret.closed then
-        local parent = scroll.list
-        local count = parent.item_count
-
-        parent.items[count] = parent.items[count] or CreateTicketListRow(count, parent)
-        parent.items[count]:Hide()
-		parent.item_count = count - 1
-		btnGmLoadT_OnClick()
-      end
-    else
-      -- end query
-      for i=scroll.list.item_count,table.getn(scroll.list.items) do
-        scroll.list.items[i]:Hide()
-      end
-    end
-  end)
-end
-
-
-
-
-
-do -- scroll frame
-  scroll = CreateScrollFrame("pfAdminTicketsScroll", gmUIFrame)
-  scroll:SetPoint("TOPLEFT", gmUIFrame, "TOPLEFT", 958, -574)
-  scroll:SetPoint("BOTTOMRIGHT", gmUIFrame, "BOTTOMRIGHT", -10, -10)
-  scroll.buttons = { }
-  scroll.list = CreateScrollChild("pfAdminTicketsScrollList", scroll)
-  scroll.list:SetAllPoints(scroll)
-  scroll.list.items = { }
-end
-
--- Ticket.lua
-pfAdmin.ticket = { }
-
-function pfAdmin.ticket:ResetTicketDialog(id)
-	txtauthor:SetText("|cff33ffccAuthor:|r -")
-	txttickid:SetText("|cff33ffcc#|r--")
-	txtGmTTime:SetText("|cff33ffccCreated:|r -")
-	txtGmMsgT:SetText("")
-	gmPlayerName:SetText("")
-end
-
-function pfAdmin.ticket:ShowTicketDialog(id)
-	pfAdmin:SendQuery(".ticket " .. id, function(result)
-		if result then
-			local ret = pfAdmin:ParseQuery(result)
-
-			if ret.id then
-				pfAdmin.ticket:ResetTicketDialog(id)
-				-- pfAdmin.ticket.windows[id].data = ret
-				txtauthor:SetText("|cff33ffccAuthor:|r " .. ret.creator)
-				txttickid:SetText(ret.id)
-				txttestiddel:SetText(count)
-				txtGmTTime:SetText("|cff33ffccCreated:|r " .. ret.created)
-				-- pfAdmin.ticket.windows[id].modified:SetText("|cff33ffccModified:|r -" .. (ret.changed or "-"))
-
-				if ret.message and txtGmMsgT:GetText() == "Updating tickets... If this takes too long type /reload and load the addon again. Or click the 'Refresh Ticket Text' button!" then
-					txtGmMsgT:SetText(ret.message)
-					gmPlayerName:SetText(ret.creator)
-				elseif ret.message then
-					txtGmMsgT:SetText(txtGmMsgT:GetText() .. "\n" .. ret.message)
-					gmPlayerName:SetText(ret.creator)
-				end
-			end
-		end
-	end)
+	 end
+	 oldOnClick()
 end

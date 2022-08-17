@@ -96,7 +96,6 @@ I would like to thank everyone who has helped test Kronos GM Addon as well as su
 - Shagu
 - Wehlast
 - Flash
-- Zalk
 |r
 
 I would also like to thank everyone who has contributed to Project Kronos as a whole.
