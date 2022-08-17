@@ -19,7 +19,7 @@
 				<AbsValue val="32" />
 			</EdgeSize>
 		</Backdrop>
-<Layers>
+		<Layers>
 <!--TicketDateLabel Start-->
 					<Layer>
 						<FontString name="$parentTitleString" font="Fonts\FRIZQT__.TTF" text="">
@@ -51,7 +51,23 @@
 					<Size x="400" y="-220" />
 					<Anchors>
 						<Anchor point="CENTER">
-							<Offset x="875" y="-285" />
+							<Offset x="930" y="-560" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="txtauthor" inherits="GameFontNormal" text="-" justifyH="LEFT">
+					<Size x="400" y="-220" />
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset x="810" y="-284" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="txttickid" inherits="GameFontNormal" text="-" justifyH="LEFT">
+					<Size x="400" y="-220" />
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset x="1000" y="-284" />
 						</Anchor>
 					</Anchors>
 				</FontString>
@@ -61,8 +77,8 @@
 				<FontString name="txtGmPinfoStatus" inherits="GameFontNormal" text="" justifyH="LEFT">
 					<Size x="400" y="300" />
 					<Anchors>
-					<Anchor point="BOTTOM" relativeTo="txtGmTTime">
-						<Offset x="-410" y="-145" />
+					<Anchor point="BOTTOMLEFT" relativeTo="txtauthor">
+						<Offset x="-450" y="-150" />
 					</Anchor>
 					</Anchors>
 				</FontString>				
@@ -70,7 +86,7 @@
 					<Size x="400" y="300" />
 					<Anchors>
 					<Anchor point="BOTTOMLEFT" relativeTo="txtGmPinfoStatus">
-						<Offset x="-100" y="-25" />
+						<Offset x="0" y="-25" />
 					</Anchor>
 					</Anchors>
 				</FontString>
@@ -152,11 +168,11 @@
 					<Color r="1" g="0.502" b="0" />
 				</FontString>
 				</Layer>
-				<!--Ticket count end-->					
-</Layers>
-				<!--Background Images Start-->	
-	<Layers FrameStrata="Background">
-				<Layer>
+		<!--Ticket count end-->					
+		</Layers>
+		<!--Background Images Start-->	
+		<Layers FrameStrata="Background">
+			<Layer>
 				<Texture name="chat" file="Interface\AddOns\KronosGMAddon\Images\bg1" hidden="false">
 					<Size x="650" y="600" />
 					<Anchors>
@@ -184,7 +200,17 @@
 						<Offset x="-119.5" y="-215" />
 						</Anchor>
 					</Anchors>
-				</Texture>				
+				</Texture>
+
+				<Texture name="chat3b" file="Interface\AddOns\KronosGMAddon\Images\bg3b" hidden="false">
+					<Size x="650" y="600" />
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT">
+						<Offset x="-119.5" y="-215" />
+						</Anchor>
+					</Anchors>
+				</Texture>
+				
 			</Layer>
 			<Layer>
 				<Texture name="chat4" file="Interface\AddOns\KronosGMAddon\Images\bg4" hidden="false">
@@ -207,7 +233,7 @@
 				</Texture>				
 			</Layer>			
 				<!--Background Images End-->		
-<Layer>
+			<Layer>
 				<!--Toggle Text top of ticket window Start-->	
 				<FontString name="gmCheckOnlineLbl" inherits="GameFontHighlight" text="Online">
 					<Size x="90" y="20" />
@@ -228,19 +254,19 @@
 					<FontHeight val="10" />
 				</FontString>
 				<!--Toggle Text top of ticket window End-->					
-</Layer>				
+				</Layer>				
 			</Layers>
-		<Scripts>
-			<OnLoad>
-				gmUIFrame_OnLoad()
-			</OnLoad>
-						<OnUpdate>
-				gmUIFrame_OnUpdate()
-			</OnUpdate>
-			<OnEvent>
-				gmUIFrame_OnEvent(event, arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12)
-			</OnEvent>
-		</Scripts>
+			<Scripts>
+				<OnLoad>
+					gmUIFrame_OnLoad()
+				</OnLoad>
+							<OnUpdate>
+					gmUIFrame_OnUpdate()
+				</OnUpdate>
+				<OnEvent>
+					gmUIFrame_OnEvent(event, arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12)
+				</OnEvent>
+			</Scripts>
 		<Frames>
 			<!-- Ticket Assign Box  Alert telling other GMs online that the ticket is being answered Start -->			
 				<Frame name="gmAssignBox" parent="gmUIFrame" movable="false" clampedToScreen="false" hidden="true" FrameStrata="DIALOG">
@@ -274,6 +300,15 @@
 					</Anchors>
 				</FontString>					
 						<FontString name="gmAssign" inherits="GameFontNormal" text="" hidden="true">
+							<Color r="0.0" g="9.4" b="0.0"/>
+							<Size x="500" y="200" />
+							<Anchors>
+								<Anchor point="CENTER">
+									<Offset x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</FontString>
+						<FontString name="txttestiddel" inherits="GameFontNormal" text="" hidden="true">
 							<Color r="0.0" g="9.4" b="0.0"/>
 							<Size x="500" y="200" />
 							<Anchors>
@@ -1392,7 +1427,7 @@
 				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallN" alphaMode="ADD" virtual="true"/>					
 				<Anchors>
 					<Anchor point="CENTER">
-						<Offset x="-475" y="-500" />
+						<Offset x="-400" y="-500" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -1409,7 +1444,7 @@
 				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallN" alphaMode="ADD" virtual="true"/>				
 				<Anchors>
 					<Anchor point="CENTER">
-						<Offset x="-400" y="-500" />
+						<Offset x="-475" y="-500" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -1418,7 +1453,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="btngmAuraOpen" inherits="UIPanelButtonTemplate" text="Auras">
+			<Button name="btngmAuraOpen" inherits="UIPanelButtonTemplate" text="Auras" hidden="false">
 				<Size x="75" y="25" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallND"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmallN"/>
@@ -1482,7 +1517,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						mountrandocheck()
+						mountrandotarget()
 					</OnClick>
 				</Scripts>
 			</Button>				
@@ -1521,7 +1556,7 @@
 				</Scripts>
 			</Button>					
 		</Frames>
-			<!-- GM Windows and Action Buttons End -->			
+		<!-- GM Windows and Action Buttons End -->			
 </Frame>	
 	<!--Main Frame END-->
 	<!--Learn Frame START-->	
@@ -1599,7 +1634,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="btngmLearnArm" inherits="UIPanelButtonTemplate" text="Armor">
+			<Button name="btngmLearnArmor" inherits="UIPanelButtonTemplate" text="Armor">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallND"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmallN.blp"/>
@@ -1612,7 +1647,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnArm_OnClick()
+						btngmLearnArmor_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>						
@@ -1752,7 +1787,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="btngmLearnHerb" inherits="UIPanelButtonTemplate" text="Herbalism">
+			<Button name="btngmLearnHerbalism" inherits="UIPanelButtonTemplate" text="Herbalism">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallBD"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
@@ -1765,7 +1800,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnHerb_OnClick()
+						btngmLearnHerbalism_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>
@@ -1786,7 +1821,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>	
-			<Button name="btngmLearnRidi" inherits="UIPanelButtonTemplate" text="Riding">
+			<Button name="btngmLearnRiding" inherits="UIPanelButtonTemplate" text="Riding">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUDD"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUD.blp"/>
@@ -1799,11 +1834,11 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnRidi_OnClick()
+						btngmLearnRiding_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="btngmLearnSkin" inherits="UIPanelButtonTemplate" text="Skinning">
+			<Button name="btngmLearnSkinning" inherits="UIPanelButtonTemplate" text="Skinning">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTDI"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRT.blp"/>
@@ -1816,11 +1851,11 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnSkin_OnClick()
+						btngmLearnSkinning_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>	
-			<Button name="btngmLearnTail" inherits="UIPanelButtonTemplate" text="Tailoring">
+			<Button name="btngmLearnTailoring" inherits="UIPanelButtonTemplate" text="Tailoring">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
@@ -1833,11 +1868,11 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnTail_OnClick()
+						btngmLearnTailoring_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="btngmLearnCook" inherits="UIPanelButtonTemplate" text="Cooking">
+			<Button name="btngmLearnCooking" inherits="UIPanelButtonTemplate" text="Cooking">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
@@ -1850,11 +1885,11 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnCook_OnClick()
+						btngmLearnCooking_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="btngmLearnFirs" inherits="UIPanelButtonTemplate" text="First Aid">
+			<Button name="btngmLearnFirstAid" inherits="UIPanelButtonTemplate" text="First Aid">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
@@ -1867,11 +1902,11 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnFirs_OnClick()
+						btngmLearnFirstAid_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>		
-			<Button name="btngmLearnFish" inherits="UIPanelButtonTemplate" text="Fishing">
+			<Button name="btngmLearnFishFishing" inherits="UIPanelButtonTemplate" text="Fishing">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
@@ -1884,11 +1919,11 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnFish_OnClick()
+						btngmLearnFishFishing_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>	
-			<Button name="btngmLearnMini" inherits="UIPanelButtonTemplate" text="Mining">
+			<Button name="btngmLearnMining" inherits="UIPanelButtonTemplate" text="Mining">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUDI"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU.blp"/>
@@ -1901,7 +1936,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmLearnMini_OnClick()
+						btngmLearnMining_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>				
@@ -1937,6 +1972,7 @@
 		</Scripts>
 	</Frame>	
 	<!--Learn Frame END-->
+	<!-- Teleport Frame START -->
 	<Frame name="gmTeleFrame" hidden="true" parent="UIParent" movable="true" enableMouse="true" frameStrata="DIALOG" toplevel="true">
 		<Size x="500" y="500" />
 		<Anchors>
@@ -2002,11 +2038,11 @@
 			</Layer>
 			<Layer level="OVERLAY">
 				<FontString name="txtworldboss" inherits="GameFontNormal" text="World Bosses">.
-				<Color r="0.0" g="9.0" b="0.0"/>				
+				<Color r="0" g="9.0" b="0.0"/>				
 					<Size x="120" y="30" />
 					<Anchors>
 						<Anchor point="TOPLEFT">
-							<Offset x="290" y="-265" />
+							<Offset x="290" y="-230" />
 						</Anchor>
 					</Anchors>
 				</FontString>
@@ -2229,7 +2265,29 @@
 						btngmTeleCold_OnClick()
 					</OnClick>
 				</Scripts>
-			</Button>				
+			</Button>	
+
+
+			<Button name="btngmTeleGadgetzan" inherits="UIPanelButtonTemplate" text="Gadgetzan">
+				<Size x="90" y="28" />
+				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallND"/>
+				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga" alphaMode="ADD" virtual="true"/>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="105" y="-350" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btngmTeleGadgetzan_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+
+
+			
 			<Button name="btngmTeleGM" inherits="UIPanelButtonTemplate" text="GM Island">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTBD"/>
@@ -2264,12 +2322,12 @@
 					</OnClick>
 				</Scripts>
 			</Button>	
-			<Button name="btngmTeleDev" inherits="UIPanelButtonTemplate" text="Designer">
+			<Button name="btngmTeleNPC" inherits="UIPanelButtonTemplate" text="NPC">
 				<Size x="90" y="30" />
-				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallBD"/>
-				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
-				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB"/>
-				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB" alphaMode="ADD" virtual="true"/>					
+				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUBD"/>
+				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB.blp"/>
+				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB"/>
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB" alphaMode="ADD" virtual="true"/>
 				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset x="260" y="-200" />
@@ -2277,61 +2335,29 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmTeleDev_OnClick()
-					</OnClick>
-				</Scripts>
-			</Button>	
-			<Button name="btngmTelePro" inherits="UIPanelButtonTemplate" text="Prog Isle">
-				<Size x="90" y="30" />
-				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
-				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
-				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall"/>
-				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall" alphaMode="ADD" virtual="true"/>				
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset x="350" y="-200" />
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						btngmTelePro_OnClick()
-					</OnClick>
-				</Scripts>
-			</Button>	
-			<Button name="btngmTeleAC" inherits="UIPanelButtonTemplate" text="Crater">
-				<Size x="90" y="30" />
-				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUBD"/>
-				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB.blp"/>
-				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB"/>
-				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB" alphaMode="ADD" virtual="true"/>					
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset x="260" y="-230" />
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						btngmTeleAC_OnClick()
-					</OnClick>
-				</Scripts>
-			</Button>	
-			<Button name="btngmTeleHyj" inherits="UIPanelButtonTemplate" text="Hyjal">
-				<Size x="90" y="30" />
-				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUDI"/>
-				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU.blp"/>
-				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU"/>
-				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU" alphaMode="ADD" virtual="true"/>					
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset x="350" y="-230" />
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						btngmTeleHyj_OnClick()
+						btngmTeleNPC_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>
+			<EditBox name="gmTeleNPC" inherits="InputBoxTemplate" autoFocus="false">
+				<Size x="80" y="30" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="362" y="-200" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnTabPressed>						
+					</OnTabPressed>
+					<OnTextChanged>
+						gmTeleNPC_OnTextChanged()
+					</OnTextChanged>
+				</Scripts>
+			</EditBox>
+			
+			
+			
+			
 			<Button name="btngmTeleKazzak" inherits="UIPanelButtonTemplate" text="Kazzak">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTBD"/>
@@ -2340,7 +2366,7 @@
 				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTB" alphaMode="ADD" virtual="true"/>					
 				<Anchors>
 					<Anchor point="TOPLEFT">
-						<Offset x="260" y="-290" />
+						<Offset x="260" y="-260" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -2357,7 +2383,7 @@
 				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRT" alphaMode="ADD" virtual="true"/>					
 				<Anchors>
 					<Anchor point="TOPLEFT">
-						<Offset x="350" y="-290" />
+						<Offset x="350" y="-260" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -2366,12 +2392,46 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="btngmTeleLethon" inherits="UIPanelButtonTemplate" text="Lethon">
+			<Button name="btngmTeleGreenDragonAshenvale" inherits="UIPanelButtonTemplate" text="Ashenvale">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallBD"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
 				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB"/>
-				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB" alphaMode="ADD" virtual="true"/>					
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB" alphaMode="ADD" virtual="true"/>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="260" y="-290" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btngmTeleGreenDragonAshenvale_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>	
+			<Button name="btngmTeleGreenDragonHinterlands" inherits="UIPanelButtonTemplate" text="Hinterlands">
+				<Size x="90" y="30" />
+				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
+				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
+				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall"/>
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall" alphaMode="ADD" virtual="true"/>							
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="350" y="-290" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btngmTeleGreenDragonHinterlands_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>	
+			<Button name="btngmTeleGreenDragonFeralas" inherits="UIPanelButtonTemplate" text="Feralas">
+				<Size x="90" y="30" />
+				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUBD"/>
+				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB.blp"/>
+				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB"/>
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB" alphaMode="ADD" virtual="true"/>
 				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset x="260" y="-320" />
@@ -2379,45 +2439,12 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmTeleLethon_OnClick()
+						btngmTeleGreenDragonFeralas_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>	
-			<Button name="btngmTeleEmeriss" inherits="UIPanelButtonTemplate" text="Emeriss">
-				<Size x="90" y="30" />
-				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
-				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
-				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall"/>
-				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall" alphaMode="ADD" virtual="true"/>				
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset x="350" y="-320" />
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						btngmTeleEmeriss_OnClick()
-					</OnClick>
-				</Scripts>
-			</Button>	
-			<Button name="btngmTeleYsondre" inherits="UIPanelButtonTemplate" text="Ysondre">
-				<Size x="90" y="30" />
-				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUBD"/>
-				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB.blp"/>
-				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB"/>
-				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB" alphaMode="ADD" virtual="true"/>					
-				<Anchors>
-					<Anchor point="TOPLEFT">
-						<Offset x="260" y="-350" />
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnClick>
-						btngmTeleYsondre_OnClick()
-					</OnClick>
-				</Scripts>
-			</Button>			
-			<Button name="btngmTeleTaerar" inherits="UIPanelButtonTemplate" text="Taerar">
+					
+			<Button name="btngmTeleGreenDragonDuskwood" inherits="UIPanelButtonTemplate" text="Duskwood">
 				<Size x="90" y="30" />
 				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUDI"/>
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU.blp"/>
@@ -2425,15 +2452,35 @@
 				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU" alphaMode="ADD" virtual="true"/>				
 				<Anchors>
 					<Anchor point="TOPLEFT">
-						<Offset x="350" y="-350" />
+						<Offset x="350" y="-320" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						btngmTeleTaerar_OnClick()
+						btngmTeleGreenDragonDuskwood_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>	
+			
+			<Button name="btngmTeleFunZoneOpen" inherits="UIPanelButtonTemplate" text="Fun Zone">
+				<Size x="90" y="20" />
+				  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallND"/>
+				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga" alphaMode="ADD" virtual="true"/>				
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="305" y="-375" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						gmTeleFunZoneOpen_OnClick();						
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			
 			<Button name="btnTeleClose" inherits="UIPanelButtonTemplate" text="">
 				<Size x="25" y="25" />
 				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\close.blp"/>
@@ -2465,7 +2512,241 @@
 			</OnDragStop>
 		</Scripts>
 	</Frame>	
-	<!--Common Issues Frame START-->
+	<!-- Teleport Frame END -->
+	<!-- Teleport Fun Zone START -->	
+	<Frame name="gmTeleFunZoneFrame" hidden="true" parent="UIParent" movable="true" enableMouse="true" frameStrata="DIALOG" toplevel="true">
+		<Size x="500" y="500" />
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset x="84" y="-367" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\KronosGMAddon\Images\bg7" tile="false">
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="funzonetitle" inherits="GameFontNormal" text="FUN ZONE">
+					<Size x="150" y="50" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="170" y="-75" />
+						</Anchor>
+					</Anchors>
+				</FontString>		
+			</Layer>
+		</Layers>			
+		<Frames>
+			<Button name="btnFunZoneClose" inherits="UIPanelButtonTemplate" text="">
+				<Size x="25" y="25" />
+				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\close.blp"/>
+				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\close.blp"/>
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\close.blp" alphaMode="ADD" virtual="true"/>					
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="gmTeleFunZoneFrame">
+						<Offset x="-18" y="-87" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btnFunZoneClose_OnClick()						
+					</OnClick>
+				</Scripts>
+			</Button>
+				<Button name="btngmTeleFunZoneDesigner" inherits="UIPanelButtonTemplate" text="Designer Island">
+					<Size x="150" y="32" />
+					  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTBD"/>
+					  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTB.blp"/>
+					  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTB"/>
+					  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTB" alphaMode="ADD" virtual="true"/>	
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="99" y="-175" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneDesigner_OnClick();
+						</OnClick>						
+					</Scripts>
+				</Button>						
+				<Button name="btngmTeleFunZoneProgrammer" inherits="UIPanelButtonTemplate" text="Programmer Isle">
+					<Size x="150" y="32" />
+					  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTDI"/>
+					  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRT.blp"/>
+					  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRT.blp"/>
+					  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRT.blp" alphaMode="ADD" virtual="true"/>	
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="251" y="-175" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneProgrammer_OnClick();
+						</OnClick>						
+					</Scripts>
+				</Button>
+				<Button name="btngmTeleFunZoneAzsharaCrater" inherits="UIPanelButtonTemplate" text="Azshara Crater">
+					<Size x="150" y="32" />
+					  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallBD"/>
+					  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
+					  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
+					  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp" alphaMode="ADD" virtual="true"/>	
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="99" y="-210" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneAzsharaCrater_OnClick();
+						</OnClick>						
+					</Scripts>
+				</Button>
+				<Button name="btngmTeleFunZoneHyjal" inherits="UIPanelButtonTemplate" text="Hyjal">
+					<Size x="150" y="32" />
+					  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
+					  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
+					  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
+					  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp" alphaMode="ADD" virtual="true"/>	
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="251" y="-210" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneHyjal_OnClick();
+						</OnClick>					
+					</Scripts>
+				</Button>
+				<Button name="btngmTeleFunZoneOldIronforge" inherits="UIPanelButtonTemplate" text="Old Ironforge">
+					<Size x="150" y="32" />
+					  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallBD"/>
+					  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
+					  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
+					  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp" alphaMode="ADD" virtual="true"/>	
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="99" y="-245" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneOldIronforge_OnClick()
+						</OnClick>					
+					</Scripts>
+				</Button>
+				<Button name="btngmTeleFunZoneStormwindPrison" inherits="UIPanelButtonTemplate" text="Stormwind Prison">				
+					<Size x="150" y="32" />
+					  <DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
+					  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
+					  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
+					  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp" alphaMode="ADD" virtual="true"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="251" y="-245" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneStormwindPrison_OnClick()
+						</OnClick>					
+					</Scripts>
+				</Button>
+				<Button name="btngmTeleFunZoneKarazhanCrypt" inherits="UIPanelButtonTemplate" text="Karazhan Crypt">
+					<Size x="150" y="32" />
+						<DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallBD"/>
+						<NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
+						<PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp"/>
+						<HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallB.blp" alphaMode="ADD" virtual="true"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="99" y="-280" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneKarazhanCrypt_OnClick()
+						</OnClick>					
+					</Scripts>
+				</Button>
+				<Button name="btngmTeleFunZoneOutlandTest" inherits="UIPanelButtonTemplate" text="Outland Testing">
+					<Size x="150" y="32" />
+						<DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmallD"/>
+						<NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
+						<PushedTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp"/>
+						<HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\bluesmall.blp" alphaMode="ADD" virtual="true"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="251" y="-280" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneOutlandTest_OnClick()
+						</OnClick>					
+					</Scripts>
+				</Button>
+				<Button name="btngmTeleFunZoneWoodenBox" inherits="UIPanelButtonTemplate" text="Big Wooden Box">
+					<Size x="150" y="32" />
+						<DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUBD"/>
+						<NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB.blp"/>
+						<PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB"/>
+						<HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUB" alphaMode="ADD" virtual="true"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="99" y="-315" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneWoodenBox_OnClick()
+						</OnClick>					
+					</Scripts>
+				</Button>
+				<Button name="btngmTeleFunZoneRandom" inherits="UIPanelButtonTemplate" text="Random semi fun">
+					<Size x="150" y="32" />
+						<DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTUDI"/>
+				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU.blp"/>
+				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU.blp"/>
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTU.blp" alphaMode="ADD" virtual="true"/>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="251" y="-315" />
+						</Anchor>
+					</Anchors>
+					<Scripts>
+						<OnClick>
+							btngmTeleFunZoneRandom_OnClick()
+						</OnClick>						
+					</Scripts>
+				</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				gmTeleFunZoneFrame_OnLoad()
+				gmTeleFunZoneFrame:RegisterForDrag("LeftButton");
+			</OnLoad>
+			<OnDragStart>
+				gmTeleFunZoneFrame:StartMoving();
+			</OnDragStart>
+			<OnDragStop>
+				gmTeleFunZoneFrame:StopMovingOrSizing();
+			</OnDragStop>
+			<OnEscapePressed>
+				btnFunZoneClose_OnClick();
+			</OnEscapePressed>			
+		</Scripts>
+	</Frame>
+	<!-- Teleport Fun Zone END -->
+	<!--Common Issues Frame START-->	
 	<Frame name="gmCommonFrame" hidden="true" parent="UIParent" movable="true" enableMouse="true" >
 		<Size x="525" y="320" />
 		<Anchors>
@@ -4864,7 +5145,8 @@
                        myTabPage1:Hide();
                        myTabPage2:Hide();
 					   myTabPage3:Hide();
-					   myTabPage4:Show();	
+					   myTabPage4:Show();
+					   debugtest_click();
                    </OnClick>
                </Scripts>
            </Button>
@@ -5956,7 +6238,125 @@
 			</OnDragStop>
 		</Scripts>
 	</Frame>	
-	<!--Ban Frame END-->
+	<!--Ban Frame END-->	
+	<!-- Auction Frame START-->
+	
+	
+	<Frame name="gmAuctionFrame" hidden="true" parent="UIParent" movable="true" enableMouse="true" frameStrata="DIALOG" toplevel="true">
+		<Size x="400" y="300" />
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset x="84" y="-367" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\KronosGMAddon\Images\bg7" tile="false">
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="auctiontitle" inherits="GameFontNormal" text="AUCTION HOUSES">
+					<Size x="250" y="50" />
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset x="0" y="-35" />
+						</Anchor>
+					</Anchors>
+				</FontString>		
+			</Layer>
+		</Layers>			
+		<Frames>
+			<Button name="btnAuctionClose" inherits="UIPanelButtonTemplate" text="">
+				<Size x="15" y="15" />
+				  <NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\close.blp"/>
+				  <PushedTexture file="Interface\AddOns\KronosGMAddon\Images\close.blp"/>
+				  <HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\close.blp" alphaMode="ADD" virtual="true"/>					
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="gmAuctionFrame">
+						<Offset x="-18" y="-52" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btnAuctionClose_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>			
+			<Button name="btngmAuctionAlliance" inherits="UIPanelButtonTemplate" text="Alliance">
+				<Size x="100" y="25" />
+					<DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTDI"/>
+					<NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+					<PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+					<HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK" alphaMode="ADD" virtual="true"/>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="35" y="-145" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btngmAuctionAlliance_OnClick()
+					</OnClick>					
+				</Scripts>
+			</Button>
+			
+			<Button name="btngmAuctionHorde" inherits="UIPanelButtonTemplate" text="Horde">
+				<Size x="100" y="25" />
+					<DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTDI"/>
+					<NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+					<PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+					<HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK" alphaMode="ADD" virtual="true"/>	
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="155" y="-145" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btngmAuctionHorde_OnClick()
+					</OnClick>					
+				</Scripts>
+			</Button>
+			
+			<Button name="btngmAuctionGoblin" inherits="UIPanelButtonTemplate" text="Goblin">
+				<Size x="100" y="25" />
+					<DisabledTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTDI"/>
+					<NormalTexture setAllPoint="true" file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+					<PushedTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK.tga"/>
+					<HighlightTexture file="Interface\AddOns\KronosGMAddon\Images\ANSWRTTICK" alphaMode="ADD" virtual="true"/>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="275" y="-145" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btngmAuctionGoblin_OnClick()
+					</OnClick>					
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				gmAuctionFrame_OnLoad()
+				gmAuctionFrame:RegisterForDrag("LeftButton");
+			</OnLoad>
+			<OnDragStart>
+				gmAuctionFrame:StartMoving();
+			</OnDragStart>
+			<OnDragStop>
+				gmAuctionFrame:StopMovingOrSizing();
+			</OnDragStop>
+			<OnEscapePressed>
+				btnAuctionClose_OnClick();
+			</OnEscapePressed>			
+		</Scripts>
+	</Frame>
+	<!-- Auction Frame End-->
 	<!--Ban Confirm Frame START-->	
 	<Frame name="gmConfirmFrame" hidden="true" parent="UIParent" movable="true" enableMouse="true" frameStrata="TOOLTIP" toplevel="true">
 		<Size x="220" y="170" />
@@ -6447,7 +6847,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						gmIssueSend_OnClick()
+						gmLootIssueSend_OnClick()
 					</OnClick>
 				</Scripts>
 			</Button>				
@@ -6791,132 +7191,263 @@
 					</OnLeave>
 				</Scripts>
 			</Button>			
-									<CheckButton name="parentkeepmenu2">
-										<Size>
-											<AbsDimension x="20" y="20" />
-										</Size>
-										<Anchors>
-											<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
-												<Offset>
-													<AbsDimension x="15" y="95" />
-												</Offset>
-											</Anchor>
-										</Anchors>
-										<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
-										<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
-										<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
-										<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
-										<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
-										<Layers>
-											<Layer level="OVERLAY">
-												<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show Menu Buttons.">
-													<Anchors>
-														<Anchor point="LEFT">
-															<Offset>
-																<AbsDimension x="20" y="1" />
-															</Offset>
-														</Anchor>
-													</Anchors>
-													<FontHeight>
-														<AbsValue val="12" />
-													</FontHeight>
-													<Color r="1" g="0.65" b="0.0" />
-													<Shadow>
-														<Color r="0" g="0" b="0" />
-														<Offset>
-															<AbsDimension x="1" y="-1" />
-														</Offset>
-													</Shadow>
-												</FontString>
-											</Layer>
-										</Layers>
-										<Scripts>
-											<OnClick>
-												if ( this:GetChecked() ) then
-													PlaySound("igMainMenuOptionCheckBoxOff");
-												else
-													PlaySound("igMainMenuOptionCheckBoxOn");
-												end
-												KGMM_Options_keepmenuClicked2();
-											</OnClick>
-											<OnLoad>
-												this.tooltip = "Menu Buttons Toggle";
-											</OnLoad>
-											<OnEnter>
-												GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR");
-												GameTooltip:SetText(this.tooltip);
-												GameTooltip:AddLine("Toggles menu button squares visibility.", 1.0, 0.6, 1.0,1);	
-												GameTooltip:AddLine("Checked = Visible. ", 0.99, 0.99, 0.59,1);
-												GameTooltip:Show();
-											</OnEnter>
-											<OnLeave>
-												GameTooltip:Hide();
-											</OnLeave>											
-										</Scripts>
-									</CheckButton>			
-									<CheckButton name="parentPopCombat2">
-										<Size>
-											<AbsDimension x="20" y="20" />
-										</Size>
-										<Anchors>
-											<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
-												<Offset>
-													<AbsDimension x="15" y="75" />
-												</Offset>
-											</Anchor>
-										</Anchors>
-										<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
-										<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
-										<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
-										<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
-										<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
-										<Layers>
-											<Layer level="OVERLAY">
-												<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show Chat Window Frame.">
-													<Anchors>
-														<Anchor point="LEFT">
-															<Offset>
-																<AbsDimension x="20" y="1" />
-															</Offset>
-														</Anchor>
-													</Anchors>
-													<FontHeight>
-														<AbsValue val="12" />
-													</FontHeight>
-													<Color r="1" g="0.65" b="0.0" />
-													<Shadow>
-														<Color r="0" g="0" b="0" />
-														<Offset>
-															<AbsDimension x="1" y="-1" />
-														</Offset>
-													</Shadow>
-												</FontString>
-											</Layer>
-										</Layers>
-										<Scripts>
-											<OnClick>
-												if ( this:GetChecked() ) then
-													PlaySound("igMainMenuOptionCheckBoxOff");
-												else
-													PlaySound("igMainMenuOptionCheckBoxOn");
-												end
-												KGMM_Options_PopCombatClicked2();
-											</OnClick>
-											<OnLoad>
-												this.tooltip = "Chat Window Toggle";
-											</OnLoad>
-											<OnEnter>
-												GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR");
-												GameTooltip:SetText(this.tooltip);
-												GameTooltip:AddLine("Toggles chat window frames visibility.", 1.0, 0.6, 1.0,1);	
-												GameTooltip:AddLine("Checked = Visible. ", 0.99, 0.99, 0.59,1);
-												GameTooltip:Show();
-											</OnEnter>
-											<OnLeave>
-												GameTooltip:Hide();
-											</OnLeave>											
-										</Scripts>
-									</CheckButton>					
+
+						
+			<CheckButton name="parentShowChatFrame">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="15" y="135" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show Chat Window Frame.">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="20" y="1" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.65" b="0.0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+								<Offset>
+									<AbsDimension x="1" y="-1" />
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						if ( this:GetChecked() ) then
+							PlaySound("igMainMenuOptionCheckBoxOff");
+						else
+							PlaySound("igMainMenuOptionCheckBoxOn");
+						end
+						KGMM_Options_ShowChatFrameClicked2();
+					</OnClick>
+					<OnLoad>
+						this.tooltip = "Chat Window Toggle";
+					</OnLoad>
+					<OnEnter>
+						GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR");
+						GameTooltip:SetText(this.tooltip);
+						GameTooltip:AddLine("Toggles chat window frames visibility.", 1.0, 0.6, 1.0,1);	
+						GameTooltip:AddLine("Checked = Visible. ", 0.99, 0.99, 0.59,1);
+						GameTooltip:Show();
+					</OnEnter>
+					<OnLeave>
+						GameTooltip:Hide();
+					</OnLeave>											
+				</Scripts>
+			</CheckButton>	
+			
+			<CheckButton name="parentShowPiBox">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="15" y="115" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show PI box.">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="20" y="1" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.65" b="0.0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+								<Offset>
+									<AbsDimension x="1" y="-1" />
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						if ( this:GetChecked() ) then
+							PlaySound("igMainMenuOptionCheckBoxOff");
+						else
+							PlaySound("igMainMenuOptionCheckBoxOn");
+						end
+						KGMM_Options_showPiBoxClicked2();
+					</OnClick>
+					<OnLoad>
+						this.tooltip = "PI box Toggle";
+					</OnLoad>
+					<OnEnter>
+						GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR");
+						GameTooltip:SetText(this.tooltip);
+						GameTooltip:AddLine("Toggles PI box visibility.", 1.0, 0.6, 1.0,1);	
+						GameTooltip:AddLine("Checked = Visible. ", 0.99, 0.99, 0.59,1);
+						GameTooltip:Show();
+					</OnEnter>
+					<OnLeave>
+						GameTooltip:Hide();
+					</OnLeave>											
+				</Scripts>
+			</CheckButton>									
+			
+			<CheckButton name="parentkeepmenu2">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="15" y="95" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Show Menu Buttons.">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="20" y="1" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.65" b="0.0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+								<Offset>
+									<AbsDimension x="1" y="-1" />
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						if ( this:GetChecked() ) then
+							PlaySound("igMainMenuOptionCheckBoxOff");
+						else
+							PlaySound("igMainMenuOptionCheckBoxOn");
+						end
+						KGMM_Options_keepmenuClicked2();
+					</OnClick>
+					<OnLoad>
+						this.tooltip = "Menu Buttons Toggle";
+					</OnLoad>
+					<OnEnter>
+						GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR");
+						GameTooltip:SetText(this.tooltip);
+						GameTooltip:AddLine("Toggles menu button squares visibility.", 1.0, 0.6, 1.0,1);	
+						GameTooltip:AddLine("Checked = Visible. ", 0.99, 0.99, 0.59,1);
+						GameTooltip:Show();
+					</OnEnter>
+					<OnLeave>
+						GameTooltip:Hide();
+					</OnLeave>											
+				</Scripts>
+			</CheckButton>
+			
+			<CheckButton name="parentHidePlayerInfo">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="15" y="75" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Hide player info result from the chat">
+							<Anchors>
+								<Anchor point="LEFT">
+									<Offset>
+										<AbsDimension x="20" y="1" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12" />
+							</FontHeight>
+							<Color r="1" g="0.65" b="0.0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+								<Offset>
+									<AbsDimension x="1" y="-1" />
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>									
+				<Scripts>
+					<OnClick>
+						if ( this:GetChecked() ) then
+							PlaySound("igMainMenuOptionCheckBoxOff");
+						else 
+							PlaySound("igMainMenuOptionCheckBoxOn");
+						end												
+						KGMM_Options_HidePlayerInfoClicked2();
+					</OnClick>
+					<OnLoad>
+						this.tooltip = "Hide player info result in chat Toggle";
+					</OnLoad>
+					<OnEnter>
+						GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR");
+						GameTooltip:SetText(this.tooltip);
+						GameTooltip:AddLine("Toggles PI result hidden from chat.", 1.0, 0.6, 1.0,1);	
+						GameTooltip:AddLine("Checked = Hidden. ", 0.99, 0.99, 0.59,1);
+						GameTooltip:Show();
+					</OnEnter>
+					<OnLeave>
+						GameTooltip:Hide();
+					</OnLeave>											
+				</Scripts>
+			</CheckButton>
 		</Frames>
 		<Scripts>
 			<OnLoad>
