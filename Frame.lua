@@ -43,6 +43,7 @@ gmCommands["Turtleoff"] = ".unaura 30174"
 gmCommands["gmflyon"] = ".gm fly on"
 gmCommands["dragon"] = ".aura 24576"
 gmCommands["gmflyspeed"] = ".mod aspeed 6"
+gmCommands["demorph"] = ".demorph"
 gmCommands["kodoquest"] = ".q c 5561"
 gmCommands["darkmoonally"] = ".q a 7905"
 gmCommands["darkmoonhorde"] = ".q a 7926"
@@ -113,7 +114,7 @@ gmCommands["Stormwind"] = ".t Stormwind"
 gmCommands["Undercity"] = ".t Undercity"
 gmCommands["Darnassus"] = ".t Darnassus"
 gmCommands["Thunderbluff"] = ".t Thunderbluff"
-gmCommands["GMIsland"] = ".t gm island"
+gmCommands["GMIsland"] = ".t gmisland"
 gmCommands["Jail"] = ".go xyz 16219 16403 -64.379 1"
 gmCommands["DesignerIsland"] = ".go xyz 16303 -16173 45 451"
 gmCommands["ProgrammerIsle"] = ".go xyz 16304 16318 75 451"
@@ -345,12 +346,12 @@ function gmAddon:OnInitialize() -- gm addon on load function
 end
 function btnGmPinfoId_OnClick()
 	
-	local piResult = "|cffff0000Player information|r|cffffffff:|r|cffffff00 \124Hplayer:"..txtGmplayernames:GetText().."\124hCharacter: |cffffffff["..txtGmplayernames:GetText().."]\124h \124Hplayer:"..txtGmaccountnames:GetText().."\124h|cffffff00Account: |r|cffffffff["..txtGmaccountnames:GetText().."]\124h"
+	local piResult = "|cffff0000Player information|r|cffffffff:|r|cffffff00 \124Hplayer:"..txtGmplayernames:GetText().."\124h\nCharacter: |cffffffff["..txtGmplayernames:GetText().."]\124h \124Hplayer:"..txtGmaccountnames:GetText().."\124h|cffffff00\nAccount: |r|cffffffff["..txtGmaccountnames:GetText().."]\124h"
 	if txtGmPinfoIp2:GetText() ~= nil then
-		piResult = piResult.." \124Hplayer:"..txtGmPinfoIp2:GetText().."\124h|cffffff00IP: |r|cffffffff["..txtGmPinfoIp2:GetText().."]\124h";
+		piResult = piResult.." \124Hplayer:"..txtGmPinfoIp2:GetText().."\124h|cffffff00\nIP: |r|cffffffff["..txtGmPinfoIp2:GetText().."]\124h";
 	end
 	if txtGmPinfoFinger:GetText() ~= nil then
-		piResult = piResult.." |cffffff00Fingerprint: |r|cffffffff["..txtGmPinfoFinger:GetText().."]\124h";
+		piResult = piResult.." |cffffff00\nHardcore: |r|cffffffff["..txtGmPinfoFinger:GetText().."]\124h";
 	end 	
 	print(piResult)
 end
@@ -465,24 +466,14 @@ function gmAddon:AddMessage(frame, text, r, g, b, id) --Hook to scan chat for ke
 					txtGmPinfoInfoe:SetText("Guild: None\nLocation: "..locate.." ")
 					txtGmPinfoInfoe:SetTextColor(0.0, 1.0, 0.0);
 					txtGmPinfoInfoe:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-					txtGmPinfoStatus:SetText("Offline")
 				elseif locate ~= nil then				
 					txtGmPinfoInfoe:SetText("Guild: <"..guild..">\nLocation: "..locate.." ")
 					txtGmPinfoInfoe:SetTextColor(0.0, 1.0, 0.0);
 					txtGmPinfoInfoe:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
-					txtGmPinfoStatus:SetText("Online")
 				end
 			else
 				--txtGmPinfoInfoe:SetText("")				
 			end	
-		end	
-		if strfind(text,"Player") and strfind(text,"ONLINE") then	
-			if strfind(text,"Player") and strfind(text,"ONLINE (inactive") then 
-				txtGmPinfoStatus:SetTextColor(1.0, 1.0, 0.0);
-			else		
-				txtGmPinfoStatus:SetTextColor(0.0, 1.0, 0.0);
-			end
-			txtGmPinfoStatus:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE, ")
 		end					
 		if strfind(text,"Player") and strfind(text,"OFFLINE") then 
 			debugMessage("8 - Player - OFFLINE")
@@ -810,6 +801,7 @@ function btnGmLoadT_OnClick()
 	GuildRoster() -- fetch info about guild members, needed to update GM's public note.
 	btnGmLoadT_FlashEffectOff();
 	txtGmMsgT:Show()
+	pfAdmin.tickets:Show()
 	gmTCount:Show()
 	gmAssign:Show()
 	assigntitle:SetTextColor(1.0, 0.55, 0.0);
@@ -830,11 +822,10 @@ function btnGmLoadT_OnClick()
 	gmTicketSys["NumberOfOnlineTickets"] = 0
 	gmPlayerName:SetText("")
 	gmCommonPlayer:SetText("")	
-	txtGmMsgT:SetText("Updating tickets... If this takes too long type /reload and load the addon again. Or click the 'Refresh Ticket Text' button!")
+	txtGmMsgT:SetText("")
 	txtGmTTime:SetText("")
 	txtauthor:SetText("")
 	txttickid:SetText("")
-	RefreshList()
 	hour,minute = GetGameTime()
 	
 end
@@ -1401,11 +1392,11 @@ function btngmticket_OnClick()
 	end
 end	
 function updateBtns()
-	if scroll.list.item_count > 0 then 
-		gmTCount:SetText("Tickets: "..scroll.list.item_count -1)
+	if pfAdmin.tickets.scroll.list.item_count > 0 then 
+		gmTCount:SetText("Tickets: "..pfAdmin.tickets.scroll.list.item_count -1)
 		btnenddisable_OnClick()
 	else
-		gmTCount:SetText("Tickets: "..scroll.list.item_count -1)
+		gmTCount:SetText("Tickets: "..pfAdmin.tickets.scroll.list.item_count -1)
 		btnenddisable_OnClick()
 	end
 	if ticketArray and btn and ticketArray[MySlider:GetValue()] then
@@ -2836,7 +2827,6 @@ local value = S:GetValue()
 end
 
 function gmNoteFrame_OnLoad()
-table.insert(UISpecialFrames,"gmAuraFrame");
 	local CopyChat = CreateFrame('Frame', 'nChatCopy', UIParent)
 	CopyChat:SetWidth(580)
 	CopyChat:SetHeight(380)
@@ -3569,9 +3559,9 @@ function taskgmfly()
 		if (this.step == 0) then -- 0sec sec delay
         TargetByName(UnitName("player"))
         elseif (this.step == 1) then -- 1sec sec delay
-		SendChatMessage(gmCommands["gmflyon"])
+		CastSpellByName("[Toggle GM Flight Mode]")
+		SendChatMessage(gmCommands["demorph"]) 
 		SendChatMessage(gmCommands["dragon"])
-		SendChatMessage(gmCommands["gmflyspeed"]) 
         elseif  (this.step > 2) then -- Cleanup, destroy timer
             this:SetScript("OnUpdate", nil)
             this = nil
@@ -5106,525 +5096,6 @@ function taskDelayBanIPRange()
 
     this.elapsed = this.elapsed + arg1 -- track elapsed time (in seconds)
     if (this.elapsed >= this.period or this.step == 0) then
-        if (this.step == 0) then -- 0sec sec delay
-            gmAddonPrint("This will take a while Aprox. 4.5 minutes, Sit back and relax! DO NOT TOUCH ANY BUTTONS YOU CUCK!",1, 1, 1, "gmAddon")
-        elseif (this.step == 1) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.001 "'..banttime..'" "'..banreason..'"');	
-        elseif (this.step == 2) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.002 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 3) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.003 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 4) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.004 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 5) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.005 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 6) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.006 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 7) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.007 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 8) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.8 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 9) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.9 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 10) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.010 "'..banttime..'" "'..banreason..'"');
-		elseif (this.step == 11) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.011 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 12) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.012 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 13) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.013 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 14) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.014 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 15) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.015 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 16) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.016 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 17) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.017 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 18) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.18 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 19) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.19 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 20) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.020 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 21) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.021 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 22) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.022 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 23) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.023 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 24) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.024 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 25) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.025 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 26) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.026 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 27) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.027 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 28) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.28 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 29) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.29 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 30) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.030 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 31) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.031 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 32) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.032 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 33) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.033 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 34) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.034 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 35) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.035 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 36) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.036 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 37) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.037 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 38) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.38 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 39) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.39 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 40) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.040 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 41) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.041 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 42) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.042 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 43) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.043 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 44) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.044 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 45) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.045 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 46) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.046 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 47) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.047 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 48) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.48 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 49) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.49 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 50) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.050 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 51) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.051 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 52) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.052 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 53) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.053 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 54) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.054 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 55) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.055 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 56) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.056 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 57) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.057 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 58) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.58 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 59) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.59 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 60) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.060 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 61) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.061 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 62) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.062 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 63) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.063 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 64) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.064 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 65) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.065 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 66) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.066 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 67) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.067 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 68) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.68 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 69) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.69 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 70) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.070 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 71) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.071 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 72) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.072 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 73) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.073 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 74) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.074 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 75) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.075 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 76) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.076 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 77) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.077 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 78) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.78 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 79) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.79 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 80) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.80 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 81) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.81 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 82) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.82 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 83) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.83 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 84) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.84 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 85) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.85 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 86) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.86 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 87) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.87 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 88) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.88 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 89) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.89 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 90) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.90 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 91) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.91 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 92) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.92 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 93) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.93 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 94) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.94 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 95) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.95 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 96) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.96 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 97) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.97 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 98) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.98 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 99) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.99 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 100) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.100 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 101) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.101 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 102) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.102 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 103) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.103 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 104) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.104 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 105) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.105 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 106) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.106 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 107) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.107 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 108) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.108 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 109) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.109 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 110) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.110 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 111) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.111 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 112) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.112 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 113) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.113 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 114) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.114 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 115) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.115 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 116) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.116 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 117) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.117 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 118) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.118 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 119) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.119 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 120) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.120 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 121) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.121 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 122) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.122 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 123) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.123 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 124) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.124 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 125) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.125 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 126) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.126 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 127) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.127 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 128) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.128 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 129) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.129 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 130) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.130 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 131) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.131 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 132) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.132 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 133) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.133 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 134) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.134 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 135) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.135 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 136) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.136 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 137) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.137 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 138) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.138 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 139) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.139 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 140) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.140 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 141) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.141 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 142) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.142 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 143) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.143 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 144) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.144 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 145) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.145 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 146) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.146 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 147) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.147 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 148) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.148 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 149) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.149 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 150) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.150 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 151) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.151 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 152) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.152 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 153) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.153 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 154) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.154 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 155) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.155 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 156) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.156 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 157) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.157 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 158) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.158 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 159) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.159 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 160) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.160 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 161) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.161 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 162) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.162 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 163) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.163 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 164) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.164 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 165) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.165 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 166) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.166 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 167) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.167 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 168) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.168 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 169) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.169 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 170) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.170 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 171) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.171 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 172) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.172 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 173) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.173 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 174) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.174 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 175) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.175 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 176) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.176 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 177) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.177 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 178) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.178 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 179) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.179 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 180) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.180 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 181) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.181 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 182) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.182 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 183) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.183 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 184) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.184 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 185) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.185 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 186) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.186 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 187) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.187 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 188) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.188 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 189) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.189 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 190) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.190 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 191) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.191 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 192) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.192 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 193) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.193 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 194) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.194 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 195) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.195 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 196) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.196 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 197) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.197 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 198) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.198 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 199) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.199 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 200) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.200 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 201) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.201 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 202) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.202 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 203) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.203 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 204) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.204 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 205) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.205 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 206) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.206 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 207) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.207 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 208) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.208 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 209) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.209 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 210) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.210 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 211) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.211 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 212) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.212 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 213) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.213 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 214) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.214 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 215) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.215 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 216) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.216 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 217) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.217 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 218) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.218 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 219) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.219 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 220) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.220 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 221) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.221 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 222) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.222 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 223) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.223 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 224) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.224 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 225) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.225 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 226) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.226 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 227) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.227 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 228) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.228 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 229) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.229 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 230) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.230 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 231) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.231 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 232) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.232 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 233) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.233 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 234) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.234 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 235) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.235 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 236) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.236 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 237) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.237 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 238) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.238 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 239) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.239 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 240) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.240 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 241) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.241 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 242) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.242 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 243) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.243 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 244) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.244 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 245) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.245 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 246) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.246 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 247) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.247 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 248) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.248 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 249) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.249 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 250) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.250 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 251) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.251 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 252) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.252 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 253) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.253 "'..banttime..'" "'..banreason..'"');	
-		elseif (this.step == 254) then 			
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.254 "'..banttime..'" "'..banreason..'"');
-		elseif (this.step == 255) then 					
-        SendChatMessage(gmCommands["BanIP"].." "..banplayer..'.255 "'..banttime..'" "'..banreason..'"');					
-        elseif  (this.step > 255) then -- Cleanup, destroy timer
-            gmAddonPrint("Range Terminated",1, 1, 1, "gmAddon")
-			PlaySoundFile("Interface\\Addons\\KronosGMAddon\\Images\\terminator.ogg")			
-            this:SetScript("OnUpdate", nil)
-            this = nil
-            return
-        end
         this.elapsed = 0
         this.step = this.step + 1
     end
@@ -6042,10 +5513,9 @@ function pfAdmin:ParseQuery(result)
   _, _, ret.assigned  = strfind(result, "|cff00ff00Assigned to|r:|cff00ccff |cffffffff|Hplayer:.-|h%[(.-)%]|h|r|r")
   _, _, ret.message   = strfind(result, "|cff00ff00Ticket Message|r: %[(.+)%]|r")
   _, _, ret.message_multi = strfind(result, "|cff00ff00Ticket Message|r: %[(.+)")
-  _, _, ret.closed = strfind(result, "|cff00ff00Closed by|r")
-  _, _, ret.new   = strfind(result, "|cff00ff00New ticket from")
+  -- _, _, ret.closed = strfind(result, "|cff00ff00Closed by|r")
+  -- _, _, ret.new   = strfind(result, "|cff00ff00New ticket from")
 
-if not ret.closed then
   if ret.id and not ret.message and ret.message_multi then
     pfAdmin.parse_multi = true
     ret.message = ret.message_multi
@@ -6064,7 +5534,6 @@ if not ret.closed then
   end
 
   return ret
-end
 end
 
 -- Hide Query Messages
@@ -6093,7 +5562,6 @@ function CreateScrollFrame(name, parent)
         self:SetVerticalScroll(new)
       end
     end
-
     self:UpdateScrollState()
   end
 
@@ -6139,9 +5607,9 @@ local function CreateTicketListRow(count, parent)
   f:SetHeight(20)
   f:SetPoint("TOPLEFT", parent, "TOPLEFT", 0, -count * 22 + 15)
   f:SetPoint("TOPRIGHT", parent, "TOPLEFT", 90, -count * 22 + 15)
-
   f.title = f:CreateFontString("Status", "HIGH", "GameFontNormal")
-  f.title:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE, ")
+  f.title:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE, ")
+  f.title:SetTextColor(1.0, 0.55, 0.0);
   f.title:SetAllPoints(f)
   f.title:SetFontObject(GameFontWhite)
   f.title:SetJustifyH("CENTER")
@@ -6150,73 +5618,65 @@ local function CreateTicketListRow(count, parent)
     pfAdmin.ticket:ShowTicketDialog(this:GetID())
   end)
 
-  f:SetScript("OnLeave", function()
-    GameTooltip:Hide()
-  end)
-
-  f.tex = f:CreateTexture("highlight", "LOW")
-  f.tex:SetAllPoints(f)
-  f.tex:SetPoint("TOPLEFT", f, "TOPLEFT", -5, 0)
-  f.tex:SetPoint("BOTTOMRIGHT", f, "BOTTOMRIGHT", 5, 0)
   return f
 end
 
 function RefreshList()
-  -- pfAdmin.tickets.scroll.list.items
-  scroll.list.item_count = 1
+
+  pfAdmin.tickets.scroll.list.item_count = 1
 
   pfAdmin:SendQuery(".ticket list", function(result)
     if result then
       local ret = pfAdmin:ParseQuery(result)
 	  
       if ret.id then
-        local parent = scroll.list
+        local parent = pfAdmin.tickets.scroll.list
         local count = parent.item_count
-
+	
         parent.items[count] = parent.items[count] or CreateTicketListRow(count, parent)
         parent.items[count]:Show()
 		parent.items[count]:SetHeight(18)
 		parent.items[count]:SetNormalTexture("Interface\\AddOns\\KronosGMAddon\\Images\\ANSWRTTICK.tga")
 		parent.items[count]:SetHighlightTexture("Interface\\AddOns\\KronosGMAddon\\Images\\ANSWRTTICK.tga","ADD")
         parent.items[count].title:SetText(ret.creator)
-		parent.items[count].title:SetTextColor(1.0, 0.55, 0.0);
-		parent.items[count].title:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE, ")
         parent.items[count]:SetID(ret.id)
         parent.item_count = count + 1
 		if parent.items[count].title:GetText() == nil then
 		parent.items[count]:Hide()
-		end
-      end
-      if ret.id and ret.closed then
-        local parent = scroll.list
-        local count = parent.item_count
 
-        parent.items[count] = parent.items[count] or CreateTicketListRow(count, parent)
-        parent.items[count]:Hide()
-		parent.item_count = count - 1
-		btnGmLoadT_OnClick()
+		end
       end
     else
       -- end query
-      for i=scroll.list.item_count,table.getn(scroll.list.items) do
-        scroll.list.items[i]:Hide()
+      for i=pfAdmin.tickets.scroll.list.item_count,table.getn(pfAdmin.tickets.scroll.list.items) do
+        pfAdmin.tickets.scroll.list.items[i]:Hide()
       end
     end
   end)
 end
 
 
-
-
-
+pfAdmin.tickets = CreateFrame("Frame", "pfAdminTickets", gmUIFrame)
+pfAdmin.tickets:SetFrameStrata("HIGH")
+pfAdmin.tickets:SetHeight(226)
+pfAdmin.tickets:SetWidth(200)
+pfAdmin.tickets:SetPoint("CENTER", gmUIFrame, 366,-224)
+pfAdmin.tickets:EnableMouseWheel(1)
+pfAdmin.tickets:RegisterEvent("CHAT_MSG_SYSTEM")
+pfAdmin.tickets:SetScript("OnUpdate", function()
+  if ( this.tick or 1) > GetTime() then return else this.tick = GetTime() + 100 end
+  RefreshList()
+end)
+pfAdmin.tickets:Hide()
 do -- scroll frame
-  scroll = CreateScrollFrame("pfAdminTicketsScroll", gmUIFrame)
-  scroll:SetPoint("TOPLEFT", gmUIFrame, "TOPLEFT", 958, -574)
-  scroll:SetPoint("BOTTOMRIGHT", gmUIFrame, "BOTTOMRIGHT", -10, -10)
-  scroll.buttons = { }
-  scroll.list = CreateScrollChild("pfAdminTicketsScrollList", scroll)
-  scroll.list:SetAllPoints(scroll)
-  scroll.list.items = { }
+  pfAdmin.tickets.scroll = CreateScrollFrame("pfAdminTicketsScroll", pfAdmin.tickets)
+  pfAdmin.tickets.scroll:SetPoint("TOPLEFT", pfAdmin.tickets, "TOPLEFT", 10, -80)
+  pfAdmin.tickets.scroll:SetPoint("BOTTOMRIGHT", pfAdmin.tickets, "BOTTOMRIGHT", -10, 10)
+  pfAdmin.tickets.scroll.buttons = { }
+
+  pfAdmin.tickets.scroll.list = CreateScrollChild("pfAdminTicketsScrollList", pfAdmin.tickets.scroll)
+  pfAdmin.tickets.scroll.list:SetAllPoints(pfAdmin.tickets.scroll)
+  pfAdmin.tickets.scroll.list.items = { }
 end
 
 -- Ticket.lua
@@ -6231,27 +5691,23 @@ function pfAdmin.ticket:ResetTicketDialog(id)
 end
 
 function pfAdmin.ticket:ShowTicketDialog(id)
-	pfAdmin:SendQuery(".ticket " .. id, function(result)
-		if result then
-			local ret = pfAdmin:ParseQuery(result)
-
-			if ret.id then
+    pfAdmin:SendQuery(".ticket " .. this:GetID(), function(result)
+      if result then
+        local ret = pfAdmin:ParseQuery(result)
+		
+        if ret.id then
 				pfAdmin.ticket:ResetTicketDialog(id)
-				-- pfAdmin.ticket.windows[id].data = ret
 				txtauthor:SetText("|cff33ffccAuthor:|r " .. ret.creator)
 				txttickid:SetText(ret.id)
 				txttestiddel:SetText(count)
 				txtGmTTime:SetText("|cff33ffccCreated:|r " .. ret.created)
-				-- pfAdmin.ticket.windows[id].modified:SetText("|cff33ffccModified:|r -" .. (ret.changed or "-"))
-
-				if ret.message and txtGmMsgT:GetText() == "Updating tickets... If this takes too long type /reload and load the addon again. Or click the 'Refresh Ticket Text' button!" then
-					txtGmMsgT:SetText(ret.message)
-					gmPlayerName:SetText(ret.creator)
-				elseif ret.message then
-					txtGmMsgT:SetText(txtGmMsgT:GetText() .. "\n" .. ret.message)
-					gmPlayerName:SetText(ret.creator)
-				end
-			end
-		end
-	end)
+				SendChatMessage(gmCommands["pinfo"].." "..ret.creator)
+				gmPlayerName:SetText(ret.creator)
+        end
+		
+        if ret.message then
+          txtGmMsgT:Insert("\n" ..ret.message, .8,.8,.8,1)
+        end
+      end
+    end)
 end
